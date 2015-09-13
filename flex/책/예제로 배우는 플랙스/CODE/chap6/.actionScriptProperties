@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actionScriptProperties mainApplicationPath="chap6.mxml" version="3">
+<compiler additionalCompilerArguments="-locale en_US" copyDependentFiles="true" enableModuleDebug="true" generateAccessible="false" htmlExpressInstall="true" htmlGenerate="true" htmlHistoryManagement="true" htmlPlayerVersion="9.0.28" htmlPlayerVersionCheck="true" outputFolderPath="bin-debug" sourceFolderPath="src" strict="true" useApolloConfig="false" verifyDigests="true" warn="true">
+<compilerSourcePath/>
+<libraryPath defaultLinkType="1">
+<libraryPathEntry kind="4" path=""/>
+<libraryPathEntry kind="1" linkType="1" path="libs"/>
+</libraryPath>
+<sourceAttachmentPath/>
+</compiler>
+<applications>
+<application path="CODE6_3.mxml"/>
+<application path="CODE6_35.mxml"/>
+<application path="CODE6_32.mxml"/>
+<application path="CODE6_2.mxml"/>
+<application path="CODE6_28.mxml"/>
+<application path="CODE6_22.mxml"/>
+<application path="CODE6_25.mxml"/>
+<application path="CODE6_38.mxml"/>
+<application path="CODE6_36.mxml"/>
+<application path="CODE6_27.mxml"/>
+<application path="CODE6_18.mxml"/>
+<application path="CODE6_17.mxml"/>
+<application path="CODE6_13.mxml"/>
+<application path="CODE6_21.mxml"/>
+<application path="CODE6_39.mxml"/>
+<application path="CODE6_26.mxml"/>
+<application path="CODE6_40.mxml"/>
+<application path="CODE6_33.mxml"/>
+<application path="CODE6_8.mxml"/>
+<application path="CODE6_31.mxml"/>
+<application path="CODE6_34.mxml"/>
+<application path="CODE6_14.mxml"/>
+<application path="CODE6_42.mxml"/>
+<application path="CODE6_5.mxml"/>
+<application path="CODE6_12.mxml"/>
+<application path="CODE6_9.mxml"/>
+<application path="CODE6_10.mxml"/>
+<application path="CODE6_24.mxml"/>
+<application path="CODE6_29.mxml"/>
+<application path="CODE6_16.mxml"/>
+<application path="CODE6_43.mxml"/>
+<application path="CODE6_41.mxml"/>
+<application path="CODE6_1.mxml"/>
+<application path="CODE6_30.mxml"/>
+<application path="CODE6_6.mxml"/>
+<application path="CODE6_44.mxml"/>
+<application path="CODE6_4.mxml"/>
+<application path="CODE6_15.mxml"/>
+<application path="CODE6_19.mxml"/>
+<application path="CODE6_37.mxml"/>
+<application path="CODE6_20.mxml"/>
+<application path="CODE6_23.mxml"/>
+<application path="CODE6_7.mxml"/>
+<application path="CODE6_11.mxml"/>
+</applications>
+<modules/>
+<buildCSSFiles/>
+</actionScriptProperties>

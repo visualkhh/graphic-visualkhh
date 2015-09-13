@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="vertical">
+	<mx:Script>
+		<![CDATA[
+			import mx.controls.Alert;
+			private function check(event:Event):void {
+				var data:String = event.target.selectedItem.data;
+				var label:String = event.target.selectedItem.label;
+			mx.controls.Alert.show('이벤트명 : ' + event.type + ', label : ' + label + ', data : ' + data );
+			}
+		]]>
+	</mx:Script>
+	<mx:ComboBox change="check(event)">
+		<mx:ArrayCollection>
+	        <mx:source>
+	            <mx:Object label="한국" data="1"/>
+	            <mx:Object label="미국" data="2"/>
+	            <mx:Object label="일본" data="3"/>
+	        </mx:source>
+	    </mx:ArrayCollection>		
+	</mx:ComboBox>
+</mx:Application>

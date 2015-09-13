@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" 
+creationComplete="createEffect(event);">
+<mx:Script>
+<![CDATA[
+import flash.events.Event;
+import mx.effects.Zoom;
+private function createEffect(eventObj:Event):void             {
+    var zEffect:Zoom = new Zoom();
+    zEffect.duration = 2000; 
+    zEffect.zoomHeightTo = 1.50; 
+    zEffect.zoomWidthTo = 1.50; 
+    myB.setStyle("mouseDownEffect", zEffect); 
+} 
+]]>
+</mx:Script>
+<mx:Button id="myB" label="Zoom Me"/>
+</mx:Application>

@@ -1,0 +1,37 @@
+흰화면에 웹에있는 mp3파일불러와서 노래넣기(?) 
+   
+Homepage  http://cyworld.com/__lby 
+ 
+내가 쓰는방식이넫 
+걍 액션에 넣으면댐 
+붙여넣기 신공하셈 
+
+
+function sndComplete() 
+{ 
+    var _l1 = count - 1; 
+    if (curCount == _l1) 
+    { 
+        curCount = 0; 
+    } 
+    else 
+    { 
+        curCount++; 
+    } // end if 
+    sndObj.stop(); 
+    sndObj = new Sound(); 
+    sndObj.loadSound(musicArr[random(10)], true); 
+    sndObj.onSoundComplete = sndComplete; 
+} // End of the function 
+var musicArr = ["웹계정이나 웹에잇는 mp3주소.ex)http://starriss.isfreeweb.com/1.mp3"]; //만약에 주소를 1개햇다면 
+var sndObj = new Sound(); 
+var curCount = 0; 
+var count = musicArr에 들어간 주소갯수; //만약 위에 주소를 2개를넣엇다면2가 되겠지? ㅋ 
+sndObj.loadSound(musicArr[random(10)], true); 
+sndObj.onSoundComplete = sndComplete; 
+
+
+아래에 400x200크기는 싸이월드에 쓰는 짤 ㅋ
+걍보라는겅미...ㅋ
+맨위에껀 아직 미완성..80%작업더해야댐....
+ 

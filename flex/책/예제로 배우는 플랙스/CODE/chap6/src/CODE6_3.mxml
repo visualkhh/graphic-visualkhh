@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="horizontal"  horizontalGap="20">
+	<mx:HBox width="100%" height="100%" backgroundColor="#efae63" horizontalGap="50"
+		paddingBottom="10" paddingLeft="10" paddingRight="10" paddingTop="10">
+		<mx:TextArea width="100%" height="100%"/>
+		<mx:TextArea width="100%" height="100%"/>
+		<mx:TextArea width="100%" height="100%"/>
+	</mx:HBox>
+	<mx:VBox width="100%" height="100%" backgroundColor="#c6db94" verticalGap="50"
+		paddingBottom="10" paddingLeft="10" paddingRight="10" paddingTop="10">
+		<mx:TextArea width="100%" height="100%"/>
+		<mx:TextArea width="100%" height="100%"/>
+		<mx:TextArea width="100%" height="100%"/>		
+	</mx:VBox>
+</mx:Application>

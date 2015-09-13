@@ -1,0 +1,3 @@
+entsByTagName("current_conditions")[0].childNodes[3].getAttribute("data");
+	oCurrent.sWndVel	= sXmlStr.getElementsByTagName("current_conditions")[0].childNodes[5].getAttribute("data");
+	oCurrent.sStatStr	= sXmlStr.getElementsByTagName("current_conditions")[0].childNodes[0].get

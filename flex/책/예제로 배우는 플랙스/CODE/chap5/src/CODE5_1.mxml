@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" xmlns="*" layout="vertical" >
+	<mx:Script>
+		<![CDATA[
+			private function showMsg():void {
+					mx.controls.Alert.show('반갑습니다.');
+			}
+		]]>
+	</mx:Script>
+	<mx:Button label="확인" click="showMsg()"/>
+</mx:Application>

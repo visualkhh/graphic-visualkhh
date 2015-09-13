@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml">
+    <mx:Script>
+        <![CDATA[
+            import mx.effects.easing.*;                   
+        ]]>
+    </mx:Script>
+    <mx:Sequence id="movePauseMove">
+        <mx:Move xBy="100" yBy="100" duration="2000" easingFunction="Bounce.easeOut"/>
+        <mx:Pause duration="1500"/>
+        <mx:Move xBy="100" yBy="-100" duration="2000" easingFunction="Bounce.easeIn"/>
+    </mx:Sequence>
+    <mx:Panel title="Pause Effect Example" width="100%" height="100%" 
+        paddingTop="10" paddingLeft="10" paddingRight="10" paddingBottom="10">
+        <mx:Image source="@Embed(source='flex.png')" mouseDownEffect="{movePauseMove}"/>
+    </mx:Panel>
+</mx:Application>

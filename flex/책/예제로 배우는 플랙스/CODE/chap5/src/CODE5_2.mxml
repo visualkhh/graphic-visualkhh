@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" xmlns="*" layout="vertical" >
+	<mx:Button label="확인" click="mx.controls.Alert.show('반갑습니다.');mx.controls.Alert.show('식사하셨나요?')"/>
+</mx:Application>

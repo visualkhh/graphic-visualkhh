@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml"
+	backgroundColor="#c6db94" fontSize="12" creationComplete="myRO.getFlexSession()"
+	>
+	<mx:Script>
+		<![CDATA[
+   			import mx.rpc.events.FaultEvent;
+    		import mx.rpc.events.ResultEvent;
+    		import mx.controls.Alert;
+    		private function getSessionResultHandler(event:ResultEvent):void {
+    			dg.dataProvider= event.result;
+    		}
+    		private function setSessionResultHandler(event:ResultEvent):void {
+    			mx.controls.Alert.show('Success');
+    			myRO.getFlexSession();
+    		}    		
+    		private function faultHandler(event:FaultEvent):void {
+    			mx.controls.Alert.show(event.fault.message);
+    		}
+		]]>
+	</mx:Script>
+    <mx:RemoteObject id="myRO" destination="sessionRO" fault="faultHandler(event)">
+ 		<mx:method name="getFlexSession" result="getSessionResultHandler(event)" />
+ 		<mx:method name="setFlexSession" result="setSessionResultHandler(event)" />
+ 	</mx:RemoteObject>
+    <mx:Panel title="RemoteObject Session" height="100%" width="90%" borderAlpha="1"
+        paddingTop="10" paddingBottom="10" paddingLeft="10" paddingRight="10" layout="vertical">
+        <mx:DataGrid id="dg" width="100%">
+            <mx:columns>
+                <mx:DataGridColumn dataField="name" headerText="세션 Name"/>
+            </mx:columns>
+        </mx:DataGrid>
+	    <mx:ControlBar horizontalAlign="center">
+		    <mx:Label text="세션명입력"/>
+			<mx:TextInput id="txt_name" />
+			<mx:Button label="확인" click="myRO.setFlexSession(txt_name.text)"/>
+	    </mx:ControlBar>
+    </mx:Panel>    
+</mx:Application>

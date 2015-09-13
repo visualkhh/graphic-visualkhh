@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="vertical"
+    initialize="Alert.show('initialize event')"
+    creationComplete="Alert.show('creationComplete event')">
+	<mx:Script>
+		<![CDATA[
+			import mx.controls.Alert;
+		]]>
+	</mx:Script>
+	<mx:Button id="btn" label="check" click="btn.visible=false"	hide="Alert.show('hide event')"/>
+</mx:Application>

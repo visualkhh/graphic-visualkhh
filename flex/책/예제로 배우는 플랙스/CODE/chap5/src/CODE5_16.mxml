@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="euc-kr"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" fontSize="11" 
+	backgroundGradientColors="[#f7f794, #adb2ce]">
+<mx:Style>
+/* 계산기 버튼에서 사용할 스타일을 지정 */
+.redButton {
+	color:#FF0000;
+	font-size:10;
+	font-weight:normal;	
+}
+.blueButton {
+	color:#0000FF;
+	font-size:10;
+	font-weight:normal;	
+}
+</mx:Style>
+<mx:Script>
+<![CDATA[
+	import mx.events.MenuEvent;
+	/* 버튼을 눌렀을 때 Click Event의 객체를 받는다. */
+	private function calculate(event:Event):void {
+		var act:String = event.target.id; /* 눌러진 버튼의 id값 */
+		var val:String = event.target.label; /* 눌러진 버튼의 label 명 */
+		alert('누른 버튼id : ' + act + ' : 누른 버튼 : ' +  val);
+	}
+	/* 메뉴를 눌렀을 때 MenuEvent를 처리하는 함수 */
+    private function menuHandler(event:MenuEvent):void {
+		var menuAct:String = event.item.@data; /* @는 E4X식 접근 */
+		alert('선택한 메뉴 : ' + menuAct);
+    }
+	private function alert(msg:String):void {
+		mx.controls.Alert.show(msg);
+	}
+]]>	
+</mx:Script>
+<mx:Panel title="Flex 2 계산기(Light 버전)" width="315" horizontalAlign="center" fontSize="12" height="252">
+    <!-- 계산기의 메뉴 부분 -->
+    <mx:MenuBar width="280" labelField="@label" itemClick="menuHandler(event)" fontSize="11" height="20">
+        <mx:dataProvider>
+        	<mx:XMLList>
+                <menuitem label="도움말(H)">
+                    <menuitem label="도움말항목(H)"  data="H"/>
+                    <menuitem type="separator" />
+                    <menuitem label="계산기정보(A)"  data="A"/>
+                </menuitem>        		
+        	</mx:XMLList>
+        </mx:dataProvider>
+    </mx:MenuBar>	
+    <!-- 계산기의 계산 창 부분 : TextInput -->
+	<mx:TextInput id="calTextInput" text="0." width="275" textAlign="right" /> 
+    <!-- 계산기의 계산 버튼 부분 : Grid - GridRow - GridItem -->
+	<mx:Grid>
+        <mx:GridRow>
+            <mx:GridItem><mx:Button width="40" id="btnMPlus"     label="M+"  styleName="redButton" click="calculate(event)"/></mx:GridItem>
+            <mx:GridItem><mx:Button width="40" id="btn0"         label="0"   styleName="blueButton" click="calculate(event)"/></mx:GridItem>
+            <mx:GridItem><mx:Button width="40" id="btnPlusMinus" label="+/-" styleName="blueButton" click="calculate(event)"/></mx:GridItem>
+            <mx:GridItem><mx:Button width="40" id="btnComma"     label="."   styleName="blueButton" click="calculate(event)"/></mx:GridItem>
+            <mx:GridItem><mx:Button width="40" id="btnPlus"      label="+"   styleName="redButton" click="calculate(event)"/></mx:GridItem>
+            <mx:GridItem><mx:Button width="40" id="btnEqual"     label="="   styleName="redButton" click="calculate(event)"/></mx:GridItem>
+        </mx:GridRow>
+    </mx:Grid>
+</mx:Panel>
+</mx:Application>

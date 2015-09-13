@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="horizontal">
+	<mx:Panel width="100%" height="200" layout="absolute" title="Style1" cornerRadius="0" borderColor="#FF0000">
+		<mx:TextArea left="10" bottom="10" top="10" right="10">
+			<mx:htmlText>
+			<![CDATA[cornerRadius="0"
+backgroundColor="#FFFF00"]]>
+			</mx:htmlText>	
+		</mx:TextArea>
+		<mx:ControlBar>
+		</mx:ControlBar>
+	</mx:Panel>
+	<mx:Panel width="100%" height="200" layout="absolute" title="Style2" cornerRadius="10" borderThickness="5" borderStyle="solid" borderColor="#FF0000">
+		<mx:TextArea left="10" right="10" bottom="10" top="10">
+			<mx:htmlText>
+			<![CDATA[cornerRadius="10" 
+borderColor="#FF0000"		
+borderStyle="solid"
+borderThickness="5"]]>
+			</mx:htmlText>
+		</mx:TextArea>
+		<mx:ControlBar>
+		</mx:ControlBar>
+	</mx:Panel>	
+	<mx:Panel width="100%" height="200" layout="absolute" title="Style3" borderStyle="outset" borderColor="#FF0000">
+		<mx:TextArea left="10" right="10" bottom="10" top="10">
+			<mx:htmlText>
+			<![CDATA[borderColor="#FF0000" borderStyle="outset"]]>
+			</mx:htmlText>
+		</mx:TextArea>
+		<mx:ControlBar>
+		</mx:ControlBar>
+	</mx:Panel>		
+</mx:Application>

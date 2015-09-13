@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" >
+  <mx:Script><![CDATA[ 
+    import mx.styles.StyleManager;
+    private function init():void {
+		StyleManager.getStyleDeclaration("Button").setStyle('color', 'blue');
+    }
+  ]]></mx:Script>
+	<mx:Button label="Button 1" click="init()"/> 
+	<mx:Button label="Button 2" /> 
+</mx:Application>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml">
+    <mx:Resize id="expand" target="{img}" widthTo="400" heightTo="166"/>
+    <mx:Resize id="contract" target="{img}" widthTo="200" heightTo="83"/>
+    <mx:Panel title="Resize Effect Example" width="100%" height="100%" 
+        paddingTop="10" paddingLeft="10" paddingRight="10" paddingBottom="10">
+        <mx:Image id="img" source="@Embed(source='flex.png')"/>
+        <mx:ControlBar>
+            <mx:Button label="Expand" click="expand.end(); expand.play();"/>
+            <mx:Button label="Contract" click="contract.end(); contract.play();"/>
+        </mx:ControlBar>
+    </mx:Panel>
+</mx:Application>

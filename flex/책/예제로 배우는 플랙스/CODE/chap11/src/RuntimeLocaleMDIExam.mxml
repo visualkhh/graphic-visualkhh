@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+OkGosu.Net
+-->
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="vertical" 
+	xmlns:flexmdi="http://flexmdi.googlecode.com/"  fontSize="12"
+	xmlns:ns="sample_content.*"	 creationComplete="initApp()" backgroundColor="white"
+	xmlns:flexlib="http://code.google.com/p/flexlib/">
+	 
+	<mx:Style source="css/docker.css"/>
+	<mx:Script source="as/EditingToolbar.as" />
+	<mx:Script source="as/rsb.as" />
+    <mx:Metadata>
+        [ResourceBundle("okgosu")]
+    </mx:Metadata> 
+	<mx:Move duration="250" id="DockerMove"/>
+	<mx:Fade duration="250" id="DockerFade"/>
+	<mx:HTTPService id="hs" url="rsb/en_menu.xml" result="resultHD(event)" resultFormat="xml"/>
+	<mx:ArrayCollection source="{alignButtonsArray}" id="alignButtonsAC" />
+
+	<mx:ApplicationControlBar width="100%"  dock="true">
+		<mx:MenuBar id="menubar" width="100%"  itemClick="ToggleToolbars(event);"
+	 	showRoot="false" labelField="@label" />
+		<mx:Image source="{resourceManager.getClass('okgosu', 'flagRSB')}"/>
+	    <mx:ComboBox id="localeComboBox" change="comboChangeHandler(event)">
+			<mx:ArrayCollection>
+				<mx:Object label="한국어" data="ko_KR"/>
+				<mx:Object label="English" data="en_US"/>
+				<mx:Object label="العربية" data="ar_SA"/>
+			</mx:ArrayCollection>    	
+	    </mx:ComboBox>
+	</mx:ApplicationControlBar>
+	 
+	<flexlib:Docker height="100%" width="100%" minWidth="400">
+		<flexlib:DockableToolBar label="MyToolBar" id="formating" width="100%" minWidth="0" draggable="true">
+			<mx:ComboBox id="fontFamilyCombo" editable="true" dataProvider = "{fontFamilyArray}" toolTip="Font"/>
+			<mx:ComboBox id="fontSizeCombo" width="50" editable="true" dataProvider = "{fontSizeArray}" toolTip="Font Size"/>
+			<mx:Button id="boldButton" width="20" toggle="true" icon="@Embed('assets/icon_style_bold.png')" toolTip="Bold"/>
+			<mx:Button id="italicButton" width="20" toggle="true" icon="@Embed('assets/icon_style_italic.png')" toolTip="Italic"/>
+			<mx:Button id="underlineButton" width="20" toggle="true" icon="@Embed('assets/icon_style_underline.png')" toolTip="Underline"/>
+			<mx:ColorPicker id="colorPicker" width="22" height="22" toolTip="Font Color"/>
+			<mx:Image source="@Embed('assets/divider_vertical.png')" height="{alignButtons.height}"/>
+			<mx:ToggleButtonBar id="alignButtons" buttonWidth="20" dataProvider="{alignButtonsAC}" toolTipField="tooltip" iconField="icon"/>
+			<mx:Button id="bulletsButton" width="20" toggle="true" icon="@Embed('assets/icon_bullet.png')" toolTip="Bullets"/>
+			<mx:Label fontWeight="bold" text="{resourceManager.getString('okgosu','themeRSB')}"/>
+			<mx:ComboBox id="stylesListCb" prompt="" change="changeStyle(event)">
+				<mx:dataProvider>
+					<mx:Object data="Default" label="{resourceManager.getString('okgosu','defaultRSB')}"/>
+					<mx:Object data="Windows XP" label="{resourceManager.getString('okgosu','windowsRSB')} XP"/>
+					<mx:Object data="Mac OS9" label="{resourceManager.getString('okgosu','macRSB')} OS9"/>
+				</mx:dataProvider>
+			</mx:ComboBox>
+			<mx:Label fontWeight="bold" text="{resourceManager.getString('okgosu','windowAlignRSB')}"/>
+			<mx:ComboBox id="alignCb" prompt="" change="changeAlign(event)">
+				<mx:dataProvider>
+					<mx:Object label="{resourceManager.getString('okgosu','cascadeRSB')}" data="c"/>
+					<mx:Object label="{resourceManager.getString('okgosu','tileRSB')}" data="t"/>
+					<mx:Object label="{resourceManager.getString('okgosu','windowsRSB')} 2" data="f"/>
+				</mx:dataProvider>
+			</mx:ComboBox>	
+			<mx:PopUpMenuButton toolTip="Add or Remove Tools" id="addremovebutton" label="" dataProvider="{formatingtoolBarXML}" 
+						labelField="@label" itemClick="ToggleButtonsinToolBar(event)" width="20" arrowButtonWidth="{addremovebutton.width}"/>	
+		</flexlib:DockableToolBar>
+
+		<flexmdi:MDICanvas id="mdiCanvas" horizontalScrollPolicy="off" verticalScrollPolicy="off"
+			width="100%" height="100%" backgroundColor="#FFFFFF" backgroundAlpha="0" >
+
+			<flexmdi:MDIWindow id="win5" titleStyleName="ts"
+				title="{resourceManager.getString('okgosu','localeTitleRSB')}" 
+				x="38" y="38" width="400" height="400"  layout="absolute">
+			    <flexlib:AdvancedForm id="myForm" undoHistorySize="5" x="0">
+			        <mx:FormItem label="{resourceManager.getString('okgosu','nameRSB')}">
+			            <flexlib:PromptingTextInput prompt="{resourceManager.getString('okgosu','requiredRSB')}" />
+			        </mx:FormItem>
+			        <mx:FormItem label="{resourceManager.getString('okgosu','cityRSB')}">
+			            <flexlib:PromptingTextInput prompt="{resourceManager.getString('okgosu','requiredRSB')}"/>
+			        </mx:FormItem>
+			        <mx:FormItem label="{resourceManager.getString('okgosu','stateRSB')}">
+			            <flexlib:PromptingTextInput prompt="{resourceManager.getString('okgosu','requiredRSB')}"/>
+			        </mx:FormItem>
+			        <mx:FormItem label="{resourceManager.getString('okgosu','zipRSB')}">
+			            <flexlib:PromptingTextInput prompt="{resourceManager.getString('okgosu','requiredRSB')}"/>
+			        </mx:FormItem>
+					<mx:FormItem label="{resourceManager.getString('okgosu','etcRSB')}">
+			            <mx:DateField />
+			            <mx:CheckBox id="like" label="{resourceManager.getString('okgosu','agreeMsgRSB')}" selected="true" />
+			            <mx:RadioButtonGroup id="survey"/>
+			        	<mx:RadioButton id="rd1" groupName="survey" label="{resourceManager.getString('okgosu','maleRSB')}" selected="true" />
+			        	<mx:RadioButton id="rd3" groupName="survey" label="{resourceManager.getString('okgosu','femaleRSB')}" />		
+					</mx:FormItem>   
+				    <mx:HBox>
+						<mx:Button click="mx.controls.Alert.show( 'Submit Data' )" 
+							label="{resourceManager.getString('okgosu','confirmRSB')}" />
+						<mx:Button click="myForm.resetForm()" label="{resourceManager.getString('okgosu','resetRSB')}"/>			    				
+				    </mx:HBox>
+			    </flexlib:AdvancedForm>
+			</flexmdi:MDIWindow>	
+		</flexmdi:MDICanvas>	
+	</flexlib:Docker>
+</mx:Application>

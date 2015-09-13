@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="vertical" backgroundImage="max.jpg">
+<mx:Style>
+	global {
+		font-size:11;
+		marginLeft: 8px;
+		marginRight: 8px;
+		marginTop: 8px;
+		marginBottom: 8px;
+		horizontalAlign: "left";
+		background-color: #FFFFFF;
+	}
+</mx:Style>
+<mx:Script>
+	<![CDATA[
+	private function addPhone():void {
+		addressDG.dataProvider.addItem({active:true, name:"name", phone:"phone"})
+	}
+	private function addTask():void {
+		taskDG.dataProvider.addItem({active:true, name:"name", phone:"phone"})
+	}			
+	private function showToday():void {
+		menu.width = 100;
+		cal.width = 630;
+		taskDG.percentWidth=100;
+		addressDG.width =  0;
+		taskDG.visible = true;
+		addressDG.visible = false;
+		myCanvas.visible = false;
+		myCanvas.width = 0;
+	}
+	private function showSchedule():void {
+		menu.width = 100;
+		cal.percentWidth=100;
+		taskDG.width = 0;
+		addressDG.width =  0;
+		taskDG.visible = false;
+		addressDG.visible = false;
+		myCanvas.visible = false;
+		myCanvas.width = 0;
+	}
+	private function showContact():void {
+		menu.width = 100;
+		cal.width = 0;
+		taskDG.width = 0;
+		addressDG.percentWidth=100;
+		taskDG.visible = false;
+		addressDG.visible = true;
+		myCanvas.visible = false;
+		myCanvas.width = 0;
+	}
+	private function showTask():void {
+		menu.width = 100;
+		cal.width = 0;
+		taskDG.percentWidth=100;
+		addressDG.width =  0;
+		taskDG.visible = true;
+		addressDG.visible = false;
+		myCanvas.visible = false;
+		myCanvas.width = 0;
+	}
+	private function showMemo():void {
+		menu.width = 100;
+		cal.width = 0;
+		taskDG.width = 0;
+		addressDG.width =  0;
+		taskDG.visible = false;
+		addressDG.visible = false;
+		myCanvas.visible = true;
+		myCanvas.percentWidth=100;
+	}	
+	]]>
+</mx:Script>
+<mx:Model id="addressModel" source="data/addresses.xml"/>		
+<mx:Model id="taskModel" source="data/tasks.xml"/>
+<mx:Panel id="main" title="Flex 2 Scheduler" width="100%" height="100%">
+    <mx:MenuBar width="100%" fontSize="11" fontWeight="bold" height="20" labelField="@label" >
+        <mx:dataProvider>
+	    	<mx:XMLListCollection>
+	        	<mx:XMLList>
+                <menuitem label="도움말(H)">
+                    <menuitem label="도움말항목(H)"  data="H"/>
+                </menuitem>
+	        	</mx:XMLList>
+        	</mx:XMLListCollection> 
+        </mx:dataProvider>
+    </mx:MenuBar>	
+	<mx:HDividedBox backgroundColor="#FFFFFF" width="100%" height="100%" creationPolicy="all">
+		<mx:Accordion id="menu" width="140" height="100%" fontSize="11">
+			<mx:VBox label="바로가기" horizontalAlign="center" width="100%">
+				<mx:Spacer height="10"/>
+				<mx:Button label="Today" icon="@Embed('asset/ico1.gif')" labelPlacement="bottom" click="showToday()"/>
+				<mx:Spacer height="10"/>
+				<mx:Button label="일정" icon="@Embed('asset/ico2.gif')" labelPlacement="bottom" click="showSchedule()"/>
+				<mx:Spacer height="10"/>
+				<mx:Button label="연락처" icon="@Embed('asset/ico3.gif')" labelPlacement="bottom" click="showContact()" />
+				<mx:Spacer height="10"/>
+				<mx:Button label="작업" icon="@Embed('asset/ico4.gif')" labelPlacement="bottom" click="showTask()" />
+				<mx:Spacer height="10"/>
+				<mx:Button label="메모" icon="@Embed('asset/ico5.gif')" labelPlacement="bottom" click="showMemo()" />
+				<mx:Spacer height="10"/>
+				<mx:Button label="휴지통" icon="@Embed('asset/ico6.gif')" labelPlacement="bottom"/>
+			</mx:VBox>
+			<mx:VBox label="사용자정의 바로가기" horizontalAlign="center" width="100%">
+				<mx:Spacer height="10"/>
+				<mx:Button label="받은 편지함" icon="@Embed('asset/u1.gif')" labelPlacement="right" width="120"/>
+				<mx:Spacer height="10"/>
+				<mx:Button label="임시 편지함" icon="@Embed('asset/u2.gif')" labelPlacement="right" width="120"/>
+				<mx:Spacer height="10"/>
+				<mx:Button label="업무 일지" icon="@Embed('asset/u3.gif')" labelPlacement="right" width="120"/>
+				<mx:Spacer height="10"/>
+				<mx:Button label="업데이트" icon="@Embed('asset/u4.gif')" labelPlacement="right" width="120"/>
+			</mx:VBox>
+			<mx:VBox label="기타 바로가기" horizontalAlign="center" width="100%">
+				<mx:Spacer height="10"/>
+				<mx:Button label="내컴퓨터" icon="@Embed('asset/etc1.gif')" labelPlacement="bottom"/>
+				<mx:Spacer height="10"/>
+				<mx:Button label="내 문서" icon="@Embed('asset/etc2.gif')" labelPlacement="bottom"/>
+				<mx:Spacer height="10"/>
+				<mx:Button label="즐겨찾기" icon="@Embed('asset/etc3.gif')" labelPlacement="bottom"/>
+			</mx:VBox>
+		</mx:Accordion>		
+		<mx:Panel id="cal" width="100%" height="100%" cornerRadius="0" headerHeight="0">
+			<mx:DateChooser width="100%" height="100%"/>
+		</mx:Panel>
+		<mx:DataGrid id="taskDG" width="130" height="100%" editable="true" textAlign="center" dataProvider="{taskModel.task}">
+            <mx:columns>
+                <mx:Array>
+                    <mx:DataGridColumn dataField="active" editable="false" headerText="완료여부" width="20" textAlign="center" >
+                    	<mx:itemRenderer>
+                    		<mx:Component>
+                    			<mx:HBox horizontalAlign="center">
+	                    			<mx:CheckBox selected="{data.active}"/>
+                    			</mx:HBox>
+                    		</mx:Component>
+                    	</mx:itemRenderer>
+                    </mx:DataGridColumn>
+                    <mx:DataGridColumn dataField="name"   headerText="작업명" width="40"/>
+					<mx:DataGridColumn dataField="content"  headerText="작업내용상세" width="70"/>
+                </mx:Array>
+            </mx:columns>
+        </mx:DataGrid>
+		<mx:DataGrid id="addressDG" width="130" height="100%" editable="true" textAlign="center"  visible="true" dataProvider="{addressModel.address}">
+            <mx:columns>
+                <mx:Array>
+                    <mx:DataGridColumn dataField="active" editable="false" headerText="아이콘" width="20" textAlign="center">
+                    	<mx:itemRenderer>
+                    		<mx:Component>
+                    			<mx:HBox horizontalAlign="center" width="25" height="25">
+	                    			<mx:Image source="{data.photo}"/>
+                    			</mx:HBox>
+                    		</mx:Component>
+                    	</mx:itemRenderer>                    
+                    </mx:DataGridColumn>
+                    <mx:DataGridColumn dataField="name" headerText="이름" width="40"/>
+					<mx:DataGridColumn dataField="phone"  headerText="전화번호" width="70"/>
+                </mx:Array>
+            </mx:columns>
+        </mx:DataGrid>
+		<mx:Canvas id="myCanvas" width="0" height="100%" visible="true" borderStyle="none"/>
+	</mx:HDividedBox>
+	<mx:ControlBar horizontalAlign="right">
+		<mx:LinkButton label="연락처추가" click="addPhone()" />
+		<mx:LinkButton label="작업추가"  click="addTask()"/>
+	</mx:ControlBar>
+</mx:Panel>
+</mx:Application>

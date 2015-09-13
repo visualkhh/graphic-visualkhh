@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="horizontal"  width="100%" height="100%">
+	<mx:VBox width="100%" height="200" backgroundColor="#ff8080">
+		<mx:TextArea width="100%" height="100%" text="padding값을 설정하지 않은 경우"/>
+	</mx:VBox>
+	<mx:VBox width="100%" height="200" backgroundColor="#ff8080" paddingBottom="10" paddingLeft="10" paddingRight="10" paddingTop="10">
+		<mx:TextArea width="100%" height="100%" text="padding값을 10으로 설정한 경우"/>
+	</mx:VBox>	
+	<mx:VBox width="100%" height="200" backgroundColor="#ffff80" paddingBottom="20" paddingLeft="20" paddingRight="20" paddingTop="20">
+		<mx:TextArea width="100%" height="100%" text="padding값을 20으로 설정한 경우"/>
+	</mx:VBox>
+</mx:Application>

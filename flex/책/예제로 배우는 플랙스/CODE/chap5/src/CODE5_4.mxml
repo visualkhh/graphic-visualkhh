@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="vertical" 
+	backgroundColor="#c6db94" fontSize="12">
+	<mx:Script>
+	<![CDATA[
+		private function showMsg():void {
+			// 여기는 라인  주석입니다.
+			/*
+			여기는 블락 주석입니다.
+			*/
+			var i:uint = 0;
+			for(i=1; i<=10; i++) {
+				mx.controls.Alert.show(i + '번째 출력');					
+			}
+		}
+	]]>
+	</mx:Script>
+	<!--//MXML 주석-->
+	<mx:Button label="확인" click="showMsg()"/>
+</mx:Application>

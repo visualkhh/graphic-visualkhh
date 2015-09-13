@@ -1,0 +1,11 @@
+0) continue;
+			
+			var fScale = this.adsData[bx].fMxLvl * 100;
+			
+			oModule.aoGate[nNdx].nCtlMode	= parseInt(aData[ix][2].substr(nNdx, 1));
+			oModule.aoGate[nNdx].nCtlStat	= parseInt(aData[ix][3].substr(nNdx, 1));
+			oModule.aoGate[nNdx].fRealVal	= aData[ix][4+nx] / fScale;		// 수문 개도율 (%)
+			oModule.aoGate[nNdx].fRealVal = Math.min(100, Math.max(0, oModule.aoGate[nNdx].fRealVal));
+
+			nSumVal += oModule.aoGate[nNdx].fRealVal;
+			nSumCnt ++

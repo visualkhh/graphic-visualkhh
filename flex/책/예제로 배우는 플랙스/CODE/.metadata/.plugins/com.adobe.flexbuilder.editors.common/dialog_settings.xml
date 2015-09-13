@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item key="com.adobe.flexbuilder.editors.common.last.project.parent" value="C:\okgosu_flex_examples"/>
+	<item key="com.adobe.flexbuilder.editors.common.last.server.type" value="0"/>
+	<item key="com.adobe.flexbuilder.editors.common.use.default.location" value="true"/>
+	<item key="com.adobe.flexbuilder.editors.common.last.usewtp" value="false"/>
+	<item key="com.adobe.flexbuilder.editors.common.last.flexserver.usedefaults" value="true"/>
+	<item key="com.adobe.flexbuilder.editors.common.last.java.uselcds" value="true"/>
+	<item key="com.adobe.flexbuilder.editors.common.last.apptype" value="true"/>
+	<item key="com.adobe.flexbuilder.editors.common.last.useremoteobject" value="true"/>
+	<item key="" value="C:\lcds\jrun4\servers\default\flex"/>
+	<item key="com.adobe.flexbuilder.editors.common.last.flexserver.compilefb" value="true"/>
+	<section name="com.adobe.flexbuilder.editors.common.ui.pi.PropertiesView">
+		<item key="Style" value="true"/>
+		<item key="ViewOption" value="1"/>
+		<item key="Common" value="true"/>
+		<item key="Layout" value="true"/>
+	</section>
+</section>

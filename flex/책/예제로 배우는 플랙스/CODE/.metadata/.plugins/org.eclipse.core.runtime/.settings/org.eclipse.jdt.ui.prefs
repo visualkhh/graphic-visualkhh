@@ -1,0 +1,18 @@
+= nInterval;
+	if(!nInterval) nInterval = 500;
+	
+  var selfObj = this;
+  var cbTimerFunc = function () { selfObj.onLoadData() };
+  //this.nTimerId = window.setTimeout(cbTimerFunc, 300);
+  this.nTimerId = window.setInterval(cbTimerFunc, nInterval);
+}
+
+classFacSrcMng_gate.prototype.SetFastLoad = function(bFastLoad)
+{
+	if(this.nTimerId) clearInterval(this.nTimerId);
+	var nInterval = (bFastLoad) ? 500 : this.nInterval;
+	
+	if(nInterval) {
+	  var selfObj = this;
+	  var cbTimerFunc = function () { selfObj.onLoadData() };
+	  this.nTimerId =

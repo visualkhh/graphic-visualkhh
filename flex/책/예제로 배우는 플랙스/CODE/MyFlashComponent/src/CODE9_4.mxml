@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="vertical"
+	xmlns:okgosu="*">
+	<mx:Script>
+		<![CDATA[
+			import mx.controls.Alert;
+			private function okgosuEventHandler(event:Event):void {
+				mx.controls.Alert.show(event.type);
+			}
+		]]>
+	</mx:Script>
+	<okgosu:MyFlashComp id="mf" okgosuEvent="okgosuEventHandler(event)"/>
+	<mx:Button label="REC" click="mf.currentState='rec'"/>
+	<mx:Button label="OVAL" click="mf.currentState='oval'"/>
+</mx:Application>

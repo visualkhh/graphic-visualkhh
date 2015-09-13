@@ -1,0 +1,62 @@
+<data>
+    <result month="1">
+        <apple>20</apple>
+        <orange>15</orange>
+        <banana>11</banana>
+    </result>
+    <result month="2">
+        <apple>18</apple>
+        <orange>17</orange>
+        <banana>23</banana>
+    </result>
+    <result month="3">
+        <apple>18</apple>
+        <orange>17</orange>
+        <banana>23</banana>
+    </result>
+    <result month="4">
+        <apple>11</apple>
+        <orange>13</orange>
+        <banana>9</banana>
+    </result>
+    <result month="5">
+        <apple>8</apple>
+        <orange>7</orange>
+        <banana>3</banana>
+    </result>
+    <result month="6">
+        <apple>11</apple>
+        <orange>12</orange>
+        <banana>21</banana>
+    </result>
+    <result month="7">
+        <apple>20</apple>
+        <orange>10</orange>
+        <banana>13</banana>
+    </result>
+    <result month="8">
+        <apple>18</apple>
+        <orange>16</orange>
+        <banana>29</banana>
+    </result>
+    <result month="9">
+        <apple>28</apple>
+        <orange>17</orange>
+        <banana>22</banana>
+    </result>
+    <result month="10">
+        <apple>18</apple>
+        <orange>17</orange>
+        <banana>3</banana>
+    </result>
+    <result month="11">
+        <apple>3</apple>
+        <orange>4</orange>
+        <banana>9</banana>
+    </result>
+    <result month="12">
+        <apple>1</apple>
+        <orange>10</orange>
+        <banana>13</banana>
+    </result>                                        
+</data>

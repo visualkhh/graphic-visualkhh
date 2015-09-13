@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" backgroundGradientColors="[#f7f794, #adb2ce]">
+    <mx:Script><![CDATA[
+    	// 키가 눌러졌다가 올라갔을 때 keyUp이벤트 처리 
+    	private function tiKeyUpHandler(event:KeyboardEvent):void {
+    		logTA.text += event.type + "이벤트 발생 \n";
+    		logTA.text += "[" + event.target.text + "]의 charCode : " + event.charCode + "\n";
+    	}
+    	// 키가 눌러졌을 때 keyDown 이벤트 처리
+    	private function tiKeyDownHandler(event:KeyboardEvent):void {
+    		logTA.text += event.type + "이벤트 발생 \n";
+    		if(event.charCode >= 48 && event.charCode <=57) {
+	    		logTA.text += "숫자를 입력하셨군요.\n";
+    		} else {
+	    		logTA.text += "숫자가 아니군요.\n";
+    		}
+    	}    
+    ]]></mx:Script>
+    <mx:Panel title="KeyboardEvent Test" width="656" layout="absolute" height="471">
+        <mx:TextArea id="logTA" x="348" y="10" height="375" width="278"/>
+        <mx:Form x="10" y="10" width="330" height="375">
+            <mx:FormItem label="TextInput">
+                <mx:TextInput id="txtIn" keyDown="tiKeyDownHandler(event)" keyUp="tiKeyUpHandler(event)"/>
+            </mx:FormItem>
+        </mx:Form>
+        <mx:ControlBar>
+        	<mx:Button id="btn" label="로그 지우기" click="logTA.text=''"/>
+        </mx:ControlBar>
+    </mx:Panel>
+</mx:Application>

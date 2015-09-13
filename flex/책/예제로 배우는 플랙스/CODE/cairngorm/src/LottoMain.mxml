@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="vertical"
+	backgroundColor="#c6db94" fontSize="12" 
+	xmlns:view="com.adobe.cairngorm.lotto.view.*"
+	xmlns:control="com.adobe.cairngorm.lotto.control.*"
+	xmlns:business="com.adobe.cairngorm.lotto.business.*">
+	<mx:Script>
+		<![CDATA[
+			import com.adobe.cairngorm.lotto.model.ModelLocator;
+			// [초기화 1단계] : ModelLocator를 싱글톤으로 생성함  
+			[Bindable] 
+			public var model:ModelLocator=ModelLocator.getInstance();
+		]]>
+	</mx:Script>
+	<business:Services id="lottoServices"/>
+	<control:LottoControl id="controller"/>
+	<view:LottoView lottoResult="{model.lottoResult}" />
+</mx:Application>

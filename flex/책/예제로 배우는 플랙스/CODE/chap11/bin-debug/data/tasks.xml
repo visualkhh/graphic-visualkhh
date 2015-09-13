@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tasks>
+    <task>
+        <name>주간회의</name>
+        <content>주간실적보고</content>
+        <active>true</active>
+    </task>
+    <task>
+        <name>점심약속</name>
+        <content>강남에서...</content>
+        <active>true</active>
+    </task>
+    <task>
+        <name>등산</name>
+        <content>청계산 아침 9시</content>
+        <active>false</active>
+    </task>
+</tasks>

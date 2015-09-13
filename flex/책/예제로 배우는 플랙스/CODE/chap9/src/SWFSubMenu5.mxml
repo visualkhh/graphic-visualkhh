@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="vertical">
+	<mx:Label text="SWFSubMenu5" fontStyle="normal" fontWeight="bold"/>
+	<mx:ComboBox></mx:ComboBox>
+	<mx:RadioButton label="Radio"/>
+	<mx:CheckBox label="Checkbox"/>
+	<mx:TextInput/>
+	<mx:HSlider/>
+</mx:Application>

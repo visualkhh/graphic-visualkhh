@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items>
+    <item label="한국" data="1"/>
+    <item label="미국" data="2"/>
+    <item label="일본" data="3"/>
+</items>

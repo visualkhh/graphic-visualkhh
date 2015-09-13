@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<libraryInfos>
+<libraryInfo home="C:\Program Files\Adobe\Flex Builder 3" version="1.5.0_11">
+<bootpath>
+<entry path="C:\Program Files\Adobe\Flex Builder 3\jre\lib\rt.jar"/>
+<entry path="C:\Program Files\Adobe\Flex Builder 3\jre\lib\i18n.jar"/>
+<entry path="C:\Program Files\Adobe\Flex Builder 3\jre\lib\sunrsasign.jar"/>
+<entry path="C:\Program Files\Adobe\Flex Builder 3\jre\lib\jsse.jar"/>
+<entry path="C:\Program Files\Adobe\Flex Builder 3\jre\lib\jce.jar"/>
+<entry path="C:\Program Files\Adobe\Flex Builder 3\jre\lib\charsets.jar"/>
+<entry path="C:\Program Files\Adobe\Flex Builder 3\jre\classes"/>
+</bootpath>
+<extensionDirs>
+<entry path="C:\Program Files\Adobe\Flex Builder 3\jre\lib\ext"/>
+</extensionDirs>
+<endorsedDirs>
+<entry path="C:\Program Files\Adobe\Flex Builder 3\jre\lib\endorsed"/>
+</endorsedDirs>
+</libraryInfo>
+<libraryInfo home="D:\Program Files\Java\jre6" version="1.6.0_21">
+<bootpath>
+<entry path="D:\Program Files\Java\jre6\lib\resources.jar"/>
+<entry path="D:\Program Files\Java\jre6\lib\rt.jar"/>
+<entry path="D:\Program Files\Java\jre6\lib\sunrsasign.jar"/>
+<entry path="D:\Program Files\Java\jre6\lib\jsse.jar"/>
+<entry path="D:\Program Files\Java\jre6\lib\jce.jar"/>
+<entry path="D:\Program Files\Java\jre6\lib\charsets.jar"/>
+<entry path="D:\Program Files\Java\jre6\classes"/>
+</bootpath>
+<extensionDirs>
+<entry path="D:\Program Files\Java\jre6\lib\ext"/>
+<entry path="D:\WINDOWS\Sun\Java\lib\ext"/>
+</extensionDirs>
+<endorsedDirs>
+<entry path="D:\Program Files\Java\jre6\lib\endorsed"/>
+</endorsedDirs>
+</libraryInfo>
+<libraryInfo home="C:\Program Files\Adobe\Flex Builder 3\jre" version="1.5.0_11">
+<bootpath>
+<entry path="C:\Program Files\Adobe\Flex Builder 3\jre\lib\rt.jar"/>
+<entry path="C:\Program Files\Adobe\Flex Builder 3\jre\lib\i18n.jar"/>
+<entry path="C:\Program Files\Adobe\Flex Builder 3\jre\lib\sunrsasign.jar"/>
+<entry path="C:\Program Files\Adobe\Flex Builder 3\jre\lib\jsse.jar"/>
+<entry path="C:\Program Files\Adobe\Flex Builder 3\jre\lib\jce.jar"/>
+<entry path="C:\Program Files\Adobe\Flex Builder 3\jre\lib\charsets.jar"/>
+<entry path="C:\Program Files\Adobe\Flex Builder 3\jre\classes"/>
+</bootpath>
+<extensionDirs>
+<entry path="C:\Program Files\Adobe\Flex Builder 3\jre\lib\ext"/>
+</extensionDirs>
+<endorsedDirs>
+<entry path="C:\Program Files\Adobe\Flex Builder 3\jre\lib\endorsed"/>
+</endorsedDirs>
+</libraryInfo>
+</libraryInfos>

@@ -1,0 +1,11 @@
+package {
+	import flash.display.Sprite;
+	// 원 그리기
+	public class OkGosuCircle extends Sprite {
+		public function OkGosuCircle(){
+			this.graphics.beginFill(0xFF0000);
+			this.graphics.lineStyle(1, 0xFF0000, 1);
+			this.graphics.drawCircle(100, 100, 50);			
+		}
+	}
+}

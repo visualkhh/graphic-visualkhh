@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Module xmlns:mx="http://www.adobe.com/2006/mxml" layout="vertical" fontSize="12">
+	<mx:Script>
+		<![CDATA[
+			public function processMsg(msg:String):void {
+				mx.controls.Alert.show(msg);
+				ta.text = msg;
+			}
+			
+			private function changeParentColor():void {
+				//this.parentApplication.chageColor("#00FF00");
+				this.parentApplication.chageColor(cp.selectedColor);
+			}
+		]]>
+	</mx:Script>
+	<mx:Panel width="100%" height="100%" layout="vertical" title="모듈에서 상위 애플리케이션 함수 호출">
+		<mx:Form width="100%" height="100%">
+			<mx:FormItem label="전송받은 메시지" width="100%" height="100%">
+				<mx:TextArea width="100%" height="100%" id="ta"/>
+			</mx:FormItem>
+		</mx:Form>
+		<mx:ControlBar >
+			<mx:VBox>
+				<mx:Label text="컬러 선택후 확인 버튼을 클릭하면 메인의 backgroundColor 변경" fontSize="12"/>
+				<mx:HBox>
+					<mx:ColorPicker id="cp"/>
+					<mx:Button label="확인" click="changeParentColor()"/>
+				</mx:HBox>
+			</mx:VBox>
+		</mx:ControlBar>
+	</mx:Panel>
+	
+	
+</mx:Module>

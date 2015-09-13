@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="vertical" 
+	fontSize="11" backgroundGradientColors="[#f7f794, #adb2ce]"
+	width="500" height="500">
+	<mx:Script>
+		<![CDATA[
+			private function sendMsgToModule():void {
+				var module:Object =new Object(); 
+				module =  loader.child as MySubModule;
+				module.rt.text = ti.text;
+			}
+		]]>
+	</mx:Script>
+	<mx:ModuleLoader id="loader" url='MySubModule.swf' />
+	<mx:HBox width="100%">
+		<mx:Button label="모듈로 메시지 전송"  click="sendMsgToModule()"/>
+		<mx:TextInput id="ti"/>
+	</mx:HBox>
+</mx:Application>

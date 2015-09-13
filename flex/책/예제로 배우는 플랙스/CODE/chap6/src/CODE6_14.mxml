@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml">
+    <mx:Iris id="irisOut"  duration="1000" showTarget="true"/>
+    <mx:Iris id="irisIn" duration="1000" showTarget="false"/>
+    <mx:Panel title="Show Hide Effect Example" width="75%" height="75%" 
+        paddingTop="10" paddingLeft="10" paddingRight="10" paddingBottom="10">
+        <mx:Image id="flex" source="@Embed(source='flex.png')"  
+            visible="{cb1.selected}"
+            showEffect="{irisIn}" hideEffect="{irisOut}"/>
+        <mx:CheckBox id="cb1" label="visible" selected="true"/>
+    </mx:Panel>
+</mx:Application>

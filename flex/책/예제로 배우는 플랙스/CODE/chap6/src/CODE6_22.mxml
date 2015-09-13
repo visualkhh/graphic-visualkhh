@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml">
+    <mx:Fade id="fadeOut" duration="2000"  alphaFrom="1.0" alphaTo="0.0"/>
+    <mx:Fade id="fadeIn" duration="2000" alphaFrom="0.0" alphaTo="1.0"/>
+    <mx:Panel title="Fade Effect Example" width="95%" height="95%" 
+        paddingTop="5" paddingLeft="10" paddingRight="10" paddingBottom="5">
+        <mx:Image source="@Embed(source='flex.png')" 
+            visible="{cb1.selected}"
+            hideEffect="{fadeOut}" showEffect="{fadeIn}"/>
+        <mx:ControlBar>
+            <mx:CheckBox id="cb1" label="visible" selected="true"/>
+        </mx:ControlBar>            
+    </mx:Panel>
+</mx:Application>

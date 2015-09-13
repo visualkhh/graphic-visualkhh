@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="horizontal">
+	<mx:Button label="Button"/>
+	<mx:Button label="Button" upIcon="@Embed(source='icon1.gif')" overIcon="@Embed(source='icon1.gif')" downIcon="@Embed(source='icon2.gif')"/>
+	<mx:Button label="Button" upSkin="@Embed(source='skin1.gif')" overSkin="@Embed(source='skin1.gif')" downSkin="@Embed(source='skin2.gif')"/>
+</mx:Application>

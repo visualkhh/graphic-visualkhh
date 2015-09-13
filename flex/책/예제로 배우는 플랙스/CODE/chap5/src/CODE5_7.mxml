@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute">
+	<mx:TextArea x="10" y="10" width="360" height="263" id="ta"/>
+	<mx:Script>
+		<![CDATA[
+			private var gStr:String = "a";
+			private function check():void {
+				lStr = "c";
+				ta.text = "결과는 : " + gStr + lStr;// 결과는 ac
+				var lStr:String ="b";
+			}
+		]]> 
+	</mx:Script>
+	<mx:Button x="10" y="281" label="Button" click="check()"/>
+</mx:Application>

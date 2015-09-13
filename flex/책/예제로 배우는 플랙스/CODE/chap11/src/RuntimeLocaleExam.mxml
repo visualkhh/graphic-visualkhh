@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" creationComplete="initApp()" 
+		fontSize="11" backgroundGradientColors="[#f7f794, #adb2ce]"> 
+        <mx:Script><![CDATA[
+        import mx.resources.ResourceBundle;
+        import mx.controls.Alert;
+        import mx.events.ResourceEvent;
+        import flash.system.Capabilities;
+
+        [Bindable]
+        private var locales:Array = [ "ko_KR","en_US", "ar_SA" ];
+
+        private function initApp():void {
+			var resourceModuleURL:String;;
+			if(Capabilities.language == "ko") {
+            	localeComboBox.selectedIndex = 0;     
+				resourceModuleURL = "rsb/ko_KR_ResourceModule.swf";
+			} else {
+				localeComboBox.selectedIndex = 1;
+				resourceModuleURL = "rsb/en_US_ResourceModule.swf";
+			}
+            var eventDispatcher:IEventDispatcher = resourceManager.loadResourceModule(resourceModuleURL);
+            eventDispatcher.addEventListener(ResourceEvent.COMPLETE, completeHandler);              
+        }
+
+        private function comboChangeHandler(evt:Event):void {
+            //var newLocale:String = String(localeComboBox.selectedItem);
+    		var newLocale:String = evt.target.selectedItem.data;// String(localeComboBox.selectedItem);            
+            if (resourceManager.getLocales().indexOf(newLocale) != -1) {
+                completeHandler(null);
+            } else {
+                var resourceModuleURL:String = "rsb/" + newLocale + "_ResourceModule.swf";
+                var eventDispatcher:IEventDispatcher = resourceManager.loadResourceModule(resourceModuleURL);
+                eventDispatcher.addEventListener(ResourceEvent.COMPLETE, completeHandler);
+            }            
+        }
+        private function completeHandler(event:ResourceEvent):void {
+              resourceManager.localeChain = [ localeComboBox.selectedItem.data];
+        }        
+    ]]></mx:Script>
+
+    <mx:Metadata>
+        [ResourceBundle("okgosu")]
+    </mx:Metadata> 
+    <mx:Panel width="100%" height="100%" layout="vertical" title="{resourceManager.getString('okgosu','localeTitleRSB')}" >
+	    <mx:Form>
+	        <mx:FormItem label="{resourceManager.getString('okgosu','nameRSB')}">
+	            <mx:TextInput imeMode="KOREAN"/>
+	        </mx:FormItem>
+	        <mx:FormItem label="{resourceManager.getString('okgosu','cityRSB')}">
+	            <mx:TextInput imeMode="ENGLISH"/>
+	        </mx:FormItem>
+	        <mx:FormItem label="{resourceManager.getString('okgosu','stateRSB')}">
+	            <mx:TextInput/>
+	        </mx:FormItem>
+	        <mx:FormItem label="{resourceManager.getString('okgosu','zipRSB')}">
+	            <mx:TextInput/>
+	        </mx:FormItem>
+			<mx:FormItem label="{resourceManager.getString('okgosu','etcRSB')}">
+	            <mx:DateField />
+	            <mx:CheckBox id="like" label="{resourceManager.getString('okgosu','agreeMsgRSB')}" selected="true" />
+	            <mx:RadioButtonGroup id="survey"/>
+	        	<mx:RadioButton id="rd1" groupName="survey" label="{resourceManager.getString('okgosu','maleRSB')}" selected="true" />
+	        	<mx:RadioButton id="rd3" groupName="survey" label="{resourceManager.getString('okgosu','femaleRSB')}" />		
+			</mx:FormItem>   	        
+	    </mx:Form>
+	    <mx:ControlBar>
+		<mx:HBox>
+			<mx:Image source="{resourceManager.getClass('okgosu', 'flagRSB')}"/>
+		    <mx:ComboBox id="localeComboBox" change="comboChangeHandler(event)">
+				<mx:ArrayCollection>
+					<mx:Object label="한국어" data="ko_KR"/>
+					<mx:Object label="English" data="en_US"/>
+					<mx:Object label="العربية" data="ar_SA"/>
+				</mx:ArrayCollection>    	
+		    </mx:ComboBox>			
+		</mx:HBox>	    
+			<mx:Button click="mx.controls.Alert.show( 'Submit Data' )" 
+				label="{resourceManager.getString('okgosu','confirmRSB')}" />	    
+	    </mx:ControlBar>
+    </mx:Panel>
+</mx:Application>
+

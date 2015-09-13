@@ -1,0 +1,361 @@
+
+                                 Apache License
+                           Version 2.0, January 2004
+                        http://www.apache.org/licenses/
+
+   TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
+
+   1. Definitions.
+
+      "License" shall mean the terms and conditions for use, reproduction,
+      and distribution as defined by Sections 1 through 9 of this document.
+
+      "Licensor" shall mean the copyright owner or entity authorized by
+      the copyright owner that is granting the License.
+
+      "Legal Entity" shall mean the union of the acting entity and all
+      other entities that control, are controlled by, or are under common
+      control with that entity. For the purposes of this definition,
+      "control" means (i) the power, direct or indirect, to cause the
+      direction or management of such entity, whether by contract or
+      otherwise, or (ii) ownership of fifty percent (50%) or more of the
+      outstanding shares, or (iii) beneficial ownership of such entity.
+
+      "You" (or "Your") shall mean an individual or Legal Entity
+      exercising permissions granted by this License.
+
+      "Source" form shall mean the preferred form for making modifications,
+      including but not limited to software source code, documentation
+      source, and configuration files.
+
+      "Object" form shall mean any form resulting from mechanical
+      transformation or translation of a Source form, including but
+      not limited to compiled object code, generated documentation,
+      and conversions to other media types.
+
+      "Work" shall mean the work of authorship, whether in Source or
+      Object form, made available under the License, as indicated by a
+      copyright notice that is included in or attached to the work
+      (an example is provided in the Appendix below).
+
+      "Derivative Works" shall mean any work, whether in Source or Object
+      form, that is based on (or derived from) the Work and for which the
+      editorial revisions, annotations, elaborations, or other modifications
+      represent, as a whole, an original work of authorship. For the purposes
+      of this License, Derivative Works shall not include works that remain
+      separable from, or merely link (or bind by name) to the interfaces of,
+      the Work and Derivative Works thereof.
+
+      "Contribution" shall mean any work of authorship, including
+      the original version of the Work and any modifications or additions
+      to that Work or Derivative Works thereof, that is intentionally
+      submitted to Licensor for inclusion in the Work by the copyright owner
+      or by an individual or Legal Entity authorized to submit on behalf of
+      the copyright owner. For the purposes of this definition, "submitted"
+      means any form of electronic, verbal, or written communication sent
+      to the Licensor or its representatives, including but not limited to
+      communication on electronic mailing lists, source code control systems,
+      and issue tracking systems that are managed by, or on behalf of, the
+      Licensor for the purpose of discussing and improving the Work, but
+      excluding communication that is conspicuously marked or otherwise
+      designated in writing by the copyright owner as "Not a Contribution."
+
+      "Contributor" shall mean Licensor and any individual or Legal Entity
+      on behalf of whom a Contribution has been received by Licensor and
+      subsequently incorporated within the Work.
+
+   2. Grant of Copyright License. Subject to the terms and conditions of
+      this License, each Contributor hereby grants to You a perpetual,
+      worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+      copyright license to reproduce, prepare Derivative Works of,
+      publicly display, publicly perform, sublicense, and distribute the
+      Work and such Derivative Works in Source or Object form.
+
+   3. Grant of Patent License. Subject to the terms and conditions of
+      this License, each Contributor hereby grants to You a perpetual,
+      worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+      (except as stated in this section) patent license to make, have made,
+      use, offer to sell, sell, import, and otherwise transfer the Work,
+      where such license applies only to those patent claims licensable
+      by such Contributor that are necessarily infringed by their
+      Contribution(s) alone or by combination of their Contribution(s)
+      with the Work to which such Contribution(s) was submitted. If You
+      institute patent litigation against any entity (including a
+      cross-claim or counterclaim in a lawsuit) alleging that the Work
+      or a Contribution incorporated within the Work constitutes direct
+      or contributory patent infringement, then any patent licenses
+      granted to You under this License for that Work shall terminate
+      as of the date such litigation is filed.
+
+   4. Redistribution. You may reproduce and distribute copies of the
+      Work or Derivative Works thereof in any medium, with or without
+      modifications, and in Source or Object form, provided that You
+      meet the following conditions:
+
+      (a) You must give any other recipients of the Work or
+          Derivative Works a copy of this License; and
+
+      (b) You must cause any modified files to carry prominent notices
+          stating that You changed the files; and
+
+      (c) You must retain, in the Source form of any Derivative Works
+          that You distribute, all copyright, patent, trademark, and
+          attribution notices from the Source form of the Work,
+          excluding those notices that do not pertain to any part of
+          the Derivative Works; and
+
+      (d) If the Work includes a "NOTICE" text file as part of its
+          distribution, then any Derivative Works that You distribute must
+          include a readable copy of the attribution notices contained
+          within such NOTICE file, excluding those notices that do not
+          pertain to any part of the Derivative Works, in at least one
+          of the following places: within a NOTICE text file distributed
+          as part of the Derivative Works; within the Source form or
+          documentation, if provided along with the Derivative Works; or,
+          within a display generated by the Derivative Works, if and
+          wherever such third-party notices normally appear. The contents
+          of the NOTICE file are for informational purposes only and
+          do not modify the License. You may add Your own attribution
+          notices within Derivative Works that You distribute, alongside
+          or as an addendum to the NOTICE text from the Work, provided
+          that such additional attribution notices cannot be construed
+          as modifying the License.
+
+      You may add Your own copyright statement to Your modifications and
+      may provide additional or different license terms and conditions
+      for use, reproduction, or distribution of Your modifications, or
+      for any such Derivative Works as a whole, provided Your use,
+      reproduction, and distribution of the Work otherwise complies with
+      the conditions stated in this License.
+
+   5. Submission of Contributions. Unless You explicitly state otherwise,
+      any Contribution intentionally submitted for inclusion in the Work
+      by You to the Licensor shall be under the terms and conditions of
+      this License, without any additional terms or conditions.
+      Notwithstanding the above, nothing herein shall supersede or modify
+      the terms of any separate license agreement you may have executed
+      with Licensor regarding such Contributions.
+
+   6. Trademarks. This License does not grant permission to use the trade
+      names, trademarks, service marks, or product names of the Licensor,
+      except as required for reasonable and customary use in describing the
+      origin of the Work and reproducing the content of the NOTICE file.
+
+   7. Disclaimer of Warranty. Unless required by applicable law or
+      agreed to in writing, Licensor provides the Work (and each
+      Contributor provides its Contributions) on an "AS IS" BASIS,
+      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+      implied, including, without limitation, any warranties or conditions
+      of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A
+      PARTICULAR PURPOSE. You are solely responsible for determining the
+      appropriateness of using or redistributing the Work and assume any
+      risks associated with Your exercise of permissions under this License.
+
+   8. Limitation of Liability. In no event and under no legal theory,
+      whether in tort (including negligence), contract, or otherwise,
+      unless required by applicable law (such as deliberate and grossly
+      negligent acts) or agreed to in writing, shall any Contributor be
+      liable to You for damages, including any direct, indirect, special,
+      incidental, or consequential damages of any character arising as a
+      result of this License or out of the use or inability to use the
+      Work (including but not limited to damages for loss of goodwill,
+      work stoppage, computer failure or malfunction, or any and all
+      other commercial damages or losses), even if such Contributor
+      has been advised of the possibility of such damages.
+
+   9. Accepting Warranty or Additional Liability. While redistributing
+      the Work or Derivative Works thereof, You may choose to offer,
+      and charge a fee for, acceptance of support, warranty, indemnity,
+      or other liability obligations and/or rights consistent with this
+      License. However, in accepting such obligations, You may act only
+      on Your own behalf and on Your sole responsibility, not on behalf
+      of any other Contributor, and only if You agree to indemnify,
+      defend, and hold each Contributor harmless for any liability
+      incurred by, or claims asserted against, such Contributor by reason
+      of your accepting any such warranty or additional liability.
+
+   END OF TERMS AND CONDITIONS
+
+   APPENDIX: How to apply the Apache License to your work.
+
+      To apply the Apache License to your work, attach the following
+      boilerplate notice, with the fields enclosed by brackets "[]"
+      replaced with your own identifying information. (Don't include
+      the brackets!)  The text should be enclosed in the appropriate
+      comment syntax for the file format. We also recommend that a
+      file or class name and description of purpose be included on the
+      same "printed page" as the copyright notice for easier
+      identification within third-party archives.
+
+   Copyright [yyyy] [name of copyright owner]
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        This product includes software developed by
+The Apache Software Foundation (http://www.apache.org/).
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         Jakarta Commons Collections
+===========================
+
+Welcome to the Collections component of the Jakarta Commons project.
+This component contains many new collections and collection utilities.
+
+Two jar files are produced by this component.
+The first, commons-collections.jar is the main jar used by applications.
+The second, commons-collections-testframework.jar is an extension to junit
+for testing new collection implementations and is not normally used by applications.
+
+
+Building from source
+--------------------
+This component requires the excellent Ant utility.
+It can be found here :
+
+  http://ant.apache.org/
+
+For testing the project, you will also need JUnit :
+
+  http://www.junit.org/
+
+To let the test process find JUnit, you may make a 
+copy of the build.properties.sample file, rename to
+build.properties,  and modify to reflect
+the location of the junit.jar on your computer.
+
+
+Once you have Ant properly installed, and the
+build.properties file correctly reflects the location
+of your junit.jar, you are ready to build and test.
+The major targets are:
+
+ant compile      - compile the code
+ant test         - test using junit
+ant jar          - create a jar file
+ant javadoc      - build the javadoc
+ant dist         - create folders as per a distribution
+ant tf.jar       - create the testframework jar file
+ant tf.javadoc   - build the testframework javadoc
+
+
+Maven
+-----
+The component can also be built using Maven. (Ant is the primary build tool.)
+It can be found here :
+
+  http://maven.apache.org/
+
+Once installed, the jars may be built with 'maven jar'.
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     <!--
+   Copyright 2003-2005 The Apache Software Foundation
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+  -->
+<html>
+<head>
+<title>RELEASE NOTES: COLLECTIONS 3.2</title>
+</head>
+<body>
+<center><h2>RELEASE NOTES: COLLECTIONS 3.2</h2></center>
+
+<p>
+Commons collections is a project to develop and maintain collection classes
+based on and inspired by the JDK collection framework.
+This project is JDK1.2 compatible, and does not use JDK1.5 generics.
+</p>
+<p>
+This release adds various new classes and fixes a number of bugs.
+All feedback should be directed to commons-user at jakarta.apache.org.
+</p>
+<hr />
+
+<center><h3>COMPATIBILITY</h3></center>
+<p>
+This release is fully source and binary compatible with v3.1.
+(Checks performed using JDiff and Clirr, thanks).
+Please check the bug fixes to ensure you weren't relying on the behaviour of a bug.
+</p>
+<p>
+There are two new <i>deprecations</i>:<br />
+BeanMap is now deprecated and will be removed in v4.0.
+The class is now available in commons-beanutils (full jar version).
+This change was made to ensure that all bean related collections were in one place (ie. beanutils).
+If this causes major headaches to anyone please contact commons-dev at jakarta.apache.org.
+</p>
+<p>
+MultiHashMap is now deprecated and will be removed in v4.0.
+The class is now available as MultiValueMap in the map subpackage.
+This new version of the class is a decorator and can wrap maps other than HashMap
+making it much more flexible.
+If this causes major headaches to anyone please contact commons-dev at jakarta.apache.org.
+</p>
+
+<center><h3>NEW CLASSES</h3></center>
+<ul>
+<li>MultiValueMap - Decorator implementation of MultiMap providing control over the map and collection implementations, updated MapUtils to match [29440]</li>
+<li>DefaultedMap - Returns a default value when the key is not found, without adding the default value to the map itself [30911]</li>
+<li>GrowthList - Decorator that causes set and indexed add to expand the list rather than throw IndexOutOfBoundsException [34171]</li>
+<li>LoopingListIterator - When the end of the list is reached the iteration continues from the start, updated IteratorUtils to match [30166]</li>
+<li>ReverseListIterator - A list iterator that returns the elements from the list in reverse order [39224]</li>
+<li>BoundedBuffer - A new wrapper class which can make any buffer bounded, updated BufferUtils to match [37473]</li>
+</ul>
+
+<center><h3>ENHANCEMENTS</h3></center>
+<ul>
+<li>CollectionUtils.addIgnoreNull - Adds to the collection if the value being added is not null [30020]</li>
+<li>MapUtils.putAll - Puts an array of key/value pairs into a map [30882]</li>
+<li>CollectionUtils/MapUtils.isEmpty/isNotEmpty - Null-safe checks of collection emptyness [35890]</li>
+<li>CollectionUtils.sizeIsEmpty - Checks if a collection, array, map, iterator or enumeration is empty</li>
+<li>CollectionUtils/ListUtils - retainAll/removeAll that don't change original colllection</li>
+<li>ExtendedProperties - Accepts List elements (does not enforce Vector) as values [36812]</li>
+<li>ExtendedProperties - new Methods getList(String key) and getList(String key, List defaults) [36812]</li>
+<li>ExtendedProperties - No longer uses an exception in normal processing [30497]</li>
+<li>BlockingBuffer - now includes stack trace if InterupttedException occurs [33700]</li>
+<li>BlockingBuffer - new methods that allow get and remove with a timeout, updated BufferUtils to match [27691]</li>
+<li>BlockingBuffer - now allows you to specify a default timeout value for get/remove operations [37607]</li>
+<li>TransformedMap/TransformedSortedMap - new factory decorateTransform() that transforms any existing entries in the map [30959]</li>
+<li>ListOrderedMap - values can now be accessed as a List using valueList() [37015]</li>
+<li>ListOrderedMap - additional list-like method, setValue(int,Object)</li>
+<li>ListOrderedMap - additional method, put(int,Object,Object)</li>
+<li>PriorityBuffer - now Serializable [36163]</li>
+<li>ListIteratorWrapper - now implements ResettableListIterator [39449]</li>
+<li>IfClosure - add single argument constructor, updated CllosureUtils to match [38495]</li>
+<li>All/Any/One/None Predicate - allow construction with zero or one predicates [37979]</li>
+</ul>
+
+<center><h3>BUG FIXES</h3></center>
+<ul>
+<li>FastArrayList - Fix iterators and views to work better in multithreaded environments</li>
+<li>FastArrayList - Fix iterator remove where ConcurrentModificationException not as expected [34690]</li>
+<li>CursorableLinkedList (list subpackage) - Fix iterator remove/set not throwing IllegalStateException after next-previous-removeByIndex [35766]</li>
+<li>TreeList/CursorableLinkedList/NodeCachingLinkedList/AbstractLinkedList - Fix iterator remove not working properly when called after previous [35258]</li>
+<li>TreeList - remove(int) could break class invariants, breaking iterator previous [35258]</li>
+<li>SetUniqueList.set(int,Object) - Destroyed set status in certain circumstances [33294]</li>
+<li>AbstractLinkedMap.init() - Now calls createEntry() to create the map entry object [33706]</li>
+<li>AbstractHashedMap deserialization - Fix to prevent doubling of internal data array [34265]</li>
+<li>AbstractHashedMap initialization - Fix to setup threshold correctly, improving performance [35012]</li>
+<li>BeanMap.initialize() - Internal variable now correctly initialised with only write methods that actually exist [15895]</li>
+<li>MultiHashMap.remove(key, item) - Was returning the item even when nothing was removed [32366]</li>
+<li>MultiHashMap.putAll(multimap) - Was adding the collection as a single item rather than individually [35631]</li>
+<li>MultiHashMap - Enable compilation using J#</li>
+<li>Flat3Map.equals() - Fix to make flat mode comparison actually work [34917]</li>
+<li>TransformedMap.putAll - Now allows putAll of an empty map [34686]</li>
+<li>StaticBucketMap.containsKey - Fix incorrect null checking [37567]</li>
+<li>AbstractMapBag.BagIterator.remove - Removing the

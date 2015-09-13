@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="vertical">
+	<mx:Image source="flex.png" />
+	<mx:Image source="flex.png" scaleX="0.5" scaleY="0.5"/>	
+	<mx:Image source="flex.png" scaleX="2" scaleY="2"/>	
+</mx:Application>

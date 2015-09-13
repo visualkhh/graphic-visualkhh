@@ -1,0 +1,554 @@
+_root.g.onEnterFrame = function(){
+if(_xmouse<=0 && _ymouse>=14){
+	_root.g.play();
+}else{
+	_root.g.stop();
+}
+}
+
+ 
+
+----------------------------------------------------------------------------
+// .....       주석 기호  
+/* ..... */    주석 기호  
+----------------------------------------------------------------------------
+\r        // 리턴 코드  (ASC 13)
+\n        // 줄바꿈 코드 (ASC 10)
+\r\n      // 줄바꿈 코드  (2줄)
+\t        // Tab 코드 (ASC 9)
+\b        // Backspce 코드 (ASC 8)
+&         // text 파일 데이타 구분 코드
+----------------------------------------------------------------------------
+산술연산자  +, -, *, /, %                 //  %  나머지를 구한다
+대입연산자  =, +=, -=, *=, /=, %=         //  i+=4 와  i=i+4 는 같다 
+증감연산자  ++, --                        //  i++  와   i=i+1 는 같다  
+비교연산자  ==, !=, >, <, >=, <=          //  !=  '같지않다' 로 해석
+비교연산자  ===                           //  숫자 와 문자 구분
+a = 5;    b = "5";                        //  숫자 5 와 문자 "5" 
+(a == b)                                  //  숫자 5 와 문자 "5"  는 같다 (true)
+(a === b)                                 //  숫자 5 와 문자 "5" 는 틀리다 (false) 
+논리연산자  &&, ||, !                     //  그리고(AND), 또는(OR), 아니면(NOT) 
+조건연산자  ?    ( a ) ? b : c ;          //  a 조건이 맞으면 b 틀리면 c 실행 
+x=5;  y=10;  z=(x<6) ? x: y;   trace (z); //  z 은 5 이다
+문자연산자  eq  ne  not  or  add          //  eq(==) ne(!=) not(!) or(||) add(+ 문자열의 연결) 
+( )                                       //  연산의 순서를 정한다
+[ ]                                       //  배열을 지정한다
+" "                                       //  문자를 지정한다
+a=1+2;  trace(a);                         //  연산 결과 출력.  결과는 3
+aaa=1;  set("ccc", aaa );  trace(ccc);    //  변수에 값을 지정.  결과는 1 
+aaa=1;  set("ccc", "aaa");  trace(ccc);   //  변수에 값을 지정.  결과는 aaa 
+set("ooo", getProperty ("ppp", _x ));     //  ppp x 좌표를  ooo 에 지정.
+----------------------------------------------------------------------------
+for (a=1; a<=10; a++)  { trace("a="+a); };             //  for  반복문 
+for (i=1; i<=120;  i+=12) { continue; };               //  for step 반복문
+while(true) {  if(a == 0) { break; }; };               //  while  반복문
+do { if(a == 0) { break; }; };  while(true);           //  do 반복문
+if((n == 0) || (n >= 5)  &&  (n <= 55)  !(n=15)) {     //  if 조건문
+　gotoAndPlay(1);
+} else if (n == 2) { 
+　gotoAndPlay(2);
+} else {
+　gotoAndPlay(3);
+};
+num_ch = 3;                                             //  switch 조건문
+switch (num_ch) {                                                
+      case 1:    trace ( " case 1 tested true " );  break;
+      case 2:    trace ( " case 2 tested true " );  break;
+      default:    trace ( " no case tested true " );
+};
+----------------------------------------------------------------------------
+function sumnumber(a,b,c) {  return(aaa= a+b+c); };    // 함수
+sumnumber(1,2,3); 
+trace(aaa);
+----------------------------------------------------------------------------
+Math.abs(-1)              //  절대값.   결과는 1 
+Math.sin(1)               //  sin 값.   결과는 0.841470984807897
+Math.cos(1)               //  cos 값.   결과는 0.54030230586814 
+Math.tan(1)               //  tan 값.   결과는 1.5574077246549
+Math.log(2)               //  log 값.   결과는 0.693147180559945
+Math.exp(1)               //  지수 값.    결과는 2.71828182845905
+Math.sqrt(9)              //  제곱근 값.    결과는 3
+Math.pow(2 , 4)           //  거듭제곱 값.    결과는 16
+Math.ceil(1.1)            //  가까운 정수로 올림 값.    결과는 2
+Math.ceil(1.5)            //  가까운 정수로 올림 값.    결과는 2
+Math.floor(1.2)           //  가까운 정수로 내림 값.    결과는 1
+Math.floor(1.7)           //  가까운 정수로 내림 값.    결과는 1
+Math.round(1.2)           //  가까운 정수로 반올림 값.    결과는 1
+Math.round(1.5)           //  가까운 정수로 반올림 값.    결과는 2
+Math.max(1 , 2)           //  두 정수 중 큰 정수값.    결과는 2
+Math.min(1 , 2)           //  두 정수 중 작은 정수값.    결과는 1
+int(1.12 );               //  수치를 정수화.   결과는 1     
+int(1.82 );               //  수치를 정수화.   결과는 1     
+parseInt("3.2");          //  문자열을 정수화.  결과는 3     
+parseInt("3.7");          //  문자열을 정수화.  결과는 3     
+parseInt("5abc");         //  문자열을 정수화.  결과는 5
+parseInt("abc5");         //  문자열을 정수화.  결과는 NaN     
+parseInt("3E8", 16);      //  16 진수로 변환.   결과는 1000
+parseInt("777", 8);       //  8 진수로 변환.   결과는 511
+parseInt("1010", 2);      //  2 진수로 변환.   결과는 10
+parseFloat("2")           // 문자열을 부동점 숫자로 변환.  결과는 2
+parseFloat("2.4")         // 문자열을 부동점 숫자로 변환.  결과는 2.4
+parseFloat("2.6abc")      // 문자열을 부동점 숫자로 변환.  결과는 2.6
+Number("11")              //  문자열을 숫자로 변환.   결과는 11
+Number("12.34")           //  문자열을 숫자로 변환.   결과는 12.34
+Number("12.34abc")        //  문자열을 숫자로 변환.   결과는 NaN
+sss = 123;  uuu = sss.toString();      // 숫자를 문자로변환.  결과는 123
+ord("abc");                            //  ASCII 값.   결과는 97
+s = "abc";   sss = s.charCodeAt(0);    //  1번째 ASCII 값 .   결과는 97
+s = "abc";   sss = s.charCodeAt(1);    //  2번째 ASCII 값.    결과는 98
+chr(65);                               //  ASCII 코드를 문자화.  결과는 A
+String.fromCharCode(64,65,66);         //  ASCII 코드를 문자화.  결과는 @AB
+Math.random();                         // 난수 발생.  결과는 0 - 1 사이의 소숫점 포함한 값
+random(5);                             // 난수 발생.  결과는 0,1,2,3,4 중 하나
+----------------------------------------------------------------------------
+// delete 변수 또는 객체 ;             // 변수를 삭제  (var 로 선언된 변수는 삭제할 수 없다)
+account = 1;   trace (account) ;                      // 결과는 1  
+account = 1;   delete account;    trace (account);    // 결과는 undefined 
+delete onEnterFrame;                                  // 반복 실행 중지
+----------------------------------------------------------------------------
+typeof( );            // String, Number, MovieClip, Object, Boolean, Function 여부를 지정
+trace (typeof(1));    // 결과는 Number
+trace (typeof("1"));  // 결과는 String 
+trace (typeof(aaa));  // aaa가 무비클립 이라면  결과는 MovieClip 
+----------------------------------------------------------------------------
+isFinite( );            // 숫자가 유한수이면 true 무한수거나 음의 무한대이면 false
+trace (isFinite(aaa));  // aaa 값이 NaN 이라면 결과는 false
+----------------------------------------------------------------------------
+Mouse.show();           // 마우스 보임
+Mouse.hide();           // 마우스 감춤
+myClip.onMouseDown = function () {trace (" depth 무시"); };     // 마우스 누를 때
+myClip.onMouseUp = function () {trace ("depth 무시"); };        // 마우스 눌렀다 놓을 때 
+myClip.onMouseMove = function () { trace ("depth 무시"); };     // 마우스 이동할 때 
+myClip.onPress = function () { trace ("depth 적용"); };         // 마우스 누를 때 
+myClip.onRelease = function () { trace ("depth 적용 "); };      // 마우스 눌렀다 놓을 때
+myClip.onReleaseOutside = function () { trace ("Outside"); };   // 마우스 나가서 놓을 때
+myClip.onRollOver = function () { trace ("Over called"); };     // 마우스 오버 때 
+myClip.onRollOut = function () { trace ("Out called"); };       // 마우스 아웃 때 
+----------------------------------------------------------------------------
+// 단추무비클립 클릭후 액션 스크립트를 넣는다
+on (press){           }  // 마우스 버튼을 누를 때   };  x  }  o 
+on (release){         }  // 마우스 버튼을 눌렀다 뗄 때
+on (releaseOutside){  }  // 마우스 버튼을 누르고 나가서 뗄 때
+on (rollOver){        }  // 마우스 포인트가 위로 올라올 때
+on (rollOut){         }  // 마우스 포인트가 밖으로 나갈 때
+on (dragOver){        }  // 누른 채로 밖으로 나갔다가 다시 들어올 때
+on (dragOut){         }  // 마우스버튼을 누르고 바깥으로 드래그할 때
+on (keyPress){        }  // 지정한 키를 누를 때
+----------------------------------------------------------------------------
+// 무비클립 클릭후 액션 스크립트를 넣는다
+onClipEvent (load) {            }  // 시작 될때  };  x  }  o   
+onClipEvent (unload) {          }  // 제거 될때 
+onClipEvent (enterFrame) {      }  // 트리거 될때
+onClipEvent (mouseMove) {       }  // 마우스가 이동할 때
+onClipEvent (mouseDown) {       }  // 마우스 클릭 시
+onClipEvent (mouseUp) {         }  // 마우스 클릭 후 
+onClipEvent (keyDown) {         }  // 키를 누를 때
+onClipEvent (keyUp) {           }  // 키를 눌렀다 놓을 때
+onClipEvent (data) {            }  // loadVariables 또는 loadMovie 액션에서 데이터가 수신될 때
+----------------------------------------------------------------------------
+TextField.onChanged = function () { trace ("onChanged called"); };
+// 텍스트 필드의 내용이 변경될 때
+TextField.onSetFocus = function () { trace ("onSetFocus called"); };
+// 텍스트 필드의 내용 부분에 마우스가 클릭 될 때
+TextField.onKillFocus = function () { trace ("onKillFocus called"); };
+// 텍스트 필드의 내용 바깥 부분에 마우스가 클릭 될 때
+TextField.onScroller = function () { trace ("onScroller called"); };
+// 텍스트 필드의 내용이 스크롤 될 때
+----------------------------------------------------------------------------
+myMovieClip.onData = function () { trace ("onData called"); };  
+// 무비 클립이 loadVariables 또는 loadMovie 호출로부터 데이터를 받을 때
+myMovieClip.onLoad =  function () { trace ("onLoad called"); };  
+// 무비 클립이 load 호출로부터 데이터를 받을 때
+myMovieClip.onUnLoad =  function () { trace ("onUnLoad called"); };  
+// 무비 클립이 Unload 때
+myMovieClip.stop()   
+// 작업 중지
+----------------------------------------------------------------------------
+myDate = new Date();                               // 날짜 로드
+myDate = new Date (년,월,일,시,분,초);             // 날짜 지정
+yyyy = (myDate.getFullYear() + "-" + (myDate.getMonth() + 1) + "-" + myDate.getDate());
+tttt = (myDate.getHours()+ " :" + myDate.getMinutes() + " :" +myDate.getSeconds());
+----------------------------------------------------------------------------
+_root.onEnterFrame = function() {   };             // 메인화면에서 프레임 반복
+onEnterFrame = function() {   };                   // 심볼화면에서 프레임 반복
+----------------------------------------------------------------------------
+tmtm = getTimer();           
+onEnterFrame = function() {
+  if ( (getTimer()-tmtm) >= 500 ) { tmtm=getTimer(); trace (tmtm); };   // 0.5초후 반복실행
+  if ( (getTimer()-tmtm) >= 1000 ) { tmtm=getTimer(); trace (tmtm); };  // 1초후 반복실행
+  if ( (getTimer()-tmtm) >= 2000 ) { tmtm=getTimer(); trace (tmtm); };  // 2초후 반복실행
+};
+----------------------------------------------------------------------------
+onEnterFrame = function() {                                 
+   nr += 1;  if (nr > 5 )  {  delete  onEnterFrame;  };           // 5번 반복실행후 중지
+   trace (nr); 
+};
+----------------------------------------------------------------------------
+createTextField ("ins", 1, 100, 100, 50, 50) 
+ins.border = true; 
+function callback() { 
+   ins._x += 5; 
+   if ( ins._x > 400 ) { clearInterval( intervalID );  };      // 중지 (clearInterval)
+}
+var intervalID; 
+intervalID = setInterval( callback, 100 );             //  0.1초후 반복실행 (setInterval)
+---------------------------------------------------------------------------- 
+#include "script.as"         // script.as 파일 넣기 (액션 스크립트 txt 파일)
+----------------------------------------------------------------------------
+System.useCodepage = true;   // 한글 깨짐 방지
+trace(System.capabilities.language)          // Flash Player가 지원하는 언어. 결과는 ko
+trace(System.capabilities.hasVideoEncoder)   // 지원되는 비디오 인코더. 결과는 true, false. 
+trace(System.capabilities.hasAudioEncoder )  // 지원되는 오디오 인코더. 결과는 true, false.
+trace(System.capabilities.hasAudio)          // 오디오 성능이 있는지 여부. 결과는 true, false.
+trace(System.capabilities.hasMP3)            // MP3 디코더가 있는지 여부. 결과는 true, false.
+----------------------------------------------------------------------------
+escape("abc가나다");         // URL에 사용하기 위해 인코딩. 
+// System.useCodePage= true; 일때 결과는 abc%B0%A1%B3%AA%B4%D9
+// System.useCodePage= false; 일때 결과는 abc%EA%B0%80%EB%82%98%EB%8B%A4 
+----------------------------------------------------------------------------
+trace(targetPath(this));     // 대상 패스를 반환.  결과는 _level0.instance1 로 표시
+trace(this.valueOf());       // 결과는 _level0 로 표시
+----------------------------------------------------------------------------
+trace(this.getBytesLoaded());  // 무비클립의 로드된 바이트 수를 알려준다.
+trace(this.getBytesTotal());   // 무비클립의 전체용량 바이트 수를 알려준다.
+----------------------------------------------------------------------------
+getURL("C:/")                                          // 탐색기 열기
+getURL("C:/Windows/NOTEPAD.EXE");   };                 // 메모장 열기
+getURL("C:/Program Files/Accessories/WORDPAD.EXE");    // 워드패드 열기
+getURL("C:/Program Files/Accessories/MSPAINT.EXE");    // 그림판 열기
+getURL("C:/Windows/CALC.EXE");                         // 계산기 열기
+getURL ("aaa.exe");                                    // aaa.exe 파일 열기 (message)
+getURL ("aaa.txt", "_self");                           // aaa.txt 파일 열기 
+getURL ("movie.html", "_self");                        // movie.html 파일 열기
+getURL ("http://www", "_blank");                       // http://www 를 새로운 창으로 열기
+----------------------------------------------------------------------------
+Stage.showMenu = "true";        // 스크린 메뉴 보임
+Stage.showMenu = "false";       // 스크린 메뉴 감춤  
+Stage.scaleMode = "noScale";    // 화면의 사이즈를 고정
+Stage.align = "TL";             // 화면의 정렬을 T(위) L(왼쪽)
+           //  "T" 위 가운데    "B" 아래 가운데    "L" 가운데 왼쪽    "R" 가운데 오른쪽
+           //  "TL" 위쪽 왼쪽   "TR" 위쪽 오른쪽   "BL" 아래쪽 왼쪽   "BR" 아래쪽 오른쪽
+Stage.height      // 픽셀로 표시된 스테이지의 높이
+Stage.width       // 픽셀로 표시된 스테이지의 넓이
+----------------------------------------------------------------------------
+_root.createEmptyMovieClip("box",1);      // 스테이지 테두리 주기
+with (_root.box) {  moveto(1, 1);   linestyle(10, 0x00cc00, 100);
+    lineto(stage.width, 1);     lineto(stage.width, stage.height);
+    lineto(1, stage.height);    lineto(1, 1);   };
+----------------------------------------------------------------------------
+fscommand("showmenu", true);      // 스크린 메뉴 보임
+fscommand("showmenu", false);     // 스크린 메뉴 감춤
+fscommand("allowscale", true);    // 스크린 크기에 따라 무비의 크기도 변함
+fscommand("allowscale", false);   // 스크린 크기에 따라 무비의 크기도 안변함
+fscommand("fullscreen", true);    // 풀 스크린 (esc키 누르면 해제)
+fscommand("fullscreen", false);   // 풀 스크린을 원래의 크기로 만든다
+fscommand("trapallkeys", true);   // 키보드 키 사용할 수 없음 (풀 스크린 일때 esc키 먹통)
+fscommand("trapallkeys", false);  // 키보드 키 사용할 수 있음
+fscommand("quit");                // 스크린 닫기 
+fscommand ("exec", "a.exe");      // a.exe 파일 실행 (no message)
+   플래시 무비(exe) 가 위치하는 폴더안에 fscommand 라는 하위 폴더를 만들고
+   fscommand 디렉토리에  a.exe 가 있을때 플래시 무비(exe)를 실행하면 a.exe파일 실행
+----------------------------------------------------------------------------
+// getURL 로 javascript 사용하기
+var hello = "Hello, World"; 
+getURL("javascript:alert(\" "+ hello + "  \")");   // 메세지 띄우기
+getURL("javascript:window.self.close()");          // 윈도우창 닫기
+getURL("javascript:window.external.AddFavorite('http://','가')" );    //즐겨찾기 추가 
+----------------------------------------------------------------------------
+// fscommand 로 javascript 사용하기
+1.  fscommand ("messagebox", "This is a Flash.");   // aaa.swf flash script 
+2.  파일메뉴 - 제작설정 - 포맷 (HTML체크) - HTML (템플릿: with FSCommand 체크)
+3.  파일메뉴 - 제작 (파일명은 aaa.swf) -  aaa.html 파일이 디렉토리에 만들어 진다 
+4.  aaa.html 파일을 열고  function aaa_DoFSCommand(command, args) {  아래에
+      if (command == "messagebox") {  alert(args);  };   을 적고 저장 한다
+5.  aaa.html 실행 (실행후 제작설정 해제)
+----------------------------------------------------------------------------
+// fscommand 로 javascript 의 변수값 불러오기
+1. fscommand ("search", TextFieldvar);     // aaa.swf flash script 
+2. if (command == "search") {              // aaa.html script 
+       EEEfind = "FFFFFFFF"; 
+       window.document.aaa.SetVariable("TextFieldvar", EEEfind) ; 
+       return TextFieldvar; 
+    };
+3. aaa.html 실행 
+----------------------------------------------------------------------------
+_root.loadMovie("a.swf");            // swf 파일 불러오기 
+_root.bbb.loadMovie("a.swf")         // swf 를 메인에 있는 bbb무비클립인스턴스에 불러오기
+_root.loadMovie("a.swf", 1);         // swf 를 레벨1로 불러오기 (2 는 1를  screen over)
+_root.loadMovie("aaa.jpg");          // jpg 파일 불러오기
+_root.bbb.loadMovie("aaa.jpg");      // jpg 파일을 메인에 있는 bbb무비클립인스턴스에 불러오기
+unloadMovie (1);                     // 레벨 1에 로드된 무비를 언로드 
+unloadMovie ("a.swf");               // 현재 무비에 로드된 a.swf 무비를 언로드
+_root.bbb.unloadMovie();             // 메인 타임라인의 bbb 무비클립에 로드된 무비를 언로드
+this["bbb"].unloadMovie();           // 현재 타임라인의 bbb 무비클립에 로드된 무비를 언로드
+sss.bbb.unloadMovie();               // sss 심볼 타임라인의 bbb 무비클립에 로드된 무비를 언로드
+----------------------------------------------------------------------------
+button.onPress = function() { _root.loadMovie("aaa.swf"); }     // aaa.swf 실행중 초기화 하기
+----------------------------------------------------------------------------
+_root["ball_"+counter]._x = 11;       //  메인 화면의 클립 좌표
+this["ball_"+counter]._x = 11;        //  현재 화면의 클립 좌표
+aaa["ball_"+counter]._x = 11;         //  aaa 심볼 화면의 클립 좌표
+----------------------------------------------------------------------------
+this.createEmptyMovieClip("aaa", 1);             //  무비클립 생성 (2 는 1를 screen over)
+this.duplicateMovieClip (aaa, bbb, 1);           //  aaa 무비클립  bbb 로 복사 
+this.bbb.removeMovieClip();                      //  bbb 무비클립 삭제
+myClip._visible = true;                          //  클립 보임
+myClip._visible = false;                         //  클립 감춤
+myClip.swapDepths(100);                          //  클립 깊이 100 으로 지정 (2 는 1를 screen over)
+myClip.swapDepths(otherClip);                    //  클립 깊이 otherClip 과 바꿈
+for (i=1; i<=360; i++)  {                        //  클립 복사
+     duplicateMovieClip (ins1, "mc"+i, i);
+     setProperty ("mc"+i, _x, random(300));
+     setProperty ("mc"+i, _y, random(300));
+     setProperty ("mc"+i, _alpha, random(300));
+     setProperty ("mc"+i, _xscale, 150);
+     setProperty ("mc"+i, _yscale, 150);
+};   
+for (i=1; i<=360; i++)  {                        //  클립 복사
+     duplicateMovieClip (ins1, "mc"+i, i);
+     this["mc" + i]._x = i;
+     this["mc" + i]._y = i;
+};   
+for (i=1; i<=50; i++)  {                          // 클립 이동
+      this["mc_"+i]._x += 10;
+      this["mc_"+i]._y += 10; 
+};  
+for (i=1; i<=360; i++)  {                         // 클립 삭제
+     this["mc" + i].removeMovieClip ();
+};  
+----------------------------------------------------------------------------
+setProperty ("mv", _x, 150);           // mv 무비클립 x좌표 속성 변경 
+myMovieX = getProperty( mv, _x);       // mv 무비클립 x좌표 속성 읽기
+trace(myMovieX);
+----------------------------------------------------------------------------
+_alpha              알파값(%)
+_currentframe       현재재생중인 프레임(#)
+_droptarget         드래그 앤드드롭 할때 놓는 타깃위치(name)
+_framesloaded       로드된 프레임수(#)
+_height             높이(#)
+_name               인스턴스(string)
+_rotation           회전값(#)
+_soundbuftime       사운드버퍼링 시간(기본값 5초:#)
+_totalframes        총프레임수(#)
+_url                다운로드한 URL(string)
+_visible            보인다,안보인다 (true,false)
+_width              가로길이(#)
+_x                  x좌표(#)
+_y                  y좌표(#)
+_xmouse             마우스x좌표(#)
+_ymouse             마우스y좌표(#)
+_xscale             x배율(%)
+_yscale             y배율(%) 
+----------------------------------------------------------------------------
+_root.a.play;                    //  메인에 있는 a무비클립  프레임 재생
+_root.a.stop;                    //  메인에 있는 a무비클립  프레임 중지
+play();                          //  stop으로 정지된 현재타임라인의 프레임 재생
+stop();                          //  현재타임라인의 프레임 중지
+gotoAndPlay(1);                  //  현재 Scene의 1프레임 재생
+gotoAndPlay("a");                //  현재 Scene의 Label명 a 재생
+gotoAndPlay("Scene 2", "c");     //  Scene 2의 Label명 c 재생
+a.gotoAndPlay(1);                //  a무비클립의 1프레임 재생
+gotoAndStop(1);                  //  현재 Scene의 1프레임 중지
+nextScene();                     //  다음 장면의 프레임 1로 보내고 중지
+prevSecne();                     //  이전 장면의 프레임 1로 보내고 중지
+nextFrame();                     //  다음 프레임으로 보내고 중지
+prevFrame();                     //  이전 프레임으로 보내고 중지
+toggleHighQuality ();            //  저해상도와 고해상도 간을  전환
+updateAfterEvent();              //  화면을 갱신 (onClipEvent 핸들러 내에서만 사용) 
+                                  //  (onMouseDown,  onMouseUp,  onMouseMove) 
+----------------------------------------------------------------------------
+tellTarget ("../a") { nextFrame(); } //  ../a 무비클립을 호출후 다음 프레임 재생
+if (_framesloaded = 10) {  }         // 만약 무비의 10프레임이 로드되면 
+----------------------------------------------------------------------------
+// with 문
+for (i=0; i<1000; i++) {
+    with (aaa[i]) {
+       _x = Math.floor(Math.random() * 500);
+       _y = random(500);
+       _rotation = random(360);
+   }
+}
+// tellTarget 문 (속도빠름)
+for (i=0; i<1000; i++) {
+    tellTarget (aaa[i]) {
+       _x = Math.floor(Math.random() * 500);
+       _y = random(500);
+       _rotation = random(360);
+    }
+}
+----------------------------------------------------------------------------
+aaa = new Array();              // 배열 초기화    
+aaa = new Array("1","2","3");   // 배열값 넣기
+bbb = ["Sun","Mon","Tue"];      // 배열값 넣기
+aaa[1] = "abc";                 // 배열값 변환  ( "2" 가 "abc" 로 변환)
+aaa[0] = "Jan" ;  aaa[1] = "Feb" ;  aaa[2] = "Mar" ;         // 배열값 변환 
+aaa[3] = "Apr"                  // 배열 추가 (aaa 값은  "Jan,Feb,Mar,Apr" )
+ccc = aaa.concat(bbb);          // 배열 합침 (ccc 값은  "Jan,Feb,Mar,Apr,Sun,Mon,Tue" )
+ddd = ccc.join("/");            // ,를  /로 변환  (ddd 값은  "Jan/Feb/Mar/Apr/Sun/Mon/Tue" )
+ddd = ccc.length;               // 배열값 갯수 (ddd 값은  7 )
+ddd = ccc.slice(2,4);           // 배열값 읽기 (ddd 값은  "Mar,Apr" ) 
+eee = ccc.push("z","zz");       // 배열추가후  배열값 갯수 (eee 값은  9 ) 
+                                 //  (ccc 값은 "Jan,Feb,Mar,Apr,Sun,Mon,Tue,z,zz"   로 변함)
+eee = ccc.pop();                // 마지막 배열 분리후 값  (eee 값은  "zz" )
+                                 //  (ccc 값은  "Jan,Feb,Mar,Apr,Sun,Mon,Tue,z"   로 변함) 
+eee = ccc.shift();              // 첫번째 배열 분리후 값 (eee 값은  "Jan" )
+                                 //  (ccc 값은  "Feb,Mar,Apr,Sun,Mon,Tue,z"   로 변함) 
+eee = ccc.reverse();            // 배열값 순서바꿈 (eee 값은  "z,Tue,Mon,Sun,Apr,Mar,Feb" )
+                                 //  (ccc 값도  "z,Tue,Mon,Sun,Apr,Mar,Feb"   로 변함)
+eee = ccc.splice(2,5,"x","xx","xxx");  // 배열값 읽기후  변환  (eee 값은  "Mon,Sun,Apr,Mar,Feb" )
+                                        //  (ccc 값은  "z,Tue,x,xx,xxx"   로 변함)
+eee = ccc.unshift("1","2");     // 첫번째 배열추가후  값  (eee 값은  "7" )
+                                 //  (ccc 값은  "1,2,z,Tue,x,xx,xxx"   로 변함)
+sss = new Array(1,2,3);         // 숫자 배열값 넣기
+uuu = sss.toString();           // 문자로변환.  결과는 1,2,3
+vvv = uuu.toLowerCase();        // 대문자를  소문자로 변환.  원래 값은 변경되지 않음      
+vvv = uuu.toUpperCase();        // 소문자를  대문자로 변환.  원래 값은 변경되지 않음  
+xxx = Number("111")             //  숫자로 변환.   결과는 111
+xxx = Number("aaa")             //  숫자로 변환.   결과는 NaN 
+xxx = Number(true)              //  숫자로 변환.   결과는 1
+xxx = Number(false)             //  숫자로 변환.   결과는 0
+----------------------------------------------------------------------------
+cliparray = new Array();                     // 무비클립을 배열로 저장하기
+for (a=1; a<=3; a++)  {
+     cliparray[a] =  _root["clip"+a];
+     cliparray[a].x =  _root["clip"+a]._x;
+     cliparray[a].y =  _root["clip"+a]._y;
+     trace(cliparray[a].x);
+     trace(cliparray[a].y);
+}
+----------------------------------------------------------------------------
+myString = new String();                           // 문자 변수초기화    
+myString = new String("가나다");                   // 문자 넣기
+tet="가나다";   myString = new String(tet);        // tet  변수 넣기
+text0=myString.charAt(0);                          // text0 값은 "가"  -  1개 읽기
+text1=myString.charAt(1);                          // text1 값은 "나"  -  1개 읽기
+text2=myString.charAt(2);                          // text2 값은 "다"  -  1개 읽기
+text3=myString.concat("라마","바사","다");         // text3 값은 "가나다라마바사다"  -  추가
+text4=text3.substr(2,4);                           // text4 값은 "다라마바"  -  여러개 읽기
+text5=text3.substring(2,4);                        // text5 값은 "다라"  -  여러개 읽기
+text6=text3.slice(2,4);                            // text6 값은 "다라"  -  여러개 읽기 
+text7=myString.charCodeAt(1);                      // text7 값은  45208  - 문자를 코드화
+text8="a" + String.fromCharCode(64) + "m";         // text8 값은 "a@m"  - 코드를 문자화
+text9= text3.indexOf("다");                        // text9 값은 2  -  문자위치
+text10= text3.lastIndexOf("다");                   // text10 값은 7  -  마지막 문자위치
+text11= text3.length;                              // text11 값은 8  -  문자길이
+text12= text3.split("나");                         // text12 값은 "가,다라마바사다"  -  문자분리
+text13= text6.concat(text3);                       // text13 값은 "다라가나다라마바사다"  -  문자합침
+text14= text13.substr((text13.length-1),1);        // text14 값은 "다"  -  마지막 문자 읽기 
+sss = myDate.toString();  day = sss.substring(0,3);     // 문자로변환         
+----------------------------------------------------------------------------
+// aaa 문장을 bbb 배열로 저장하기                  // 문장을 배열로 저장하기 
+// 결과는 bbb[0]="a" bbb[1]="b" bbb[2]="c" bbb[3]="d" bbb[4]="e" 
+aaa = "a b c d e";
+aaalen = aaa.length;
+bbb = new Array();
+for (a=0; a<=aaalen; a++)  { bbb[a] = "";  };
+bbbno = 0;   bbbchr = "";
+for (a=0; a<=aaalen; a++)  { 
+if ( aaa.charAt(a) == " " ) {  bbb[bbbno] = bbbchr;   bbbno += 1;   bbbchr = "";   
+} else { bbbchr += aaa.charAt(a);   };
+};
+for (a=0; a<=bbbno; a++)  {  trace( "*" + bbb[a] + "*" )   };  
+----------------------------------------------------------------------------
+for (a=1; a<=22; a++) {                                       // 텍스트 필드 글자속성 
+        this["k"+(a)].textColor=0xff0000;
+        this["k"+(a)].border=true;
+        this["k"+(a)].borderColor=0xff0000;
+        this["k"+(a)].background=true;
+        this["k"+(a)].backgroundColor=0xffffff;
+};
+----------------------------------------------------------------------------
+TextField.removeTextField();                                   // 텍스트 필드 삭제
+----------------------------------------------------------------------------
+createTextField ("instanceName", depth, x, y, width, height)   // 텍스트 필드 생성
+      instanceName 새 텍스트 필드의 인스턴스 이름
+      depth 새 텍스트 필드의 깊이를 지정하는 양의 정수 (2 는 1를  screen over)
+      x 새 텍스트 필드의 x 좌표를 지정하는 정수
+      y 새 텍스트 필드의 y 좌표를 지정하는 정수
+      width 새 텍스트 필드의 넓이를 지정하는 양의 정수
+      height 새 텍스트 필드의 높이를 지정하는 양의 정수
+instanceName.type = "dynamic";               // 텍스트 필드의 기본 속성  (dynamic 또는 input)
+instanceName.autoSize = "false";             // (글자수에 맞게 테두리 크기 자동 조절 true false center right)
+instanceName.border = false;                 // (테두리)   
+instanceName.borderColor = 0xff0000;         // (테두리 색상)   
+instanceName.background = false;             // (배경)
+instanceName.backgroundColor=0xffffff;       // (배경 색상)
+instanceName.textColor = 0xff0000;           // (글자 색상) 
+instanceName.multiline = false;              // (한줄  또는  여러줄)
+instanceName.selectable = true;              // (텍스트 필드를 선택할 수 있는지 여부)
+instanceName.maxChars = null;                // (사용자가 입력할 수 있는 최대 문자 수) (null 이면 무한대)
+instanceName.length = 0;                     // (글자 수)
+instanceName._name = "";                     // (인스턴스 이름)
+instanceName.variable = "";                  // (변수 이름)
+instanceName.html = false;                   // (html 태그 사용 여부) 
+instanceName.htmlText = "";                  // (html 태그) 
+instanceName.wordWrap = true;                // (자동 줄바꿈 )
+instanceName._x = 0;                         // (x 좌표)
+instanceName._y = 0;                         // (y 좌표)
+instanceName._width  = 0;                    // (넓이)
+instanceName._height = 0;                    // (높이)
+instanceName._xscale = 100;                  // (넓이 조절 %)
+instanceName._yscale = 100;                  // (높이 조절 %)
+instanceName.restrict = "";                  // (입력할 수 있는 문자 세트)
+instanceName.embedFonts = false;             // (장치 글꼴 사용 여부)
+instanceName.password = false;               // (****표시)
+instanceName._visible =  true;               // (보임/안보임.  false로 설정된 텍스트 필드는 사용할 수 없음)
+instanceName.scroll = 0;                     // (현재 스크롤 수직 위치)
+instanceName.hscroll = 0;                    // (현재 스크롤 수평 위치)
+instanceName.maxscroll = 0;                  // (TextField.scroll의 최대값)
+instanceName.maxhscroll = 0;                 // (TextField.hscroll의 최대값)
+instanceName.text = "";                      // (글자) 
+
+myformat = new TextFormat();                 // 텍스트 필드의 기본 TextFormat 속성
+myformat.align = "left";                     // (단락의 정렬 )
+myformat.blockIndent  = 0;                   // (왼쪽 여백에서 블록 들여쓰기. 포인트 단위)
+myformat.indent  = 0;                        // (왼쪽 여백에서 단락 들여쓰기. 각 단락의 첫 줄에만 적용)
+myformat.bold = false;                       // (텍스트가 굵은체로 표시되는지 여부)
+myformat.bullet = false;                     // (텍스트가 불릿 목록에 있는지 여부 * 표시)
+myformat.color  = 0x000000;                  // (텍스트의 색상)
+myformat.font = "Times New Roman";           // (텍스트의 글꼴)
+myformat.italic = false;                     // (텍스트가 기울임체로 표시되는지 여부)
+myformat.leading  = 0;                       // (줄 사이의 행간 세로 간격)
+myformat.leftMargin  = 0;                    // (단락의 왼쪽 여백 포인트 단위)
+myformat.rightMargin  = 0;                   // (단락의 오른쪽 여백 포인트 단위)
+myformat.tabStops = [];                      // (사용자 정의 탭 중지를 지정 // (empty array))
+myformat.target = "";                        // (브라우저에서 하이퍼링크가 표시되는 창)
+myformat.size = 12;                          // (텍스트의 크기)
+myformat.underline = false;                  // (텍스트에 밑줄이 그어졌는지 여부)
+myformat.url = "";                           // (텍스트가 링크되는 URL)
+
+instanceName.text = "this is my test field \r aaa" + "bbb";    // 텍스트에 내용 넣기
+instanceName.setTextFormat(myformat);        //  텍스트 필드의 TextFormat  변경 
+----------------------------------------------------------------------------
+instanceName.restrict = "A-Z 0-9";           // 대문자, 공백, 숫자만 입력할 수 있음
+instanceName.restrict = "^a-z";              // 소문자를 제외한 모든 문자를 입력
+instanceName.restrict = "A-Z^Q";             // 대문자 Q를 제외한 대문자만 입력
+instanceName.restrict = "\\-"                // 마이너스 부호 (-) 만 입력
+----------------------------------------------------------------------------
+aa.html = true;                              // html 태그 사용 (b)
+aa.htmlText = " this is bold text ";
+----------------------------------------------------------------------------
+aa.html = true;                              // html 태그 사용 (table)
+aa.htmlText = "";
+aa.htmlText += " 테이블의 텍스트1  ";
+aa.htmlText += "  테이블의 텍스트2  
+";
+aa.htmlText += " 이동 하기 ";
+----------------------------------------------------------------------------
+function Func(arg){  trace ("You clicked me!  Argument was "+arg);   };  
+aa.html = true;                              // html 태그 사용 (asfunction)
+aa.htmlText = " Click ";  
+----------------------------------------------------------------------------
+on (release) {TextField.hscroll += 1; }      // 텍스트를 수평으로 스크롤
+on (release) {TextField.scroll += 1;  }      // 텍스트를 수직으로 스크롤
+x = TextField.maxscroll;                     // 총 줄수를 표시
+----------------------------------------------------------------------------
+TextField.onSetFocus = function(){           // 텍스트 입력 (텍스트필드 속성이 입력일때)
+    this.text=" input data ";                 // 마우스 클릭시 내용 자동 입력
+}; 
+----------------------------------------------------------------------------
+// aaa 와 bbb 란 두개의 텍스트 필드를 만든후 
+aaa.text="1234567890"
+Selection.setFocus("aaa");              // 텍스트 모든 문자 포커스. 문자 없으면 커서 깜박
+Selection.setSelection(2,5);            // (시작점, 끝점).  결과는 "345" 포커스
+bbb.text = Selection.getBeginInde 

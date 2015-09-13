@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="vertical">
+    <mx:Glow id="glow" duration="1000" 
+        alphaFrom="1.0" alphaTo="0.3" 
+        blurXFrom="0.0" blurXTo="50.0" 
+        blurYFrom="0.0" blurYTo="50.0" 
+        color="0x00FF00"/>
+    <mx:Glow id="unglow" duration="1000" 
+        alphaFrom="0.3" alphaTo="1.0" 
+        blurXFrom="50.0" blurXTo="0.0" 
+        blurYFrom="50.0" blurYTo="0.0" 
+        color="0x0000FF"/>	
+	<mx:Panel width="100%" height="100%" layout="vertical" title="회원가입">
+		<mx:Form width="100%" height="100%">
+			<mx:FormItem label="이름">
+				<mx:TextInput focusInEffect="glow" focusOutEffect="unglow"/>
+			</mx:FormItem>
+			<mx:FormItem label="이메일">
+				<mx:TextInput focusInEffect="glow" focusOutEffect="unglow"/>
+			</mx:FormItem>
+			<mx:FormItem label="주소">
+				<mx:TextInput focusInEffect="glow" focusOutEffect="unglow"/>
+			</mx:FormItem>
+		</mx:Form>
+	</mx:Panel>
+</mx:Application>

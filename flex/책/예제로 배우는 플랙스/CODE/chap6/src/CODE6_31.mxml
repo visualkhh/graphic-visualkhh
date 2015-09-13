@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="horizontal">
+	<mx:Panel width="100%" height="200" layout="absolute" title="No Style">
+		<mx:TextArea left="10" bottom="10" top="10" right="10">
+			<mx:htmlText>
+			<![CDATA[paddingLeft= paddingRight=]]>
+			</mx:htmlText>	
+		</mx:TextArea>
+	</mx:Panel>
+	<mx:Panel width="100%" height="200" layout="absolute" title="Style">
+		<mx:TextArea left="10" right="10" bottom="10" top="10" paddingLeft="20" paddingRight="20">
+			<mx:htmlText>
+			<![CDATA[paddingLeft="20" paddingRight="20"]]>
+			</mx:htmlText>
+		</mx:TextArea>
+	</mx:Panel>	
+</mx:Application>

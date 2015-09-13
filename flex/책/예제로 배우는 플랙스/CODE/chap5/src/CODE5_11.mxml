@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="vertical">
+	<mx:Script>
+		<![CDATA[
+			private function checkOperator():void {
+				// [] : Array 원소를 한 번에 초기화 
+				var myArr:Array = ["a", "b", "c"];
+				for (var i:int=0; i<myArr.length; i++) {
+				    ta.text += 'myArr[' + i + ']: ' + myArr[i] + '\n';
+				}
+				// [] : Array 초기화후 개별 원소값 세팅 
+				var myArr2:Array = new Array();
+				myArr2[0] = "A", myArr2[1] = "B", myArr2[2] = "C";		
+				var j:int = 0;
+				for each (var elm:* in myArr2) {
+					ta.text += 'myArr2[' + j + ']: ' + elm + '\n';
+					j++;
+				}			
+				// {x:y}식 연산자로써  Object 초기화 
+				var myObj:Object = {name:'gosu', address:'Seoul', program:'flex' };	
+				for (var k:String in myObj) {
+				    ta.text += 'myObj[' + k + "]: " + myObj[k] + '\n';
+				}
+			}
+		]]>
+	</mx:Script>
+    <mx:Button label="checkOperator" click="checkOperator()"/>
+    <mx:TextArea id="ta" width="100%" height="100%"/>		
+</mx:Application>

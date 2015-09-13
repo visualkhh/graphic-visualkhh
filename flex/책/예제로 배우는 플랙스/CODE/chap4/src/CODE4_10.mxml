@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="vertical">
+<!-- List와 DataGrid에서 사용할 데이터 선언 -->
+    <mx:ArrayCollection id="myAC">
+        <mx:source> <!-- <mx:source> 태그는 빼도 상관없다 -->
+            <mx:Object label="한국" data="1"/>
+            <mx:Object label="미국" data="2"/>
+            <mx:Object label="일본" data="3"/>
+        </mx:source> <!-- <mx:source> 태그는 빼도 상관없다 -->
+    </mx:ArrayCollection>
+	<!-- List와 DataGrid의 dataProvider 속성으로 myAC를 설정함 -->
+    <mx:List dataProvider="{myAC}" width="282"/> 
+    <!-- DataGrid는 editable속성을 true로 하여 셀을 클릭하면 편집되도록 함 -->
+    <mx:DataGrid dataProvider="{myAC}"  editable="true" /> 
+</mx:Application>

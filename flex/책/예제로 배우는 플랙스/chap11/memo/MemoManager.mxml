@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" 
+	backgroundGradientColors="[#f7f794, #adb2ce]"
+	creationComplete="listData()">
+	<mx:Style>
+		global {
+		font-size:11;
+		}
+	</mx:Style>
+   <mx:Script>
+   <![CDATA[
+   		import mx.controls.Alert; // Alert 경고창 생성 
+	   	import mx.rpc.events.FaultEvent; // HTTPService 호출 실패시 이벤트 
+	   	import mx.rpc.events.ResultEvent;// HTTPService 호출 성공시 이벤트
+        import mx.events.ListEvent; // DataGrid 관련 이벤트
+		/* JSP로 넘겨줄  데이터 구조를 정의하는 dataObj는 데이터 바인딩이 가능하도록  [Bindable]로 선언 */
+		[Bindable]private var dataObj:Object = {memo_id:"", user_name:"", user_memo:"", memo_date:""};
+        /* 클릭한 데이터 그리드의 값의 인덱스 저장 */
+        private var dataGridCursorIndex:int=0;//데이터 그리드의 인덱스
+        private function itemClickEvent(event:ListEvent):void {
+            dataGridCursorIndex = event.target.selectedIndex;
+            /* 폼값에 클릭한 데이터 값 세팅 */
+            if(dataGridCursorIndex != -1) {
+            txt_memo_id.text = event.currentTarget.selectedItem.memo_id;
+            txt_user_name.text = event.currentTarget.selectedItem.user_name;
+            txt_user_memo.text = event.currentTarget.selectedItem.user_memo;                 
+            }
+        }  
+        /* 폼값을 리셋 */
+        private function resetForm():void {
+            txt_memo_id.text = '';
+            txt_user_name.text = '';
+            txt_user_memo.text = '';
+        }        
+        /* 변경한 데이터 그리드의 값의 인덱스 저장 */        
+        private function changeEvent(event:Event):void{
+        	dataGridCursorIndex = event.target.selectedIndex;
+        }
+        /* 현재 작업중인 데이터 그리드의 값을 dataObj에 저장 */        
+		private function captureData():void {
+            dataObj.memo_id = dataAC[dataGridCursorIndex].memo_id;
+            dataObj.user_name = dataAC[dataGridCursorIndex].user_name;
+            dataObj.user_memo = dataAC[dataGridCursorIndex].user_memo;
+            dataObj.memo_date = dataAC[dataGridCursorIndex].memo_date;			
+		}
+		/* 조회 */
+        public function listData():void {
+        	listHTTPSvc.url = "http://localhost:8700/flex/Flex2Book/chap11/memo/memo_xml_list.jsp";
+        	listHTTPSvc.addEventListener("result", listResultHandler);
+        	listHTTPSvc.send();
+        	resetForm();
+        }
+        /* 등록 */
+        private function registerData():void {
+            dataObj.memo_id = txt_memo_id.text;
+            dataObj.user_name = txt_user_name.text;                        
+            dataObj.user_memo = txt_user_memo.text;                
+        	updateHTTPSvc.url = "http://localhost:8700/flex/Flex2Book/chap11/memo/memo_xml_register.jsp";        	
+        	updateHTTPSvc.send(dataObj);
+        }     
+        /* 수정 */
+        private function updateData():void {
+            captureData();//현재  데이터를 캡쳐해서 DataObj에 세팅 
+        	updateHTTPSvc.url = "http://localhost:8700/flex/Flex2Book/chap11/memo/memo_xml_update.jsp";        	
+        	updateHTTPSvc.send(dataObj);
+        }     
+        /* 삭제 */
+        private function deleteData():void {
+            captureData();//현재  데이터를 캡쳐해서 DataObj에 세팅         	
+        	updateHTTPSvc.url = "http://localhost:8700/flex/Flex2Book/chap11/memo/memo_xml_delete.jsp";        	
+        	updateHTTPSvc.send(dataObj);
+        }
+        /* 팝업 등록 */
+        private function popupRegisterData():void {
+        	showMemoRegWindow(MemoRegisterPop);
+        }     
+        /* 등록에 사용하는 TitleWindow 관리 */
+   		import sub.*;
+        import mx.managers.PopUpManager;
+        import mx.containers.TitleWindow;
+        private function showMemoRegWindow(obj:*):void {
+            var popWin:TitleWindow=TitleWindow(PopUpManager.createPopUp( this, obj , true));
+            PopUpManager.centerPopUp(popWin);
+        }           
+        /* 조회 결과 처리 */
+        private function listResultHandler(event:ResultEvent):void {
+        	var err_code:uint = event.result.result_set.result_meta.err_code;
+        	var proc_cnt:uint = event.result.result_set.result_meta.proc_cnt;        	
+        	if(err_code == 0) {
+	        	mx.controls.Alert.show("처리중 에러가 발생했습니다. : " + event.result.result_set.result_meta.message, "에러 발생");        		
+        	} else {
+        		if(proc_cnt == 0) {
+	        		mx.controls.Alert.show("처리된 데이터가 없습니다.", "처리 결과");        		        			
+        		} else {
+        			dataAC = event.result.result_set.record;     		        		
+		        }
+        	}
+        }
+        /* 수정, 삭제  결과 처리 */
+        private function updateResultHandler(event:ResultEvent):void {
+        	var err_code:uint = event.result.result_set.result_meta.err_code;
+        	var proc_cnt:uint = event.result.result_set.result_meta.proc_cnt;        	
+        	if(err_code == 0) {
+	        	mx.controls.Alert.show("처리중 에러가 발생했습니다. : " + event.result.result_set.result_meta.message, "에러 발생");        		
+        	} else {
+        		if(proc_cnt == 0) {
+	        		mx.controls.Alert.show("처리된 데이터가 없습니다.", "처리 결과");  
+        		} else {	        	
+	        		mx.controls.Alert.show("처리 되었습니다.", "처리 결과");  	  
+	        		listData();      	
+		        }
+        	}
+        }   
+        /* 수정, 삭제  실패시 결과 처리 */             
+        private function faultHandler(event:FaultEvent):void {
+        	mx.controls.Alert.show(event.fault.faultString, 'Error');
+        }
+    ]]>
+   </mx:Script>
+    <mx:HTTPService id="listHTTPSvc" useProxy="false" showBusyCursor="true" result="listResultHandler(event)" fault="faultHandler(event)"/>
+    <mx:HTTPService id="updateHTTPSvc" useProxy="false" showBusyCursor="true" result="updateResultHandler(event)" fault="faultHandler(event)"/>
+    <mx:ArrayCollection id="dataAC"/>
+    <mx:Panel title="메모 처리 예제" width="100%" height="100%" layout="vertical">
+        <mx:DataGrid id="dg" dataProvider="{dataAC}" width="100%" height="100%" 
+        	change="changeEvent(event)"
+        	editable="true" itemClick="itemClickEvent(event);">
+            <mx:columns>
+                <mx:DataGridColumn dataField="flag" headerText="flag" editable="false" visible="false"/>
+                <mx:DataGridColumn dataField="memo_id" headerText="ID" editable="false" visible="false"/>
+                <mx:DataGridColumn dataField="user_name" headerText="Memo 작성자"/>
+                <mx:DataGridColumn dataField="user_memo" headerText="Memo 내용"/>
+                <mx:DataGridColumn dataField="memo_date" headerText="Memo 입력일자"/>                
+            </mx:columns>
+        </mx:DataGrid>   
+	    <mx:Form width="100%" height="111">
+	        <mx:FormItem label="Memo ID" required="true">
+	            <mx:TextInput id="txt_memo_id"/>
+	        </mx:FormItem>
+	        <mx:FormItem label="Memo 작성자" required="true">
+	            <mx:TextInput id="txt_user_name"/>
+	        </mx:FormItem>
+	        <mx:FormItem label="Memo 내용">
+	            <mx:TextInput id="txt_user_memo"/>
+	        </mx:FormItem>
+	    </mx:Form>	        
+        <mx:ControlBar horizontalAlign="center">
+            <mx:Button label="조회" click="listData()"/>
+            <mx:Button label="등록" click="registerData()"/>
+            <mx:Button label="팝업등록" click="popupRegisterData()"/>
+            <mx:Button label="삭제" click="deleteData()"/>            
+            <mx:Button label="수정" click="updateData()"/>                
+        </mx:ControlBar>
+    </mx:Panel>
+</mx:Application>

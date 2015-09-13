@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Panel xmlns:mx="http://www.adobe.com/2006/mxml" layout="vertical" styleName="DayBox" 
+	mouseOver="over(event)" mouseOut="out(event)" click="setSchedule(event)"
+	width="100%" height="100%">
+<mx:Style>
+	.DayBox {
+		corner-radius:0;
+		border-thickness:1;
+		drop-shadow-enabled:false;
+		border-style:solid;
+		border-color:#c0c0c0;
+		font-size:11;
+	}	
+</mx:Style>	
+<mx:Script>
+	<![CDATA[
+		[Bindable]
+		public var thisYear:uint;
+		[Bindable]
+		public var thisMonth:uint;
+		[Bindable]
+		public var thisDay:uint;
+		private function setSchedule(event:Event):void {
+			event.currentTarget.setStyle("borderColor", "#FF00FF");
+			this.parentDocument.selectedDate.text = thisYear + "년" + thisMonth + "월" + thisDay + "일";
+		}		
+		/* Panel 위에 마우스를 가져오면 스타일을 바꾸어 줌 */
+		private function over(event:MouseEvent):void {
+			event.currentTarget.setStyle("dropShadowEnabled", true);
+			event.currentTarget.setStyle("borderThickness", 2);
+			event.currentTarget.setStyle("borderColor", "#00FF00");
+		}	
+		/* Panel 위에 마우스를 가져오면 스타일을 원래대로 돌려줌 */		
+		private function out(event:MouseEvent):void {
+			event.currentTarget.setStyle("dropShadowEnabled", false);
+			event.currentTarget.setStyle("borderThickness", 1);
+			event.currentTarget.setStyle("borderColor", "#c0c0c0");
+		}			
+	]]>
+</mx:Script>
+</mx:Panel>

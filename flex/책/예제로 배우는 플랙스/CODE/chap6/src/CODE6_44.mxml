@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" >
+  <mx:Script><![CDATA[
+  	import mx.controls.Alert; 
+    private function init():void {
+		btn1.setStyle('color', 'blue');
+		mx.controls.Alert.show('fontSytle : ' + btn1.getStyle('fontStyle'));
+    }
+  ]]></mx:Script>
+  <mx:Button id="btn1" label="Button 1" click="init()"/> 
+  <mx:Button id="btn2" label="Button 2" /> 
+</mx:Application>

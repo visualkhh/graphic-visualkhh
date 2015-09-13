@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" fontSize="11" backgroundGradientColors="[#f7f794, #adb2ce]"
+	initialize="initShortKey()" layout="absolute">
+    <mx:Script><![CDATA[
+    	import mx.controls.Alert;
+    	// Application 이 초기화되면 TextArea에 keyDown 이벤트 리스너를 달아 준다.
+    	private function initShortKey():void {
+            application.addEventListener(KeyboardEvent.KEY_DOWN,keyHandler);
+            ta.setFocus();
+    	}
+        private function keyHandler(event:KeyboardEvent):void {
+            if (event.ctrlKey) {
+                var curKeyCode:int = event.keyCode;
+	           	var urlRQ:URLRequest = new URLRequest();
+                if (curKeyCode == 65 || curKeyCode == 97) { // Ctrl + A
+                    urlRQ.url = "http://okgosu.net";
+                    navigateToURL(urlRQ,"_new");                        
+                } else if (curKeyCode == 66 || curKeyCode == 98) { // Ctrl + B
+                    urlRQ.url = "http://www.acornpub.co.kr";
+                    navigateToURL(urlRQ,"_new");                        
+                } else if (curKeyCode == 67 || curKeyCode == 99) { // Ctrl + C
+                    urlRQ.url = "http://www.adobe.co.kr";
+                    navigateToURL(urlRQ,"_new");                        
+                }
+            }
+        }
+    ]]></mx:Script>
+    <mx:Panel title="단축키 테스트" width="574" layout="absolute" height="471" x="37" y="24">
+        <mx:Button x="97" y="22" label="Ctrl + A : http://okgosu.net " cornerRadius="0" width="360"/>
+        <mx:Button x="97" y="63" label="Ctrl +B : http://www.acornpub.co.kr" cornerRadius="0" width="360"/>
+        <mx:Button x="97" y="102" label="Ctrl + C : http://www.adobe.co.kr" cornerRadius="0" width="360"/>
+        <mx:ControlBar>
+        </mx:ControlBar>
+    </mx:Panel>
+    <mx:TextArea id="ta" x="0" y="0" width="100%" height="100%" alpha="0" visible="false"/>
+</mx:Application>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="horizontal">
+	<mx:VBox width="100%" height="100%" backgroundColor="#efae63" verticalAlign="top" horizontalAlign="left">
+		<mx:Button label="top, left"/>
+	</mx:VBox>
+	<mx:VBox width="100%" height="100%" backgroundColor="#c6db94" horizontalAlign="center" verticalAlign="middle">
+		<mx:Button label="center, middle"/>
+	</mx:VBox>
+	<mx:VBox width="100%" height="100%" backgroundColor="#adb2ce" horizontalAlign="right" verticalAlign="bottom">
+		<mx:Button label="right, bottom"/>	
+	</mx:VBox>
+</mx:Application>

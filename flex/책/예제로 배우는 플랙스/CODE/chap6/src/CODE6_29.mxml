@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="horizontal" backgroundGradientColors="[#f7f794, #adb2ce]">
+	<mx:Style>
+		@font-face {
+		    src:url("font/-윤고딕350.ttf");
+		    fontFamily:"-윤고딕350";
+		    fontStyle:normal; 
+		    fontWeight:normal; 
+		}
+		.myStyle {
+		    fontFamily:"-윤고딕350";
+		    fontWeight:normal;
+		}
+	</mx:Style>
+	<mx:Panel width="250" height="200" layout="absolute" title="내장 폰트 적용 예"
+		fontFamily="궁서체" fontStyle="normal" fontSize="12" color="#ff0000" fontWeight="bold">
+		<mx:TextArea height="103" horizontalCenter="0" verticalCenter="0">
+			<mx:htmlText>
+			<![CDATA[color="#ff0000"
+fontWeight="bold"
+fontSize="12"
+fontFamily="궁서체"
+fontStyle="normal"]]>
+			</mx:htmlText>
+		</mx:TextArea>
+	</mx:Panel>
+	<mx:Panel width="250" height="200" layout="absolute" title="외장 폰트 적용 예" styleName="myStyle">
+		<mx:TextArea height="103" horizontalCenter="0" verticalCenter="0">
+			<mx:htmlText>
+			<![CDATA[color="#ff0000"
+fontWeight="normal"
+fontSize="12"
+fontFamily="-윤고딕350"
+fontStyle="normal"]]>
+			</mx:htmlText>
+		</mx:TextArea>
+	</mx:Panel>	
+</mx:Application>

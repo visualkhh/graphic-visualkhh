@@ -1,0 +1,232 @@
+<?xml version="1.0"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml"
+        creationComplete="creationCompleteHandler();"  backgroundGradientColors="[#f7f794, #adb2ce]">
+
+    <mx:Script>
+      <![CDATA[
+        import mx.rpc.AsyncResponder;
+        import mx.rpc.AsyncToken;
+        import mx.olap.OLAPQuery;
+        import mx.olap.OLAPSet;
+        import mx.olap.IOLAPQuery;
+        import mx.olap.IOLAPQueryAxis;
+        import mx.olap.IOLAPCube;
+        import mx.olap.OLAPResult;
+        import mx.events.CubeEvent;
+        import mx.controls.Alert;
+        import mx.collections.ArrayCollection;
+        
+        [Bindable]
+        private var flatData:ArrayCollection = new ArrayCollection(
+        [
+		{customer:"AAA", product:"TV", year:2007, quarter:"1분기", revenue:210, cost:25},
+		{customer:"AAA", product:"에어컨", year:2007, quarter:"2분기", revenue:210, cost:25},
+		{customer:"AAA", product:"PC", year:2007, quarter:"3분기", revenue:250, cost:125},
+		{customer:"AAA", product:"세탁기", year:2007, quarter:"4분기", revenue:430, cost:75},
+
+		{customer:"BBB", product:"TV", year:2007, quarter:"2분기", revenue:125, cost:20},
+		{customer:"BBB", product:"에어컨", year:2007, quarter:"3분기", revenue:210, cost:20},
+		{customer:"BBB", product:"PC", year:2007, quarter:"4분기", revenue:320, cost:120},
+		{customer:"BBB", product:"세탁기", year:2007, quarter:"1분기", revenue:280, cost:70},
+
+		{customer:"CCC", product:"TV", year:2007, quarter:"3분기", revenue:375, cost:120},
+		{customer:"CCC", product:"에어컨", year:2007, quarter:"4분기", revenue:430, cost:120},
+		{customer:"CCC", product:"PC", year:2007, quarter:"1분기", revenue:470, cost:220},
+		{customer:"CCC", product:"세탁기", year:2007, quarter:"2분기", revenue:570, cost:170},
+
+		{customer:"AAA", product:"TV", year:2007, quarter:"4분기", revenue:215, cost:90},
+		{customer:"AAA", product:"에어컨", year:2007, quarter:"1분기", revenue:210, cost:90},
+		{customer:"AAA", product:"PC", year:2007, quarter:"2분기", revenue:175, cost:190},
+		{customer:"AAA", product:"세탁기", year:2007, quarter:"3분기", revenue:670, cost:75},
+
+		{customer:"BBB", product:"TV", year:2007, quarter:"1분기", revenue:175, cost:20},
+		{customer:"BBB", product:"에어컨", year:2007, quarter:"2분기", revenue:210, cost:20},
+		{customer:"BBB", product:"PC",year:2007, quarter:"3분기", revenue:120, cost:120},
+		{customer:"BBB", product:"세탁기", year:2007, quarter:"4분기", revenue:310, cost:70},
+
+		{customer:"CCC", product:"TV", year:2007, quarter:"1분기", revenue:385, cost:120},
+		{customer:"CCC", product:"에어컨", year:2007, quarter:"2분기", revenue:340, cost:120},
+		{customer:"CCC", product:"PC", year:2007, quarter:"3분기", revenue:470, cost:220},
+		{customer:"CCC", product:"세탁기", year:2007, quarter:"4분기", revenue:270, cost:170},
+
+		{customer:"AAA", product:"TV", year:2007, quarter:"1분기", revenue:100, cost:25},
+		{customer:"AAA", product:"에어컨", year:2007, quarter:"2분기", revenue:150, cost:25},
+		{customer:"AAA", product:"PC", year:2007, quarter:"3분기", revenue:200, cost:125},
+		{customer:"AAA", product:"세탁기", year:2007, quarter:"4분기", revenue:300, cost:75},
+
+		{customer:"BBB", product:"TV", year:2007, quarter:"2분기", revenue:175, cost:20},
+		{customer:"BBB", product:"에어컨", year:2007, quarter:"3분기", revenue:100, cost:20},
+		{customer:"BBB", product:"PC", year:2007, quarter:"4분기", revenue:270, cost:120},
+		{customer:"BBB", product:"세탁기", year:2007, quarter:"1분기", revenue:370, cost:70},
+
+		{customer:"CCC", product:"TV", year:2007, quarter:"3분기", revenue:410, cost:120},
+		{customer:"CCC", product:"에어컨", year:2007, quarter:"4분기", revenue:300, cost:320},
+		{customer:"CCC", product:"PC", year:2007, quarter:"1분기", revenue:510, cost:220},
+		{customer:"CCC", product:"세탁기", year:2007, quarter:"2분기", revenue:620, cost:170},
+
+		{customer:"AAA", product:"TV", year:2007, quarter:"4분기", revenue:215, cost:90},
+		{customer:"AAA", product:"에어컨", year:2007, quarter:"1분기", revenue:210, cost:90},
+		{customer:"AAA", product:"PC", year:2007, quarter:"2분기", revenue:175, cost:190},
+		{customer:"AAA", product:"세탁기", year:2007, quarter:"3분기", revenue:420, cost:75},
+
+		{customer:"BBB", product:"TV", year:2007, quarter:"1분기", revenue:240, cost:20},
+		{customer:"BBB", product:"에어컨", year:2007, quarter:"2분기", revenue:100, cost:20},
+		{customer:"BBB", product:"PC", year:2007, quarter:"3분기", revenue:270, cost:120},
+		{customer:"BBB", product:"세탁기", year:2007, quarter:"4분기", revenue:370, cost:70},
+
+		{customer:"CCC", product:"TV", year:2007, quarter:"1분기", revenue:375, cost:120},
+		{customer:"CCC", product:"에어컨", year:2007, quarter:"2분기", revenue:420, cost:120},
+		{customer:"CCC", product:"PC", year:2007, quarter:"3분기", revenue:680, cost:220},
+		{customer:"CCC", product:"세탁기", year:2007, quarter:"4분기", revenue:570, cost:170},
+
+		{customer:"AAA", product:"TV", year:2008, quarter:"1분기", revenue:210, cost:25},
+		{customer:"AAA", product:"에어컨", year:2008, quarter:"2분기", revenue:210, cost:25},
+		{customer:"AAA", product:"PC", year:2008, quarter:"3분기", revenue:250, cost:125},
+		{customer:"AAA", product:"세탁기", year:2008, quarter:"4분기", revenue:430, cost:75},
+
+		{customer:"BBB", product:"TV", year:2008, quarter:"2분기", revenue:125, cost:20},
+		{customer:"BBB", product:"에어컨", year:2008, quarter:"3분기", revenue:210, cost:20},
+		{customer:"BBB", product:"PC", year:2008, quarter:"4분기", revenue:320, cost:120},
+		{customer:"BBB", product:"세탁기", year:2008, quarter:"1분기", revenue:280, cost:70},
+
+		{customer:"CCC", product:"TV", year:2008, quarter:"3분기", revenue:375, cost:120},
+		{customer:"CCC", product:"에어컨", year:2008, quarter:"4분기", revenue:430, cost:120},
+		{customer:"CCC", product:"PC", year:2008, quarter:"1분기", revenue:470, cost:220},
+		{customer:"CCC", product:"세탁기", year:2008, quarter:"2분기", revenue:570, cost:170},
+
+		{customer:"AAA", product:"TV", year:2008, quarter:"4분기", revenue:215, cost:90},
+		{customer:"AAA", product:"에어컨", year:2008, quarter:"1분기", revenue:210, cost:90},
+		{customer:"AAA", product:"PC", year:2008, quarter:"2분기", revenue:175, cost:190},
+		{customer:"AAA", product:"세탁기", year:2008, quarter:"3분기", revenue:670, cost:75},
+
+		{customer:"BBB", product:"TV", year:2008, quarter:"1분기", revenue:175, cost:20},
+		{customer:"BBB", product:"에어컨", year:2008, quarter:"2분기", revenue:210, cost:20},
+		{customer:"BBB", product:"PC",year:2008, quarter:"3분기", revenue:120, cost:120},
+		{customer:"BBB", product:"세탁기", year:2008, quarter:"4분기", revenue:310, cost:70},
+
+		{customer:"CCC", product:"TV", year:2008, quarter:"1분기", revenue:385, cost:120},
+		{customer:"CCC", product:"에어컨", year:2008, quarter:"2분기", revenue:340, cost:120},
+		{customer:"CCC", product:"PC", year:2008, quarter:"3분기", revenue:470, cost:220},
+		{customer:"CCC", product:"세탁기", year:2008, quarter:"4분기", revenue:270, cost:170},
+
+		{customer:"AAA", product:"TV", year:2008, quarter:"1분기", revenue:100, cost:25},
+		{customer:"AAA", product:"에어컨", year:2008, quarter:"2분기", revenue:150, cost:25},
+		{customer:"AAA", product:"PC", year:2008, quarter:"3분기", revenue:200, cost:125},
+		{customer:"AAA", product:"세탁기", year:2008, quarter:"4분기", revenue:300, cost:75},
+
+		{customer:"BBB", product:"TV", year:2008, quarter:"2분기", revenue:175, cost:20},
+		{customer:"BBB", product:"에어컨", year:2008, quarter:"3분기", revenue:100, cost:20},
+		{customer:"BBB", product:"PC", year:2008, quarter:"4분기", revenue:270, cost:120},
+		{customer:"BBB", product:"세탁기", year:2008, quarter:"1분기", revenue:370, cost:70},
+
+		{customer:"CCC", product:"TV", year:2008, quarter:"3분기", revenue:410, cost:120},
+		{customer:"CCC", product:"에어컨", year:2008, quarter:"4분기", revenue:300, cost:320},
+		{customer:"CCC", product:"PC", year:2008, quarter:"1분기", revenue:510, cost:220},
+		{customer:"CCC", product:"세탁기", year:2008, quarter:"2분기", revenue:620, cost:170},
+
+		{customer:"AAA", product:"TV", year:2008, quarter:"4분기", revenue:215, cost:90},
+		{customer:"AAA", product:"에어컨", year:2008, quarter:"1분기", revenue:210, cost:90},
+		{customer:"AAA", product:"PC", year:2008, quarter:"2분기", revenue:175, cost:190},
+		{customer:"AAA", product:"세탁기", year:2008, quarter:"3분기", revenue:420, cost:75},
+
+		{customer:"BBB", product:"TV", year:2008, quarter:"1분기", revenue:240, cost:20},
+		{customer:"BBB", product:"에어컨", year:2008, quarter:"2분기", revenue:100, cost:20},
+		{customer:"BBB", product:"PC", year:2008, quarter:"3분기", revenue:270, cost:120},
+		{customer:"BBB", product:"세탁기", year:2008, quarter:"4분기", revenue:370, cost:70},
+
+		{customer:"CCC", product:"TV", year:2008, quarter:"1분기", revenue:375, cost:120},
+		{customer:"CCC", product:"에어컨", year:2008, quarter:"2분기", revenue:420, cost:120},
+		{customer:"CCC", product:"PC", year:2008, quarter:"3분기", revenue:680, cost:220},
+		{customer:"CCC", product:"세탁기", year:2008, quarter:"4분기", revenue:570, cost:170}    			              
+        ]);
+    
+        private function creationCompleteHandler():void {
+            myMXMLCube.refresh();
+        }
+
+        private function getQuery(cube:IOLAPCube):IOLAPQuery {
+            var query:OLAPQuery = new OLAPQuery;
+            var rowQueryAxis:IOLAPQueryAxis = 
+                query.getAxis(OLAPQuery.ROW_AXIS);
+            var productSet:OLAPSet = new OLAPSet;
+            productSet.addElements(cube.findDimension("ProductDim").findAttribute("Product").children);
+            rowQueryAxis.addSet(productSet);
+            var colQueryAxis:IOLAPQueryAxis = 
+                query.getAxis(OLAPQuery.COLUMN_AXIS);         
+    var yearSet:OLAPSet= new OLAPSet;
+    yearSet.addElements(
+        cube.findDimension("TimeDim").findAttribute("Year").children);
+    var quarterSet:OLAPSet= new OLAPSet;
+    quarterSet.addElements(
+        cube.findDimension("TimeDim").findAttribute("Quarter").members);
+    colQueryAxis.addSet(yearSet.crossJoin(quarterSet));
+            
+            return query;       
+        }
+
+        private function runQuery(event:CubeEvent):void {
+            var cube:IOLAPCube = IOLAPCube(event.currentTarget);
+            var query:IOLAPQuery = getQuery(cube);
+            var token:AsyncToken = cube.execute(query);
+            token.addResponder(new AsyncResponder(showResult, showFault));
+        }
+
+        private function showFault(result:Object, token:Object):void {
+            Alert.show("Error in query.");
+        }
+        private function showResult(result:Object, token:Object):void {
+            if (!result) {
+                Alert.show("No results from query.");
+                return;
+            }
+            myOLAPDG.dataProvider= result as OLAPResult;         
+            trace('x');   
+        }        
+        
+        private function go():void {
+        	trace('xxx');
+        	
+        }
+      ]]>
+    </mx:Script>
+
+    <mx:OLAPCube name="FlatSchemaCube" 
+        dataProvider="{flatData}" 
+        id="myMXMLCube"
+        complete="runQuery(event);">
+         
+        <mx:OLAPDimension name="CustomerDim">
+            <mx:OLAPAttribute name="Customer" dataField="customer"/>
+            <mx:OLAPHierarchy name="CustomerHier" hasAll="true">
+                <mx:OLAPLevel attributeName="Customer"/>
+            </mx:OLAPHierarchy>
+        </mx:OLAPDimension>
+        
+        <mx:OLAPDimension name="ProductDim">
+            <mx:OLAPAttribute name="Product" dataField="product"/>
+            <mx:OLAPHierarchy name="ProductHier" hasAll="true">
+                <mx:OLAPLevel attributeName="Product"/>
+            </mx:OLAPHierarchy>
+        </mx:OLAPDimension>
+		<mx:OLAPDimension name="TimeDim">
+			<mx:OLAPAttribute displayName="년도별" name="Year" dataField="year"/>
+			<mx:OLAPAttribute displayName="분기별" name="Quarter" dataField="quarter"/>
+			<mx:OLAPHierarchy name="Time-PeriodHier" hasAll="true">
+				<mx:OLAPLevel displayName="년도" attributeName="Year"/>
+				<mx:OLAPLevel attributeName="Quarter"/>
+			</mx:OLAPHierarchy> 
+		</mx:OLAPDimension>
+
+        
+        <mx:OLAPMeasure name="Revenue" 
+            dataField="revenue" 
+            aggregator="SUM"/>
+    </mx:OLAPCube>
+    
+    <mx:Panel title="OLAP Cube 예제"
+        height="75%" width="75%" layout="horizontal"
+        paddingTop="10" paddingBottom="10" paddingLeft="10" paddingRight="10" fontSize="12">
+
+        <mx:OLAPDataGrid id="myOLAPDG" click="go()" width="100%" height="100%"/>
+    </mx:Panel>
+</mx:Application>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="vertical"  
+	fontSize="11" backgroundGradientColors="[#f7f794, #adb2ce]"
+	creationComplete="curPos=flexImage.x">
+    <mx:Script>
+      <![CDATA[
+        // VSlider의 썸을  움직일 때 이미지의 크기(scale)을 바꿔 준다.
+		private function redrawImage():void {
+			flexImage.scaleX = slider1.values[0];
+			flexImage.scaleY = slider1.values[0];
+		}      
+		// HSlider의 썸을 움직일 때 이미지의 알파값을 바꿔 준다.
+		private function redrawAlpha():void {
+			flexImage.alpha = slider2.values[0]/100;
+		}   
+		// 이미지의 현재 위치를 저장한다.
+		private var curPos:int;
+      ]]>
+    </mx:Script>  
+	<mx:Panel title="VSlider / HSlider / NumericStepper " width="600" height="400" 
+		paddingTop="10" paddingBottom="10" paddingLeft="10" paddingRight="10"
+		horizontalAlign="left" 	fontSize="12" layout="absolute">
+		<mx:Image id="flexImage" source="flex.png" x="114" y="10"/>
+	    <!-- 이미지의 크기를 조절하는 VSlider -->
+	    <mx:VSlider id="slider1"
+	        thumbCount="1"
+	        minimum="0"
+	        maximum="2"
+	        labels="[0배, 0.5배, 1배, 1.5배, 2배]"
+	        values="[1]"
+	        tickInterval="0.5"
+	        snapInterval="0.5"
+	        liveDragging="false"
+			change="redrawImage()"
+			 x="20" y="10" height="191"/>			
+       <mx:Label text="크기 조절 : {slider1.value}배" x="10" y="209"/>
+	    <!-- 이미지의 알파값을 조절하는 HSlider -->	       
+       <mx:HSlider id="slider2"
+	        width="352"
+	        thumbCount="1"
+	        minimum="0"
+	        maximum="100"
+	        labels="[0,100]"
+	        values="[100]"
+	        tickInterval="5"
+	        snapInterval="1"
+	        liveDragging="true"
+			change="redrawAlpha()"
+			 x="114" y="163"/>
+       <mx:Label text="투명도 조절 : {slider2.value} %" x="208" y="209"/>
+       <mx:HBox x="114" y="248">
+       	   <mx:Label text="이미지 좌우 위치 조절"/>
+       	   <!-- NumericStepper의 값이 바뀔 때 마다 현재 위치에서 바뀐 위치만큼 좌표를 이동 -->
+	       <mx:NumericStepper id="ns" minimum="-5" maximum="5" 
+	       	 change="flexImage.x = curPos + ns.value"/> 	       	
+       </mx:HBox>
+	</mx:Panel> 
+</mx:Application>

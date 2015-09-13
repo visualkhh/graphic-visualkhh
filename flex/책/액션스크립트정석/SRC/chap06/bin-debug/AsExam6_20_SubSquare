@@ -1,0 +1,28 @@
+package {
+	import flash.display.Sprite;
+	import flash.events.Event;
+	import flash.events.MouseEvent;
+	
+	public class OkGosuSquare3 extends Sprite {
+	    private var sideLen:int;
+	
+	    public function OkGosuSquare3(pLength:int) {
+	        this.sideLen = pLength;
+	        this.x = this.y = 25;
+	        this.buttonMode = true;
+	        this.addEventListener(MouseEvent.CLICK, clickHandler);
+	        draw();
+	    }
+	    
+	    private function draw():void {
+	    	this.graphics.clear();
+	    	this.graphics.lineStyle(.5, 0xFFFFFF, .8);
+	        this.graphics.beginFill(Math.floor(Math.random() * 0x1000000));
+	        this.graphics.drawRect(0, 0, sideLen, sideLen);	   
+	    }
+	    
+	    private function clickHandler(e:Event):void {
+			this.rotation += 15;
+	    }
+	}	
+}

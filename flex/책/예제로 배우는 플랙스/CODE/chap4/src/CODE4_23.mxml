@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" backgroundGradientColors="[#f7f794, #adb2ce]">
+  <mx:Script><![CDATA[
+     import mx.collections.ArrayCollection;
+     [Bindable] public var SMITH:ArrayCollection = new ArrayCollection([
+        {date:"2005년", close:42}, {date:"2006년", close:45},
+        {date:"2007년", close:48}, {date:"2008년", close:45} ]);
+     [Bindable] public var DECKER:ArrayCollection = new ArrayCollection([
+        {date:"2005년", close:152}, {date:"2006년", close:154},
+        {date:"2007년", close:165}, {date:"2008년", close:159} ]);
+   ]]></mx:Script>
+  <mx:Panel title="멀티축 차트" fontSize="14">
+     <mx:ColumnChart id="myChart" showDataTips="true">
+        <mx:horizontalAxis>
+           <mx:CategoryAxis id="h1" categoryField="date"/>
+        </mx:horizontalAxis>
+        <mx:horizontalAxisRenderers>
+            <mx:AxisRenderer placement="bottom" axis="{h1}"/>
+        </mx:horizontalAxisRenderers>
+        <mx:verticalAxisRenderers>
+            <mx:AxisRenderer placement="left" axis="{v1}" >
+            </mx:AxisRenderer>
+            <mx:AxisRenderer placement="right" axis="{v2}">
+            </mx:AxisRenderer>
+        </mx:verticalAxisRenderers>
+        <mx:series>
+        	<!-- 첫 번째 축 -->
+           <mx:ColumnSeries id="cs1" horizontalAxis="{h1}"
+           	    dataProvider="{SMITH}" yField="close" displayName="매출">
+                <mx:verticalAxis>
+                   <mx:LinearAxis id="v1" minimum="40" maximum="50"/>
+                </mx:verticalAxis>           
+           </mx:ColumnSeries>     
+           <!-- 두 번째 축 -->      
+           <mx:LineSeries id="cs2" horizontalAxis="{h1}"  
+                dataProvider="{DECKER}" yField="close" displayName="판매량">
+                <mx:verticalAxis>
+                    <mx:LinearAxis id="v2" minimum="150" maximum="170"/>           
+                </mx:verticalAxis>
+           </mx:LineSeries>
+        </mx:series>
+     </mx:ColumnChart>
+     <mx:Legend dataProvider="{myChart}"/>
+  </mx:Panel>
+</mx:Application>

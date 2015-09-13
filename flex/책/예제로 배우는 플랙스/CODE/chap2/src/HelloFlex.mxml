@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute">
+	<mx:Panel x="57" y="24" width="466" height="331" layout="absolute">
+		<mx:TextInput x="111" y="118" id="txtName"/>
+		<mx:Button x="279" y="118" label="Button" 
+			click="mx.controls.Alert.show('Hello!' + txtName.text)"/>
+	</mx:Panel>
+</mx:Application>

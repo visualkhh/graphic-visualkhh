@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml">
+    <mx:Script>
+        <![CDATA[		
+            import flash.events.MouseEvent;
+            public function doZoom(event:MouseEvent):void {
+                if (zoomAll.isPlaying) {
+                    zoomAll.reverse();
+                } else {
+                    zoomAll.play([event.target], event.type == MouseEvent.ROLL_OUT ? true : false);
+                }
+            }
+        ]]>	
+    </mx:Script>
+    <mx:Zoom id="zoomAll" zoomWidthTo="1" zoomHeightTo="1" zoomWidthFrom=".5" zoomHeightFrom=".5"  />
+    <mx:Panel title="Roll Over Out Effect Example" width="95%" height="95%" horizontalAlign="center"
+        paddingTop="5" paddingLeft="10" paddingRight="10" paddingBottom="5">
+        <mx:Image id="img"
+            source="@Embed(source='flex.png')"
+            scaleX=".5" scaleY=".5"
+            rollOver="doZoom(event)"
+            rollOut="doZoom(event)"/>
+    </mx:Panel>
+</mx:Application>

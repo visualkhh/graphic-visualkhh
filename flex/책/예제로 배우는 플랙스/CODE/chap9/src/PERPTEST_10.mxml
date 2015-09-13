@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute">
+	<mx:Image right="10" left="10" top="10" bottom="10" source="flex_nautilus.jpg"/>
+</mx:Application>

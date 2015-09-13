@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="vertical">
+	<mx:Script>
+		<![CDATA[
+private var myNum0:int = 0;
+private var myNum1:int = 1;
+private var myNum2:int = 2;
+private var myNum3:int = 3;
+private var myNum4:int = 4;
+private var myNum5:int = 5;
+private var myNum6:int = 6;
+private var myNum7:int = 7;
+private var myNum8:int = 8;
+private var myNum9:int = 9;
+private var myNum10:int = 10;
+private var myNum11:int = 11;
+private var myNum12:int = 12;
+private var myNum13:int = 13;
+private var myNum14:int = 14;
+private var myNum15:int = 15;
+private var myNum16:int = 16;
+private var myNum17:int = 17;
+private var myNum18:int = 18;
+private var myNum19:int = 19;
+private var myNum20:int = 20;
+private var myNum21:int = 21;
+private var myNum22:int = 22;
+private var myNum23:int = 23;
+private var myNum24:int = 24;
+private var myNum25:int = 25;
+private var myNum26:int = 26;
+private var myNum27:int = 27;
+private var myNum28:int = 28;
+private var myNum29:int = 29;
+private var myNum30:int = 30;
+private var myNum31:int = 31;
+private var myNum32:int = 32;
+private var myNum33:int = 33;
+private var myNum34:int = 34;
+private var myNum35:int = 35;
+private var myNum36:int = 36;
+private var myNum37:int = 37;
+private var myNum38:int = 38;
+private var myNum39:int = 39;
+private var myNum40:int = 40;
+private var myNum41:int = 41;
+private var myNum42:int = 42;
+private var myNum43:int = 43;
+private var myNum44:int = 44;
+private var myNum45:int = 45;
+private var myNum46:int = 46;
+private var myNum47:int = 47;
+private var myNum48:int = 48;
+private var myNum49:int = 49;
+private var myNum50:int = 50;
+private var myNum51:int = 51;
+private var myNum52:int = 52;
+private var myNum53:int = 53;
+private var myNum54:int = 54;
+private var myNum55:int = 55;
+private var myNum56:int = 56;
+private var myNum57:int = 57;
+private var myNum58:int = 58;
+private var myNum59:int = 59;
+private var myNum60:int = 60;
+private var myNum61:int = 61;
+private var myNum62:int = 62;
+private var myNum63:int = 63;
+private var myNum64:int = 64;
+private var myNum65:int = 65;
+private var myNum66:int = 66;
+private var myNum67:int = 67;
+private var myNum68:int = 68;
+private var myNum69:int = 69;
+private var myNum70:int = 70;
+private var myNum71:int = 71;
+private var myNum72:int = 72;
+private var myNum73:int = 73;
+private var myNum74:int = 74;
+private var myNum75:int = 75;
+private var myNum76:int = 76;
+private var myNum77:int = 77;
+private var myNum78:int = 78;
+private var myNum79:int = 79;
+private var myNum80:int = 80;
+private var myNum81:int = 81;
+private var myNum82:int = 82;
+private var myNum83:int = 83;
+private var myNum84:int = 84;
+private var myNum85:int = 85;
+private var myNum86:int = 86;
+private var myNum87:int = 87;
+private var myNum88:int = 88;
+private var myNum89:int = 89;
+private var myNum90:int = 90;
+private var myNum91:int = 91;
+private var myNum92:int = 92;
+private var myNum93:int = 93;
+private var myNum94:int = 94;
+private var myNum95:int = 95;
+private var myNum96:int = 96;
+private var myNum97:int = 97;
+private var myNum98:int = 98;
+private var myNum99:int = 99;
+			
+		]]>
+	</mx:Script>
+	<mx:Panel width="100%" height="100%" layout="vertical" title="변수 INT">
+		<mx:TextArea width="100%" height="100%">
+			<mx:htmlText>
+				<![CDATA[
+private var myNum0:int = 0;
+				]]>
+			</mx:htmlText>
+		</mx:TextArea>
+	</mx:Panel>
+</mx:Application>

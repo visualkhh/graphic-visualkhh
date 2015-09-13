@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="vertical"  
+	fontSize="11" backgroundGradientColors="[#f7f794, #adb2ce]">
+	<mx:Panel title="TextArea / TextInput / RichTextEditor" width="600" height="400" 
+		paddingTop="10" paddingBottom="10" paddingLeft="10" paddingRight="10"
+		horizontalAlign="left" fontSize="12" layout="absolute">
+		<!-- imeMode를 KOREAN으로 설정해 한글이 기본입력기로 되도록 함 
+		내용을 입력하고 엔터키를 치면 다른 텍스트 컨트롤에 내용이 입력되도록 함 -->
+		<mx:TextInput id="ti" x="85" y="303" width="485" 
+			imeMode="KOREAN" enter="rt.text=ta.text=ti.text"/>
+		<!-- 공백과 엔터키는 그대로 살려둠(condenseWhite="false")
+		     영문만 입력되도록 restrict를 걸어둠 -->
+		<mx:TextArea id="ta" x="10" y="27" 
+			condenseWhite="false" 
+			restrict="[A-z]"
+			height="268" width="178" keyUp="rt.text=ti.text=ta.text">
+			<mx:htmlText>
+				<![CDATA[<b>Bold체 표시</b>
+<font color="#FF0000">컬러 표시</font>
+<a href="http://okgosu.net" target="_blank"><u>OkGosu.Net바로가기</u></a>
+<li><i>항목1</i></li><li><i>항목2</i></li>]]>
+			</mx:htmlText>			
+		</mx:TextArea>
+		<mx:RichTextEditor id="rt" x="196" y="27" width="374" height="268" 
+			showControlBar="true"
+			keyUp="ta.text=rt.htmlText;ti.text=rt.text">
+			<mx:htmlText>
+				<![CDATA[
+<img src="http://www.acornpub.co.kr/files/book/0904051762.gif"/>					
+				]]>
+			</mx:htmlText>
+		</mx:RichTextEditor>
+		<mx:Label x="10" y="10" text="TextArea"/>
+		<mx:Label x="196" y="12" text="RichTextEditor"/>
+		<mx:Label x="10" y="304" text="TextInput"/>
+	</mx:Panel> 
+</mx:Application>

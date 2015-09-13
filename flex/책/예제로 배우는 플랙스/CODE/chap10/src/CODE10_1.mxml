@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute"  
+	verticalScrollPolicy="off" horizontalScrollPolicy="off" width="622" height="651" 
+	>
+    <mx:Script>
+        <![CDATA[
+        	import mx.controls.Alert;
+        import mx.collections.ArrayCollection;
+        [Bindable]
+        private var expensesAC:ArrayCollection = new ArrayCollection( [
+            { Month: "Jan", Profit: 2000, Expenses: 1500, Amount: 450 },
+            { Month: "Feb", Profit: 1000, Expenses: 200, Amount: 600 },
+            { Month: "Mar", Profit: 1500, Expenses: 500, Amount: 300 },
+            { Month: "Apr", Profit: 1800, Expenses: 1200, Amount: 900 },
+            { Month: "May", Profit: 2400, Expenses: 575, Amount: 500 } ]);
+         
+         /* 콤보박스에서 테마를 바꿀 때 마다 StyleManager.loadStyleDeclarations()함수에서 다른 런타임 CSS파일을 로드함 */
+         private function changeTheme(event:Event):void {
+         	//mx.controls.Alert.show(event.currentTarget.selectedItem.data);
+         	var idx:int = event.currentTarget.selectedItem.data;
+         	switch(idx) {
+         		case 1:
+         			StyleManager.loadStyleDeclarations("./themes/AeonGraphical/MyAeonGraphical.swf");
+         			break;
+         		case 2:
+         			StyleManager.loadStyleDeclarations("./themes/Ice/Ice.swf");
+         			break;
+         		case 3:
+         			StyleManager.loadStyleDeclarations("./themes/Institutional/Institutional.swf");
+         			break;
+         		case 4:
+         			StyleManager.loadStyleDeclarations("./themes/Smoke/Smoke.swf");
+         			break;
+         		case 5:
+         			StyleManager.loadStyleDeclarations("./themes/Wooden/Wooden.swf");
+         			break;
+         	}
+         }
+        ]]>
+    </mx:Script>
+	<mx:MenuBar x="24" y="10" width="571"></mx:MenuBar>
+	<mx:Accordion x="24" y="40" width="238" height="267">
+		<mx:Canvas label="Accordion Pane 1" width="235" height="100%">
+			<mx:DateChooser x="30.5" y="10" backgroundAlpha="0.8"/>
+		</mx:Canvas>
+		<mx:Canvas label="Accordion Pane 2" width="100%" height="100%">
+		</mx:Canvas>
+		<mx:Canvas label="Accordion Pane 3" width="100%" height="100%">
+		</mx:Canvas>
+	</mx:Accordion>
+	<mx:TabNavigator x="24" y="315" width="238" height="200" id="tab">
+		<mx:Canvas label="Tab 1" width="232" height="100%">
+			<mx:ComboBox x="10" y="10"></mx:ComboBox>
+			<mx:RadioButton x="94" y="66" label="Radio"/>
+			<mx:CheckBox x="10" y="66" label="Checkbox"/>
+			<mx:DateField x="9" y="92"/>
+			<mx:HSlider x="10" y="122"/>
+			<mx:ProgressBar x="10" y="139"/>
+			<mx:ColorPicker x="126" y="40"/>
+			<mx:NumericStepper x="112" y="92"/>
+			<mx:TextInput x="10" y="40" width="108"/>
+		</mx:Canvas>
+		<mx:Canvas label="Tab 2" width="100%" height="100%"> 
+		</mx:Canvas>
+		<mx:Canvas label="Tab 3" width="100%" height="100%">
+		</mx:Canvas>
+	</mx:TabNavigator>
+	<mx:RichTextEditor x="270" y="40" height="267" fontFamily="굴림체" fontSize="12">
+		<mx:htmlText>
+			<![CDATA[
+<u>플렉스</u>의  <font color="#FF0000"><b>RichTextEditor</b></font>입니다.
+			]]>
+		</mx:htmlText>
+	</mx:RichTextEditor>
+	<mx:Panel x="270" y="315" width="325" height="200" layout="absolute" title="Panel">
+		<mx:DataGrid x="10" y="10" width="285" height="104">
+			<mx:columns>
+				<mx:DataGridColumn headerText="Column 1" dataField="col1"/>
+				<mx:DataGridColumn headerText="Column 2" dataField="col2"/>
+				<mx:DataGridColumn headerText="Column 3" dataField="col3"/>
+			</mx:columns>
+		</mx:DataGrid>
+		<mx:ControlBar>
+			<mx:Button label="Button"/>
+		</mx:ControlBar>
+	</mx:Panel>
+	<mx:LinkButton x="24" y="10" label="테마변경" fontSize="12"/>
+	<mx:Image x="329" y="109" source="http://okgosu.net/flex/flex.jpg" width="100" height="102"/>
+    <mx:Tree id="myTree" x="81" y="523" height="101" width="129" labelField="@label"
+        showRoot="false" itemOpen="true">	
+		<mx:dataProvider>
+		    <mx:XMLList id="treeData">
+		        <node label="Mail Box">
+		            <node label="Inbox">
+		                <node label="Marketing"/>
+		                <node label="Product Management"/>
+		                <node label="Personal"/>
+		            </node>
+		            <node label="Outbox">
+		                <node label="Professional"/>
+		                <node label="Personal"/>
+		            </node>
+		            <node label="Spam"/>
+		            <node label="Sent"/>
+		        </node>    
+		    </mx:XMLList>			
+		</mx:dataProvider>
+	</mx:Tree>
+	
+        <mx:LineChart id="linechart" x="216" y="523" width="195" height="104"
+            paddingLeft="5" paddingRight="5" 
+            showDataTips="true" dataProvider="{expensesAC}">
+            <mx:horizontalAxis>
+                <mx:CategoryAxis categoryField="Month"/>
+            </mx:horizontalAxis>
+            <mx:series>
+                <mx:LineSeries yField="Profit" displayName="Profit"/>
+                <mx:LineSeries yField="Expenses" displayName="Expenses"/>
+                <mx:LineSeries yField="Amount" displayName="Amount"/>
+            </mx:series>
+        </mx:LineChart>
+        
+        <mx:PieChart x="418" y="523" id="piechart1" width="174" height="105"
+            paddingLeft="5" paddingRight="5" 
+            showDataTips="true" dataProvider="{expensesAC}">
+            <mx:series>
+                <mx:PieSeries field="Profit" displayName="Profit"/>
+            </mx:series>
+        </mx:PieChart>        
+
+		<mx:TabBar x="24" y="523" dataProvider="tab" direction="vertical">
+		</mx:TabBar>
+		<mx:Legend x="557" y="523" dataProvider="{piechart1}" width="35" height="101"/>
+		<!-- change 이벤트가 발생하면 changeTheme() 함수에서 다른 런타임 CSS(SWF)를 로드하도록 함 -->
+		<mx:ComboBox x="102" y="10" change="changeTheme(event)">
+		     <mx:ArrayCollection>
+		         <mx:Object label="AeonGraphical" data="1"/>
+		         <mx:Object label="Ice" data="2"/>
+		         <mx:Object label="Institutional" data="3"/>
+				 <mx:Object label="Smoke" data="4"/>
+				 <mx:Object label="Wooden" data="5"/>		         
+		      </mx:ArrayCollection>
+		</mx:ComboBox>
+</mx:Application>

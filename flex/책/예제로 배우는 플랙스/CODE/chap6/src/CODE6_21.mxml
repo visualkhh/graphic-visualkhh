@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml">
+    <mx:Dissolve id="dissolveOut"  color="#FF00FF" duration="1000" alphaFrom="1.0" alphaTo="0.5"/>
+    <mx:Dissolve id="dissolveIn"  color="#00FF00" duration="1000" alphaFrom="0.5" alphaTo="1.0"/>
+    <mx:Panel title="Dissolve Effect Example" 
+        width="95%" height="95%" layout="horizontal" 
+        paddingTop="5" paddingLeft="10" paddingRight="10" paddingBottom="5">
+        <mx:Image source="@Embed(source='flex.png')" 
+            visible="{cb1.selected}"
+            hideEffect="{dissolveOut}" showEffect="{dissolveIn}"/>
+        <mx:ControlBar>
+            <mx:CheckBox id="cb1" label="visible" selected="true"/>
+        </mx:ControlBar>
+    </mx:Panel>
+</mx:Application>

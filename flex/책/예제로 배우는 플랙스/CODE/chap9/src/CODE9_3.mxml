@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" fontSize="12">
+    <mx:Script>
+        <![CDATA[ 
+        import mx.controls.Alert;
+        import mx.events.MenuEvent;
+ 		import mx.managers.PopUpManager;
+        import mx.containers.TitleWindow; 
+         
+		[Bindable] public var winOpenArr:Array = new Array(false, false, false, false, false, false);
+        private function menuHandler(event:MenuEvent):void {
+            var idx:int = int(event.item.@data);
+            if(!winOpenArr[idx]) {
+                var login:CODE9_4=CODE9_4(PopUpManager.createPopUp(this, CODE9_4 , false));
+		        login.x=login.y=(idx+1)*40;
+		        winOpenArr[idx] = true;
+		        login.winOpenArr = winOpenArr;
+		        login.menuNum = idx;
+             } else {
+             	Alert.show('이미 윈도우가 열려 있습니다.');
+             }
+        }      
+        public function chageColor(color:String):void {
+        	this.setStyle("backgroundColor", color);
+        }
+        ]]>
+    </mx:Script>
+    <mx:XMLList id="menuXML">
+        <menuitem label="Menu0-1">
+            <menuitem label="Menu0" data="0"/>
+            <menuitem label="Menu1" data="1"/>
+		</menuitem>            
+		<menuitem label="Menu2-3">        
+            <menuitem label="Menu2" data="2"/>
+            <menuitem label="Menu3" data="3"/>
+        </menuitem>
+        <menuitem label="Menu4-5">
+            <menuitem label="Menu4" data="4"/>
+            <menuitem label="Menu5" data="5"/>
+        </menuitem>
+    </mx:XMLList>
+    <mx:ApplicationControlBar id="dockedBar" dock="true">
+        <mx:Label text="ModuleLoadr Test"/>
+        <mx:MenuBar id="menu" height="100%" dataProvider="{menuXML}" itemClick="menuHandler(event);" labelField="@label" showRoot="true"/>
+    </mx:ApplicationControlBar>
+</mx:Application>

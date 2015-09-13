@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="vertical"
+backgroundGradientColors="[#f7f794, #adb2ce]">
+    <mx:Script><![CDATA[
+		import mx.collections.ArrayCollection;
+		import mx.utils.ArrayUtil;
+    ]]></mx:Script>
+    <!-- xml 데이터 모델 소스 지정 -->
+    <mx:Model id="myXML" source="data/data.xml"/>
+    <!-- XML을 ArrayCollection 데이터로 변환 -->
+    <mx:ArrayCollection id="myAC" source="{ArrayUtil.toArray(myXML.result)}" />
+    <mx:Panel title="Line Chart">
+        <mx:LineChart dataProvider="{myAC}" showDataTips="true">
+            <mx:horizontalAxis>
+                <mx:CategoryAxis dataProvider="{myAC}" categoryField="month"/>
+            </mx:horizontalAxis>
+            <mx:series>
+                <mx:LineSeries yField="apple" displayName="Apple" />
+                <mx:LineSeries yField="orange" displayName="Orange" />
+                <mx:LineSeries yField="banana" displayName="Banana" /> 
+            </mx:series>
+        </mx:LineChart>
+    </mx:Panel>
+</mx:Application>

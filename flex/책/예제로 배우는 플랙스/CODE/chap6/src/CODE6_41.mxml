@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" creationComplete="init()">
+  <mx:Script><![CDATA[ 
+    import mx.styles.StyleManager;
+    import mx.styles.CSSStyleDeclaration;
+    private var myDynStyle:CSSStyleDeclaration = new CSSStyleDeclaration("myDynStyle");
+    private function init():void {
+        myDynStyle.setStyle('color', 'blue');
+        StyleManager.setStyleDeclaration(".myButtonStyle",myDynStyle,true);
+    }
+  ]]></mx:Script>
+  <mx:Button label="Click Me" styleName="myButtonStyle"/> 
+</mx:Application>

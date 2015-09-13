@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="vertical" 
+	fontSize="11" backgroundGradientColors="[#f7f794, #adb2ce]"
+	width="500" height="500">
+	<mx:ModuleLoader id="loader" />
+	<mx:Button label="모듈로드"  click="loader.url='MySubModule.swf';loader.loadModule()"/>
+	<mx:Button label="모듈언로드"  click="loader.unloadModule()"/>	
+</mx:Application>

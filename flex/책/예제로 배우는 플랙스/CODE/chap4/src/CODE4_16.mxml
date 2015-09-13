@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="vertical" creationComplete="initData()">
+    <mx:Script>
+    	<![CDATA[
+    		import mx.collections.ArrayCollection;
+    		[Bindable] //데이터바인딩이 되어야 하는 변수에는 반드시 명시해주어야 함.
+    		private var myAC:ArrayCollection;
+    		private function initData():void { //creationComplete 이벤트에서 데이터 초기화
+			myAC = new ArrayCollection([
+			  {label:"한국", data:"1"},
+			  {label:"미국", data:"2"},					
+			  {label:"일본", data:"3"}					
+			]);
+    		}
+    	]]>
+    </mx:Script>
+    <mx:Panel title="List 데이터" width="100%">
+	    <mx:List dataProvider="{myAC}" width="100%" editable="true"/> 
+    	<mx:ControlBar/>	
+    </mx:Panel>
+    <mx:Panel title="DataGrid 데이터" width="100%">    
+	    <mx:DataGrid dataProvider="{myAC}"  editable="true"  width="100%"/> 
+    	<mx:ControlBar/>	
+    </mx:Panel>
+</mx:Application>

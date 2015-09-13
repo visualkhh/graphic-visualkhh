@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu>
+	<menuitem label= "تجريبى">
+		<menuitem label= "نسخه"/>
+		<menuitem label= "معجون"/>
+		<menuitem label= "أرسل"/>
+	</menuitem>
+	<menuitem label= "راي"> 
+		<menuitem label= "شريط الادوات">
+			<menuitem label="تهيئة"   data="Formatting" type="Check" toggled="true"/>
+		</menuitem>
+	</menuitem>
+	<menuitem label= "النافذة"> 
+		<menuitem label= "اضف" data="Add"/>
+	</menuitem>
+</menu>

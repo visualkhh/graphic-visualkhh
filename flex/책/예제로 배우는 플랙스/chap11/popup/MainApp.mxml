@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" backgroundColor="#c6db94" fontSize="12">
+   <mx:Script>
+   <![CDATA[
+   		import mx.controls.Alert; // Alert 경고창 생성 
+		/* JSP로 넘겨줄  데이터 구조를 정의하는 dataObj는 데이터 바인딩이 가능하도록  [Bindable]로 선언 */
+		[Bindable]private var dataObj:Object = {memo_id:"", user_name:"", user_memo:"", memo_date:""};
+
+        /* 등록에 사용하는 TitleWindow 관리 */
+        import mx.managers.PopUpManager; 
+        import mx.containers.TitleWindow;
+        private function popupRegisterData():void {
+            var popWin:PopupChild=PopupChild(PopUpManager.createPopUp( this, PopupChild , true));
+            dataObj.memo_id = txt_memo_id.text;
+            dataObj.user_name = txt_user_name.text;                        
+            dataObj.user_memo = txt_user_memo.text; 			
+			popWin.dataObj = this.dataObj;
+            PopUpManager.centerPopUp(popWin);//팝업을 중앙에 위치하도록 함
+        }       
+        /* 팝업에서 콜하는 함수 */
+        public function setUserName(dataObj:Object):void {
+        	txt_memo_id.text = dataObj.memo_id;
+        	txt_user_name.text = dataObj.user_name;
+        	txt_user_memo.text = dataObj.user_memo;
+        }    
+    ]]>
+   </mx:Script>
+    <mx:Panel title="팝업 예제" width="100%" height="279" layout="vertical">	
+	    <mx:Form width="100%" height="100%">
+	        <mx:FormItem label="Memo ID" required="true">
+	            <mx:TextInput id="txt_memo_id"/>
+	        </mx:FormItem>
+	        <mx:FormItem label="Memo 작성자" required="true">
+	            <mx:TextInput id="txt_user_name"/>
+	        </mx:FormItem>
+	        <mx:FormItem label="Memo 내용">
+	            <mx:TextInput id="txt_user_memo"/>
+	        </mx:FormItem>
+	    </mx:Form>	     
+        <mx:ControlBar horizontalAlign="center">
+            <mx:Button label="팝업등록" click="popupRegisterData()"/>
+        </mx:ControlBar>
+    </mx:Panel>
+</mx:Application>

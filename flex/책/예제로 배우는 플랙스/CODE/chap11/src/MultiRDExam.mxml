@@ -1,0 +1,132 @@
+<?xml version="1.0"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" xmlns:local="*" 
+	width="450" height="370" verticalScrollPolicy="off" horizontalScrollPolicy="off"
+	backgroundColor="#FFFFFF">
+    <mx:Script> 
+        <![CDATA[
+        	import mx.controls.Alert;
+        	import mx.messaging.events.ChannelEvent;
+            [Bindable]
+            public var initDG:Array = [
+                {No:1,  Name:'Test1',  CheckNum:1},
+                {No:2,  Name:'Test2',  CheckNum:2},
+                {No:3,  Name:'Test3',  CheckNum:3},
+                {No:4,  Name:'Test4',  CheckNum:4},
+                {No:5,  Name:'Test5',  CheckNum:5},
+                {No:6,  Name:'Test6',  CheckNum:5},
+                {No:7,  Name:'Test7',  CheckNum:4},
+                {No:8,  Name:'Test8',  CheckNum:3},
+                {No:9,  Name:'Test9',  CheckNum:2},
+                {No:10, Name:'Test10', CheckNum:1},
+                {No:11, Name:'Test11', CheckNum:1},
+                {No:12, Name:'Test12', CheckNum:2},
+                {No:13, Name:'Test13', CheckNum:3},
+                {No:14, Name:'Test14', CheckNum:4},
+                {No:15, Name:'Test15', CheckNum:5},
+                {No:16, Name:'Test16', CheckNum:5},
+                {No:17, Name:'Test17', CheckNum:4},
+                {No:18, Name:'Test18', CheckNum:3},
+                {No:19, Name:'Test19', CheckNum:2},
+                {No:20, Name:'Test20', CheckNum:1},
+                {No:21, Name:'Test21', CheckNum:1},
+                {No:22, Name:'Test22', CheckNum:2},
+                {No:23, Name:'Test23', CheckNum:3},
+                {No:24, Name:'Test24', CheckNum:4},
+                {No:25, Name:'Test25', CheckNum:5}                     
+            ];    
+    		[Bindable] public var isEditable:Boolean = false;
+    		[Bindable] public var totalData:String = "Total : ";
+    		private function activateRadio():void {
+    			isEditable = true;
+    		}
+    		private function deActivateRadio():void {
+    			isEditable = false;    			
+    		}
+    		public function calTotal():void {
+    			var totNum:uint = 0;
+    			for(var i:uint=0; i<initDG.length; i++) {
+    				totNum += initDG[i].CheckNum;
+    			}
+    			totalData = "Total : " + totNum;
+    		}
+        ]]>
+    </mx:Script>
+    <mx:DataGrid id="myGrid" dataProvider="{initDG}" headerHeight="50" variableRowHeight="false" 
+    	width="450" height="300" creationComplete="calTotal()">    
+        <mx:columns>
+                <mx:DataGridColumn dataField="No"/>
+                <mx:DataGridColumn dataField="Name"/>
+                <mx:DataGridColumn width="300"  dataField="CheckNum" 
+                	editable="true" sortable="false"
+                	rendererIsEditor="true">
+                	<mx:headerRenderer>
+                		<mx:Component>
+							<mx:HBox width="100%" height="100%" horizontalGap="0" verticalGap="0" verticalScrollPolicy="off">
+								<mx:VBox width="100%" height="100%">
+									<mx:Label text="Selected Number" width="100%" height="15" textAlign="center"/>
+									<mx:HRule width="100%"/>
+									<mx:HBox width="100%" height="15" paddingLeft="5" paddingRight="5">
+										<mx:Label text="No.5" width="100%" textAlign="center" />
+										<mx:VRule width="1" height="100%"/>
+										<mx:Label text="No.4" width="100%" textAlign="center" />
+										<mx:VRule width="1" height="100%"/>
+										<mx:Label text="No.3" width="100%" textAlign="center" />
+										<mx:VRule width="1" height="100%"/>
+										<mx:Label text="No.2" width="100%" textAlign="center" />
+										<mx:VRule width="1" height="100%"/>
+										<mx:Label text="No.1" width="100%" textAlign="center" />
+									</mx:HBox>		
+								</mx:VBox>
+								<mx:VRule width="1" height="100%"/>
+								<mx:VBox width="50" height="100%" horizontalAlign="center" verticalAlign="bottom">
+									<mx:Spacer width="100%" height="100%"/>
+									<mx:Label width="100%" height="100%" text="Points" textAlign="center"/>
+									<mx:Spacer width="100%" height="100%"/>
+								</mx:VBox>
+							</mx:HBox>                  			
+                		</mx:Component>              		
+                	</mx:headerRenderer>
+                	<mx:itemRenderer>
+						<mx:Component>
+							<mx:HBox width="100%"  height="18" horizontalAlign="center"
+								horizontalGap="0"  verticalGap="0"
+								paddingLeft="0" paddingBottom="0" paddingRight="0" paddingTop="0"
+								borderStyle="none" horizontalScrollPolicy="off" verticalScrollPolicy="off"
+								>
+							<mx:Script>
+								<![CDATA[
+						            private function checkRadioHandler(event:Event):void {
+						            	var outObj:Object = event.currentTarget.parent.outerDocument;
+						            	var idx:uint = outObj.myGrid.selectedIndex
+					 	            	outObj.initDG[idx].CheckNum = event.currentTarget.value;
+										outObj.myGrid.selectedIndex = idx;
+										this.lbl.text = event.currentTarget.value;
+										outObj.calTotal();
+						            }
+								]]>
+							</mx:Script>                			
+								<mx:RadioButtonGroup id="rg"/>
+					    			<mx:RadioButton label="  " labelPlacement="left" groupName="rg" enabled="{parentDocument.isEditable}" width="100%" value="5" selected="{5==data.CheckNum}" click="checkRadioHandler(event)"/>
+									<mx:VRule width="1" height="100%"/>	                			
+					    			<mx:RadioButton label="  " labelPlacement="left" groupName="rg" enabled="{parentDocument.isEditable}" width="100%" value="4" selected="{4==data.CheckNum}" click="checkRadioHandler(event)"/>
+					    			<mx:VRule width="1" height="100%"/>
+					    			<mx:RadioButton label="  " labelPlacement="left" groupName="rg" enabled="{parentDocument.isEditable}" width="100%" value="3" selected="{3==data.CheckNum}" click="checkRadioHandler(event)"/>
+									<mx:VRule width="1" height="100%"/>
+					    			<mx:RadioButton label="  " labelPlacement="left" groupName="rg" enabled="{parentDocument.isEditable}" width="100%" value="2" selected="{2==data.CheckNum}" click="checkRadioHandler(event)"/>
+									<mx:VRule width="1" height="100%"/>	                			
+					    			<mx:RadioButton label="  " labelPlacement="left" groupName="rg" enabled="{parentDocument.isEditable}" width="100%" value="1" selected="{1==data.CheckNum}" click="checkRadioHandler(event)"/>
+									<mx:VRule width="1" height="100%"/>	                			
+					    			<mx:Label id="lbl" width="100%" textAlign="center" enabled="{parentDocument.isEditable}" text="{data.CheckNum}"/>
+							</mx:HBox>
+						</mx:Component>	                		
+                	</mx:itemRenderer>
+                </mx:DataGridColumn>                
+        </mx:columns>        
+    </mx:DataGrid>     
+    <mx:HBox width="650" horizontalAlign="center">
+		<mx:Button label="Activate RadioButton" click="activateRadio()"/>
+		<mx:Button label="Deactivate RadioButton" click="deActivateRadio()"/>	
+		<mx:Label text="{totalData}" id="totalLbl"/>    	
+    </mx:HBox>	
+</mx:Application>
+

@@ -1,0 +1,17 @@
+/*
+function isNull(value) 
+{
+  if (!value && value !== 0 ||
+     value === undefined ||
+     value === "" ||
+     value === null ||
+     typeof value === "undefined") {
+    return true;
+  }
+  return false;
+}
+*/
+///// 기본 정보 시작 /////
+/*
+					"'0', " +
+					nrs.getInt("I_S

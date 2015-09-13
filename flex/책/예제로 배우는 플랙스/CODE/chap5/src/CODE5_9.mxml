@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="vertical">
+	<mx:Script>
+	<![CDATA[
+	import mypackage.*;
+	private var myInstance:ClassTest = new ClassTest();
+	private function checkThis():void {
+	   ta.text += 'instanceVar의 값 : ' + myInstance.instanceVar + '\n';
+	   myInstance.testMethod(); // 인스턴스 메서드 호출 
+	   ta.text += '바뀐 instanceVar의 값 : ' + myInstance.instanceVar + '\n';
+	   ta.text += 'staticVar의 값 : ' + ClassTest.staticVar + '\n'; 
+	   ClassTest.staticTestMethod(); // 스태틱 메서드 호출
+	   ta.text += '바뀐 staticVar의 값 : ' + ClassTest.staticVar + '\n';
+	}
+	]]>
+	</mx:Script>
+    <mx:Button label="변수 종류 체크" click="checkThis()"/>
+    <mx:TextArea id="ta" width="100%" height="100%"/>	
+</mx:Application>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="vertical"  
+	fontSize="11" backgroundGradientColors="[#f7f794, #adb2ce]">
+	<mx:Script>
+		<![CDATA[
+			private function showMsg(input:String):void {
+				mx.controls.Alert.show(input);
+			}
+		]]>
+	</mx:Script>
+	<mx:Panel width="100%" height="100%" layout="vertical" 
+		horizontalAlign="center" verticalAlign="middle" label="커서 버튼" 
+		title="Button / LinkButton">
+		<mx:Button label="그냥 버튼" width="95" click="showMsg('그냥 버튼')"/>
+        <!-- 토글 버튼은 누르면 그 스킨 모양이 유지 된다. -->
+        <mx:Button label="토글 버튼" toggle="true" />
+        <!-- Button에 buttonMode='true', useHandCursor='true'로 해주면 
+        	 LinkButton처럼 커서가 생긴다-->
+		<mx:Button label="커서 버튼" mouseDown="showMsg('커서  버튼')"
+			toolTip="buttonMode=\'true\' useHandCursor=\'true\'"
+			buttonMode="true" useHandCursor="true"/>
+ 		<mx:LinkButton label="링크 버튼" width="100"        
+ 			click="navigateToURL(new URLRequest('http://okgosu.net'), 'quote')"/>			
+	</mx:Panel>
+</mx:Application>

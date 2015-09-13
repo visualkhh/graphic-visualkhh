@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu>
+	<menuitem label= "Demo">
+		<menuitem label= "Copy"/>
+		<menuitem label= "Paste"/>
+		<menuitem label= "Send"/>
+	</menuitem>
+	<menuitem label= "View"> 
+		<menuitem label= "ToolBars">
+			<menuitem label="Formatting"  data="Formatting" type="Check" toggled="true"/>
+		</menuitem>
+	</menuitem>
+	<menuitem label= "Window"> 
+		<menuitem label= "Add" data="Add"/>
+	</menuitem>
+</menu>

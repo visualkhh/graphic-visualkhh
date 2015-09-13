@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="vertical">
+    <mx:Script><![CDATA[
+        import mx.collections.ArrayCollection;
+        import mx.utils.ArrayUtil;
+    ]]></mx:Script>
+    <mx:Model id="myData"> 
+        <items>
+            <item label="한국" data="1"/>
+            <item label="미국" data="2"/>
+            <item label="일본" data="3"/>
+        </items>
+    </mx:Model>
+    <mx:ArrayCollection id="myAC" source="{ArrayUtil.toArray(myData.item)}" />     
+    <mx:Panel title="List 데이터" width="100%">
+	    <mx:List dataProvider="{myAC}" width="100%" editable="true"/> 
+    	<mx:ControlBar/>	
+    </mx:Panel>
+    <mx:Panel title="DataGrid 데이터" width="100%">    
+	    <mx:DataGrid dataProvider="{myAC}"  editable="true"  width="100%"/> 
+    	<mx:ControlBar/>	
+    </mx:Panel>
+</mx:Application>

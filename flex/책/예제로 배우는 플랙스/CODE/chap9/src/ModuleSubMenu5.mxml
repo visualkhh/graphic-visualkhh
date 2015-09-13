@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Module xmlns:mx="http://www.adobe.com/2006/mxml" layout="vertical" xmlns:ns1="*">
+	<mx:Script>
+		<![CDATA[
+			public function processMsg(msg:String):void {
+				mx.controls.Alert.show(msg);
+			}
+		]]>
+	</mx:Script>	
+	<mx:Label text="ModuleSubMenu5" fontStyle="normal" fontWeight="bold"/>
+	<mx:ComboBox></mx:ComboBox>
+	<mx:RadioButton label="Radio"/>
+	<mx:CheckBox label="Checkbox"/>
+	<mx:TextInput/>
+	<mx:HSlider/>
+	<ns1:ModuleComp>
+	</ns1:ModuleComp>
+</mx:Module>

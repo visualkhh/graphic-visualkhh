@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml">
+    <mx:Script>
+        <![CDATA[
+            import mx.managers.DragManager;
+            import mx.core.DragSource;
+            import mx.events.DragEvent;
+            import flash.events.MouseEvent;
+            import mx.controls.Image;
+            import mx.containers.Canvas;
+
+            public var xOff:Number;
+            public var yOff:Number;
+            [Embed(source='flex.png')]
+            public var globeImage:Class;
+            private function dragMe(event:MouseEvent, img1:Image, format:String):void {
+                var dragInitiator:Image=Image(event.currentTarget);
+                var ds:DragSource = new DragSource();
+                ds.addData(img1, format);                
+                var imageProxy:Image = new Image();
+                imageProxy.source = globeImage;
+                DragManager.doDrag(dragInitiator, ds, event, imageProxy, 0, 0, 1.00);
+            }
+
+            private function doDragEnter(event:DragEvent):void {
+                DragManager.acceptDragDrop(Canvas(event.target));
+            }
+
+            private function doDragDrop(event:DragEvent, target1:Canvas, format:String):void {
+                myimg.x = target1.mouseX - xOff
+                myimg.y = target1.mouseY - yOff    
+            }
+   
+            private function myoffset(img:Image):void {
+                xOff = img.mouseX
+                yOff = img.mouseY
+            }        
+        ]]>
+    </mx:Script>
+    <mx:Glow id="glowImage" duration="1000" 
+        alphaFrom="1.0" alphaTo="0.3" 
+        blurXFrom="50.0" blurXTo="0.0" 
+        blurYFrom="50.0" blurYTo="0.0" 
+        color="0x00FF00"/>    
+    <mx:Canvas id="v1" width="500" height="500" dragEnter="doDragEnter(event)" 
+        dragDrop ="doDragDrop(event, v1, 'img')" borderStyle="solid" 
+        backgroundColor="#DDDDDD">
+        <mx:Image id="myimg" source="@Embed(source='flex.png')" 
+            mouseMove="dragMe(event, myimg, 'img');myoffset(myimg);" moveEffect="{glowImage}"/> 
+    </mx:Canvas>
+</mx:Application>

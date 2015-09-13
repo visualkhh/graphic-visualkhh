@@ -1,0 +1,82 @@
+/*만들어야 할것
+MP3_DNA클래스
++사운드로딩
+-사운드 객체
+-객체를 통한 사운드 로딩
++사운드 재생
++사운드 일시정지
++사운드 정지
+*/
+
+MP3_DNA = function ()
+{ ?this.mySound = new Sound();
+ ??this.mySound.loadSound("chicken_soup_song.mp3",true);
+};
+
+MP3_DNA.prototype.일시정지 = function()
+{ this.mySound.stop();};
+
+MP3_DNA.prototype.재생 = function()
+{this.mySound.start(this.mySound.position/1000);};
+
+MP3_DNA.prototype.정지 = funciton()
+{
+ this.mySound.start(0);
+ this.mySound.stop();
+}
+
+var mp3player = new MP3_DNA();
+
+일시정지.onRelease = function()
+{mp3player.일시정지();};
+
+재생.onRelease = function()
+{mp3player.재생();};
+
+정지.onRelease = function()
+{mp3player.정지();};
+
+
+-------------
+
+
+우선 임포트 시킨 flv 에 인스턴스 네임을 지정합니다.. 
+
+ 
+
+예를 들어 cine 라는 이름을 지정해 주었다면,  다음으로 재생, 멈춤, 정지 시킬 버튼 3개를 만들겠죠...
+
+ 
+
+그런 다음 재생 버튼에는 
+
+on (release) {
+ _root.cine.play();
+}
+
+ 
+
+정지 버튼에는
+
+on (release) {
+ _root.cine.stop();
+}
+
+ 
+
+멈춤 버튼에는 
+
+on (release) {
+ _root.cine.pause();
+}
+
+ 
+
+라고 해주시면 됩니다...  
+
+가장 간단하게 할수 있는 방법입니다...  
+
+도움이 되셨길...  ^^;;
+
+
+

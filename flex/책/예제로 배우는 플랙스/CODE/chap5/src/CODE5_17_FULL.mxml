@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="vertical" 
+	xmlns:gosu="*"
+	creationComplete="initApp()"
+	backgroundGradientColors="[#f7f794, #adb2ce]">
+<mx:Style>
+	.DayHeadBox {
+		corner-radius:0;
+		border-thickness:1;
+		drop-shadow-enabled:false;
+		border-style:solid;
+		border-color:#c0c0c0;
+		font-size:11;		
+	}
+	.DayHeadBoxTitle {
+		corner-radius:0;
+		border-thickness:1;
+		drop-shadow-enabled:false;
+		border-style:solid;
+		border-color:#c0c0c0;
+		text-align:center;
+	}	
+	NumericStepper {
+	   borderStyle: solid;
+	}	
+</mx:Style>
+<mx:Script>
+	<![CDATA[
+		import mx.controls.TextInput;	
+		private function calChange():void {
+			setCalendar(yearStepper.value, monthCombo.selectedItem.data);			
+		}
+		[Bindable]
+		private var dayArr:Array = new Array();
+		/* 달력에서 사용할 날짜 배열값 초기회 */
+		private function initApp():void{
+			dayArr = new Array(35);
+			dayArr[0]=day0; dayArr[1]=day1; dayArr[2]=day2; dayArr[3]=day3; dayArr[4]=day4; 
+			dayArr[5]=day5; dayArr[6]=day6; dayArr[7]=day7; dayArr[8]=day8; dayArr[9]=day9; 
+			dayArr[10]=day10; dayArr[11]=day11; dayArr[12]=day12; dayArr[13]=day13; dayArr[14]=day14; 
+			dayArr[15]=day15; dayArr[16]=day16; dayArr[17]=day17; dayArr[18]=day18; dayArr[19]=day19; 
+			dayArr[20]=day20; dayArr[21]=day21; dayArr[22]=day22; dayArr[23]=day23; dayArr[24]=day24; 
+			dayArr[25]=day25; dayArr[26]=day26; dayArr[27]=day27; dayArr[28]=day28; dayArr[29]=day29; 
+			dayArr[30]=day30; dayArr[31]=day31; dayArr[32]=day32; dayArr[33]=day33; dayArr[34]=day34; 	
+			setCalendar(-1, -1);
+		}
+		/* Date 클래스를 이용해서 날짜 계산 */
+		public function setCalendar(inputYear:Number, inputMonth:Number):void {
+			var monDayArr:Array = new Array(31,28,31,30,31,30,31,31,30,31,30,31);
+			var nowDate:Date = new Date();
+			var nowYear:Number  = nowDate.getFullYear();
+			var nowMonth:Number = nowDate.getMonth();
+			var nowDay:Number   = nowDate.getDate();
+			
+			if(inputYear > 0) { 
+				nowYear = inputYear;
+			} else {
+				yearStepper.value = nowYear;
+			}
+			if(inputMonth >= 0) {
+				nowMonth = inputMonth;
+			} else {
+				monthCombo.selectedIndex = nowMonth;
+			}
+			// 윤달 체크 
+			if( nowYear%4==0 && (nowYear%100 != 0 || nowYear %400 ==0) && nowMonth == 1 ) {
+				monDayArr = new Array(31,29,31,30,31,30,31,31,30,31,30,31);
+			}
+	
+			var firstDay:Number = new Date(nowYear, nowMonth, 1).getDay(); //첫 요일
+			var lastDay:Number = new Date(nowYear, nowMonth + 1, 0).getDay();	  //끝 요일
+			var i:Number=0;
+			var dayCount:Number = 1;
+			var nextDayCount:Number = 1;				
+			if(firstDay == 0) {		//firstDay값부터 '1'일로 세팅			
+				for(i=0; i<35; i++) {
+					if(i<monDayArr[nowMonth]) {
+						dayArr[i].title= i + 1;
+						dayArr[i].setStyle("backgroundColor", 0xFFFFFF);
+						if((i+1)==nowDay) {
+							dayArr[i].setStyle("backgroundColor", 0xD5DDE9);
+						}
+						dayArr[i].thisDay= i + 1; // 날짜값 세팅
+						dayArr[i].thisMonth= nowMonth+1; // 날짜값 세팅						
+						dayArr[i].thisYear= nowYear; // 날짜값 세팅									
+					} else {
+						//다음 달의 값으로...
+						dayArr[i].title= nextDayCount;
+						dayArr[i].setStyle("backgroundColor", 0xC9C9C9);
+						
+						dayArr[i].thisDay= nextDayCount; // 날짜값 세팅			
+						if(nowMonth == 11) {
+							dayArr[i].thisMonth= 1; // 날짜값 세팅		
+							dayArr[i].thisYear= nowYear+1; // 날짜값 세팅																																	
+						} else {
+							dayArr[i].thisMonth= nowMonth+2; // 날짜값 세팅		
+							dayArr[i].thisYear= nowYear; // 날짜값 세팅																																	
+						}											
+						nextDayCount++;
+					}
+				}
+			} else {
+				//firstDay값이 0이 아니라면 첫번째 칸은 이전 달이 되며 역산함 : firstDay값이 5라면(금요일) 첫번째 칸은 이전 달의 뒤에서 5번째 날 (2005년4월)
+				var beforeDayCount:Number = new Date(nowYear, nowMonth, 0).getDate() - firstDay + 1;
+				for(i=0; i<=(monDayArr[nowMonth]-firstDay+1); i++) {
+					dayArr[i].title= beforeDayCount;
+					dayArr[i].setStyle("backgroundColor", 0xC9C9C9);
+					dayArr[i].thisDay= beforeDayCount; // 날짜값 세팅			
+
+					if(nowMonth == 0) {
+						dayArr[i].thisMonth= 12; // 날짜값 세팅		
+						dayArr[i].thisYear= nowYear-1; // 날짜값 세팅																																	
+					} else {
+						dayArr[i].thisMonth= nowMonth; // 날짜값 세팅		
+						dayArr[i].thisYear= nowYear; // 날짜값 세팅																																	
+					}													
+					beforeDayCount++;
+				}
+				for(i=firstDay; i<35; i++) {
+					if(i<monDayArr[nowMonth]+firstDay) {
+						dayArr[i].title= dayCount;
+						dayArr[i].thisDay= dayCount; // 날짜값 세팅		
+						dayArr[i].thisMonth= nowMonth+1; // 날짜값 세팅						
+						dayArr[i].thisYear= nowYear; // 날짜값 세팅																											
+						dayArr[i].setStyle("backgroundColor", 0xFFFFFF);
+						if((i+1)==(nowDay+firstDay)) {
+							dayArr[i].setStyle("backgroundColor", 0xD5DDE9);
+						}
+						dayCount++;
+					} else {	//다음 달의 값으로...
+						dayArr[i].title= nextDayCount;
+						dayArr[i].thisDay= nextDayCount; // 날짜값 세팅		
+						if(nowMonth == 11) {
+							dayArr[i].thisMonth= 1; // 날짜값 세팅		
+							dayArr[i].thisYear= nowYear+1; // 날짜값 세팅																																	
+						} else {
+							dayArr[i].thisMonth= nowMonth+2; // 날짜값 세팅		
+							dayArr[i].thisYear= nowYear; // 날짜값 세팅																																	
+						}
+						dayArr[i].setStyle("backgroundColor", 0xC9C9C9);
+						nextDayCount++;
+					}
+				}
+			}
+		}		
+	]]>
+</mx:Script>
+<mx:Panel title="Flex 2 달력" width="100%" height="100%">
+	<mx:HBox width="100%" horizontalAlign="center">
+		<mx:NumericStepper id="yearStepper" minimum="1900" maximum="2500" stepSize="1" value="2000" 
+			cornerRadius="5"
+			width="60" change="calChange()"/>
+		<mx:ComboBox id="monthCombo" change="calChange()">
+			<mx:dataProvider>
+				<mx:Array>
+					<mx:Object label="1월"  data="0"/>
+					<mx:Object label="2월"  data="1"/>
+					<mx:Object label="3월"  data="2"/>
+					<mx:Object label="4월"  data="3"/>
+					<mx:Object label="5월"  data="4"/>
+					<mx:Object label="6월"  data="5"/>
+					<mx:Object label="7월"  data="6"/>
+					<mx:Object label="8월"  data="7"/>
+					<mx:Object label="9월"  data="8"/>
+					<mx:Object label="10월" data="9"/>
+					<mx:Object label="11월" data="10"/>
+					<mx:Object label="12월" data="11"/>
+				</mx:Array>
+			</mx:dataProvider>
+		</mx:ComboBox>
+		<mx:Label text="선택한 날짜:"/>
+		<mx:Label id="selectedDate" text=""/>	
+	</mx:HBox>
+	<mx:Grid width="100%" height="100%"  horizontalGap="0" verticalGap="0">
+		<mx:GridRow width="100%" height="10%" minHeight="27">
+			<mx:GridItem width="15%"><mx:Panel titleStyleName="DayHeadBoxTitle" width="100%" title="일요일" styleName="DayHeadBox"/></mx:GridItem>
+			<mx:GridItem width="15%"><mx:Panel titleStyleName="DayHeadBoxTitle" width="100%" title="월요일" styleName="DayHeadBox"/></mx:GridItem>
+			<mx:GridItem width="15%"><mx:Panel titleStyleName="DayHeadBoxTitle" width="100%" title="화요일" styleName="DayHeadBox"/></mx:GridItem>
+			<mx:GridItem width="15%"><mx:Panel titleStyleName="DayHeadBoxTitle" width="100%" title="수요일" styleName="DayHeadBox"/></mx:GridItem>
+			<mx:GridItem width="15%"><mx:Panel titleStyleName="DayHeadBoxTitle" width="100%" title="목요일" styleName="DayHeadBox"/></mx:GridItem>
+			<mx:GridItem width="15%"><mx:Panel titleStyleName="DayHeadBoxTitle" width="100%" title="금요일" styleName="DayHeadBox"/></mx:GridItem>
+			<mx:GridItem width="15%"><mx:Panel titleStyleName="DayHeadBoxTitle" width="100%" title="토요일" styleName="DayHeadBox"/></mx:GridItem>
+		</mx:GridRow>
+		<mx:GridRow width="100%" height="100%">
+			<mx:GridItem><gosu:GosuCalendarPanel id="day0"/></mx:GridItem>
+			<mx:GridItem><gosu:GosuCalendarPanel id="day1"/></mx:GridItem>
+			<mx:GridItem><gosu:GosuCalendarPanel id="day2"/></mx:GridItem>
+			<mx:GridItem><gosu:GosuCalendarPanel id="day3"/></mx:GridItem>
+			<mx:GridItem><gosu:GosuCalendarPanel id="day4"/></mx:GridItem>
+			<mx:GridItem><gosu:GosuCalendarPanel id="day5"/></mx:GridItem>
+			<mx:GridItem><gosu:GosuCalendarPanel id="day6"/></mx:GridItem>
+		</mx:GridRow>
+		<mx:GridRow width="100%" height="100%">
+			<mx:GridItem><gosu:GosuCalendarPanel id="day7"/></mx:GridItem>
+			<mx:GridItem><gosu:GosuCalendarPanel id="day8"/></mx:GridItem>
+			<mx:GridItem><gosu:GosuCalendarPanel id="day9"/></mx:GridItem>
+			<mx:GridItem><gosu:GosuCalendarPanel id="day10"/></mx:GridItem>
+			<mx:GridItem><gosu:GosuCalendarPanel id="day11"/></mx:GridItem>
+			<mx:GridItem><gosu:GosuCalendarPanel id="day12"/></mx:GridItem>
+			<mx:GridItem><gosu:GosuCalendarPanel id="day13"/></mx:GridItem>
+		</mx:GridRow>
+		<mx:GridRow width="100%" height="100%">
+			<mx:GridItem><gosu:GosuCalendarPanel id="day14"/></mx:GridItem>
+			<mx:GridItem><gosu:GosuCalendarPanel id="day15"/></mx:GridItem>
+			<mx:GridItem><gosu:GosuCalendarPanel id="day16"/></mx:GridItem>
+			<mx:GridItem><gosu:GosuCalendarPanel id="day17"/></mx:GridItem>
+			<mx:GridItem><gosu:GosuCalendarPanel id="day18"/></mx:GridItem>
+			<mx:GridItem><gosu:GosuCalendarPanel id="day19"/></mx:GridItem>
+			<mx:GridItem><gosu:GosuCalendarPanel id="day20"/></mx:GridItem>
+		</mx:GridRow>
+		<mx:GridRow width="100%" height="100%">
+			<mx:GridItem><gosu:GosuCalendarPanel id="day21"/></mx:GridItem>
+			<mx:GridItem><gosu:GosuCalendarPanel id="day22"/></mx:GridItem>
+			<mx:GridItem><gosu:GosuCalendarPanel id="day23"/></mx:GridItem>
+			<mx:GridItem><gosu:GosuCalendarPanel id="day24"/></mx:GridItem>
+			<mx:GridItem><gosu:GosuCalendarPanel id="day25"/></mx:GridItem>
+			<mx:GridItem><gosu:GosuCalendarPanel id="day26"/></mx:GridItem>
+			<mx:GridItem><gosu:GosuCalendarPanel id="day27"/></mx:GridItem>
+		</mx:GridRow>
+		<mx:GridRow width="100%" height="100%">
+			<mx:GridItem><gosu:GosuCalendarPanel id="day28"/></mx:GridItem>
+			<mx:GridItem><gosu:GosuCalendarPanel id="day29"/></mx:GridItem>
+			<mx:GridItem><gosu:GosuCalendarPanel id="day30"/></mx:GridItem>
+			<mx:GridItem><gosu:GosuCalendarPanel id="day31"/></mx:GridItem>
+			<mx:GridItem><gosu:GosuCalendarPanel id="day32"/></mx:GridItem>
+			<mx:GridItem><gosu:GosuCalendarPanel id="day33"/></mx:GridItem>
+			<mx:GridItem><gosu:GosuCalendarPanel id="day34"/></mx:GridItem>
+		</mx:GridRow>
+	</mx:Grid>	
+</mx:Panel>
+</mx:Application>

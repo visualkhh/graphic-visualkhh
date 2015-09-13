@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml">
+    <mx:Script>
+        <![CDATA[
+            [Bindable]
+            public var angle:int=0;
+            private function resizeImage():void {
+                img.scaleX = 1.5;
+                img.scaleY = 1.5;
+	        }
+      ]]>
+    </mx:Script>
+    <mx:Rotate id="ro1" angleFrom="{angle-45}" angleTo="{angle}"/>    
+    <mx:Rotate id="ro2" angleFrom="{angle-360}" angleTo="{angle}"/>        
+    <mx:Panel title="Creation Complete Effect Example" verticalAlign="middle" horizontalAlign="center" 
+        width="75%" height="75%" layout="horizontal"
+        paddingTop="5" paddingLeft="10" paddingRight="10" paddingBottom="5">
+        <mx:VBox id="myVB" width="50%" horizontalAlign="center">
+            <mx:Image id="img" source="@Embed(source='flex.png')" 
+            	resizeEffect="{ro2}"
+            	creationCompleteEffect="{ro1}"/>
+        </mx:VBox>
+        <mx:ControlBar>
+            <mx:Button label="Resize Effect" click="resizeImage();"/>
+        </mx:ControlBar>
+    </mx:Panel>
+</mx:Application>

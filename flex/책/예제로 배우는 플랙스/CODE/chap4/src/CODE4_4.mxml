@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="vertical"  
+	fontSize="11" backgroundGradientColors="[#f7f794, #adb2ce]">
+    <mx:Script>
+      <![CDATA[
+         private function dateChanged(date:Date):void {
+            if (date == null)
+                selection.text = "선택한 날짜 없음 ";                
+            else
+                selection.text = "선택한 날짜 : " + date.getFullYear().toString() + 
+                    '/' + (date.getMonth()+1).toString() + '/' + date.getDate();
+         }
+      ]]>
+    </mx:Script>    
+    <mx:DateFormatter id="df"/>
+    <mx:Panel title="ColorPicker / DateField / DateChooser" 
+        width="100%" height="100%" layout="horizontal"
+        paddingTop="10" paddingBottom="10" paddingLeft="10" paddingRight="10" horizontalAlign="center">
+        <mx:VBox width="260" horizontalAlign="left">
+	        <mx:Label text="색상을 바꾸면 DateChooser의 배경색상이 바뀜"/>
+	        <mx:ColorPicker id="cp" showTextField="true" selectedColor="0xFFFFFF"/>
+	        <mx:Label text="년도단위 이동 비활성화"/>
+	        <!-- 선택한 날짜를 YYYY년 MM월 DD일 로 되도록 하였고 날짜가 선택될 때 DateChooser의 날짜도 같이 변하도록 함-->
+	        <mx:DateField id="df1" yearNavigationEnabled="true" 
+	        	formatString="YYYY년 MM월 DD일" change="dateChanged(DateField(event.target).selectedDate);
+	            dc.selectedDate=df1.selectedDate" />
+	        <mx:Label id="selection"  color="blue" text="Date selected:" />
+	        <mx:Label text="10월 1일 ~ 10월 10일은 비활성화."/>
+	        <!-- 연도 이동 버튼을 없앴고, 2006년 10월 1일부터 10일까지 비활성화 하였다. -->
+	        <mx:DateField id="df2" yearNavigationEnabled="false" 
+	        	change="dc.selectedDate=df2.selectedDate"
+	            disabledRanges="{[{rangeStart:new Date(2006, 9, 1), 
+	            				   rangeEnd: new Date(2006, 9, 10)}]}" />
+        	<mx:Label  color="blue" text="선택한 날짜: {df.format(df2.selectedDate)}"/>        
+        </mx:VBox>
+        <!-- 여러 개의 날짜를 선택할 수 있도록 하였고 우리나라에 맞게 연도/월/요일 표기로 설정하였다 -->
+        <mx:DateChooser id="dc" backgroundColor="{cp.selectedColor}" 
+        	allowDisjointSelection="true" allowMultipleSelection="true" 
+        	yearSymbol="년"  
+        	dayNames="['일', '월', '화', '수', '목', '금', '토']"
+        	monthNames="[1,2,3,4,5,6,7,8,9,10,11,12]" monthSymbol="월"
+        	selectedDate="{new Date(2006, 8, 25)}"/>
+    </mx:Panel>    
+</mx:Application>

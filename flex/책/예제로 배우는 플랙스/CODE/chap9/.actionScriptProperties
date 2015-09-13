@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actionScriptProperties mainApplicationPath="CODE9_3.mxml" version="3">
+<compiler additionalCompilerArguments="-locale en_US" copyDependentFiles="true" enableModuleDebug="true" generateAccessible="false" htmlExpressInstall="true" htmlGenerate="true" htmlHistoryManagement="true" htmlPlayerVersion="9.0.28" htmlPlayerVersionCheck="true" outputFolderPath="bin-debug" sourceFolderPath="src" strict="true" useApolloConfig="false" verifyDigests="true" warn="true">
+<compilerSourcePath/>
+<libraryPath defaultLinkType="1">
+<libraryPathEntry kind="4" path=""/>
+<libraryPathEntry kind="1" linkType="1" path="libs"/>
+</libraryPath>
+<sourceAttachmentPath/>
+</compiler>
+<applications>
+<application path="MyModuleApp.mxml"/>
+<application path="SWFSubMenu2.mxml"/>
+<application path="PERPTEST_5.mxml"/>
+<application path="SWFSubMenu0.mxml"/>
+<application path="PERPTEST_11.mxml"/>
+<application path="PERPTEST_12.mxml"/>
+<application path="CODE9_6.mxml"/>
+<application path="PERPTEST_4.mxml"/>
+<application path="SWFSubMenu3.mxml"/>
+<application path="PERPTEST_10.mxml"/>
+<application path="PERPTEST_7.mxml"/>
+<application path="PERPTEST_1.mxml"/>
+<application path="PERPTEST_6.mxml"/>
+<application path="PERPTEST_15.mxml"/>
+<application path="PERPTEST_8.mxml"/>
+<application path="PERPTEST_2.mxml"/>
+<application path="CODE9_3.mxml"/>
+<application path="CODE9_1.mxml"/>
+<application path="PERPTEST_13.mxml"/>
+<application path="CODE9_5.mxml"/>
+<application path="SWFLoaderApp.mxml"/>
+<application path="PERPTEST_14.mxml"/>
+<application path="SWFSubMenu1.mxml"/>
+<application path="PERPTEST_3.mxml"/>
+<application path="SWFSubMenu5.mxml"/>
+<application path="PERPTEST_9.mxml"/>
+<application path="SWFSubMenu4.mxml"/>
+<application path="ModuleLoaderApp.mxml"/>
+<application path="CODE9_2.mxml"/>
+</applications>
+<modules>
+<module application="src/ModuleLoaderApp.mxml" destPath="ModuleSubMenu0.swf" optimize="true" sourcePath="src/ModuleSubMenu0.mxml"/>
+<module application="src/ModuleLoaderApp.mxml" destPath="ModuleSubMenu1.swf" optimize="true" sourcePath="src/ModuleSubMenu1.mxml"/>
+<module application="src/ModuleLoaderApp.mxml" destPath="ModuleSubMenu2.swf" optimize="true" sourcePath="src/ModuleSubMenu2.mxml"/>
+<module application="src/ModuleLoaderApp.mxml" destPath="ModuleSubMenu3.swf" optimize="true" sourcePath="src/ModuleSubMenu3.mxml"/>
+<module application="src/ModuleLoaderApp.mxml" destPath="ModuleSubMenu4.swf" optimize="true" sourcePath="src/ModuleSubMenu4.mxml"/>
+<module application="src/ModuleLoaderApp.mxml" destPath="ModuleSubMenu5.swf" optimize="true" sourcePath="src/ModuleSubMenu5.mxml"/>
+<module application="src/CODE9_1.mxml" destPath="MySubModule.swf" optimize="true" sourcePath="src/MySubModule.mxml"/>
+</modules>
+<buildCSSFiles>
+<buildCSSFileEntry destPath="bin-debug" sourcePath="src/themes/AeonGraphical/MyAeonGraphical.css"/>
+<buildCSSFileEntry destPath="bin-debug" sourcePath="src/themes/Ice/Ice.css"/>
+<buildCSSFileEntry destPath="bin-debug" sourcePath="src/themes/Institutional/Institutional.css"/>
+<buildCSSFileEntry destPath="bin-debug" sourcePath="src/themes/Smoke/Smoke.css"/>
+<buildCSSFileEntry destPath="bin-debug" sourcePath="src/themes/Wooden/Wooden.css"/>
+</buildCSSFiles>
+</actionScriptProperties>

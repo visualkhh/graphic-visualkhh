@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="vertical"  
+	fontSize="11" backgroundGradientColors="[#f7f794, #adb2ce]">
+	<mx:Script>
+		<![CDATA[
+			/* ComboBox의 dataProvider에 data 연결 */
+			private function connectData():void {
+				myComp.dataProvider = myData;
+			}
+			/* myData에 XML 데이터를 추가하면 Tree에 아이템이 추가됨 */
+			private function addData():void {
+				myData.addItem(new XML("<item label='" + txtLabel.text + "' data='" + txtLabel.text + "'/>"));
+			}
+			private var openFlag:Boolean = true;//node를 열고 닫는 플래그 
+			private function controlNode():void {
+				/* 최상위 노드 열기 */
+				myComp.expandItem(myData.getItemAt(0), openFlag);
+				/* 최상위 노드의 첫번째 노드 열기 */				
+				myComp.expandItem(myData.getItemAt(0).item[0], openFlag);				
+				/* 열고 닫는 플래그 값을 실행될 때 마다 반대값으로 설정 */
+				openFlag = !openFlag;
+			}
+		]]>
+	</mx:Script>
+    <!-- Tree 컨트롤들이 사용할 XML 데이터 정의 -->
+    <mx:XMLListCollection id="myData">
+        <mx:XMLList>
+            <item label="메뉴" data="m">
+            	<item label="한식" data="k">
+            		<item label="비빔밥" data="k1"/>
+            		<item label="불고기" data="k2"/>            		
+            		<item label="냉면" data="k3"/>            		            		
+            	</item>
+            	<item label="중식" data="c">
+            		<item label="짜장면" data="c1"/>
+            		<item label="짬뽕" data="c2"/>            		
+            		<item label="탕수육" data="c3"/>                       		
+            	</item>
+            </item>
+        </mx:XMLList>    
+    </mx:XMLListCollection>
+	<mx:Panel title="Tree" width="600" height="426" 
+		paddingTop="10" paddingBottom="10" paddingLeft="10" paddingRight="10"
+		horizontalAlign="left" 
+		fontSize="12" layout="absolute">
+		<!-- Tree에서 선택하는(change이벤트) 배열의 인덱스값을 다른 컨트롤에 연결처리함 -->
+		<mx:Form x="221" y="10" width="349" height="156">
+			<mx:FormHeading label="5. 선택한 아이템 정보" width="301" labelWidth="1"/>
+			<mx:FormItem label="선택한 아이템의 인덱스">
+				<mx:TextInput id="txtIdx" text="{myComp.selectedIndex}"/>
+			</mx:FormItem>
+			<!-- 선택한 item의 속성값은 @를 사용해서 E4X식으로 접근 -->
+			<mx:FormItem label="선택한 아이템의 Label">
+				<mx:TextInput id="txtLabel" text="{myComp.selectedItem.@label}"/>
+			</mx:FormItem>
+			<!-- 선택한 item의 속성값은 @를 사용해서 E4X식으로 접근 -->
+			<mx:FormItem label="선택한 아이템의 Data">
+				<mx:TextInput id="txtData" text="{myComp.selectedItem.@data}"/>
+			</mx:FormItem>
+		</mx:Form>
+		<mx:Tree x="10" y="10" id="myComp" labelField="@label" showRoot="true"   width="193" height="326"/>
+		<mx:ControlBar>
+			<mx:Button label="1. XML Data 연결" click="connectData()"/>
+			<mx:Button label="2. Tree 열고 닫기" click="controlNode()"/>
+			<mx:Button label="3. 아이템 추가" click="addData()"/>
+			<mx:Label text="4.Tree 노드 이동" fontWeight="bold"/>
+			<!-- NumericStepper의 변경되는 값이 Tree노드의  선택된 인덱스 값이 되어 선택된 아이템이 변경 됨 -->
+			<mx:NumericStepper id="ns" minimum="0"  change="myComp.selectedIndex = ns.value"/>
+		</mx:ControlBar>
+		</mx:Panel> 
+</mx:Application>

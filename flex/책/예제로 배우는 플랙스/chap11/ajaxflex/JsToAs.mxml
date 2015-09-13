@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" 
+	backgroundGradientColors="[#f7f794, #adb2ce]">
+<mx:Style>
+	global { font-size:12;}
+</mx:Style>
+<!-- FABridge 사용 선언 -->
+<bridge:FABridge xmlns:bridge="bridge.*" id="bridgeInst" />	
+<mx:Script>
+<![CDATA[
+	import mx.controls.Alert;
+	/* 자바스크립트가 Call할 함수 */
+	public function showMsg(name:String):void {
+		alert('Call From JavaScript : ' + name + '님의 스크립트 호출');
+	}
+	/* 자바스크립트를 URLRequest 통해서 호출 */	
+	public function callJsByURLRequest():void {
+		if(myname.text == '') {
+			alert('이름을 입력하세요');
+		} else {
+         	var urlRQ:URLRequest = new URLRequest("javascript:callJs('" + myname.text + "')");
+            navigateToURL(urlRQ, "_self");
+            // 자바스크립트를 ExternalInterface를 통해서 호출 
+            // ExternalInterface.call('callJs', myname.text);
+		}
+	}
+	private function alert(msg:String):void {
+		mx.controls.Alert.show(msg);
+	}
+]]>
+</mx:Script>
+	<mx:Panel width="550" height="312" layout="absolute" title="JavaScript / Actionsript 상호 연동">
+		<mx:Form x="0" y="0" width="100%" height="100%">
+			<mx:Text text="아래 주소로 접속하여 이름을 입력한 후 버튼을 클릭하면 자바스크립트가 호출 됨" fontWeight="bold"/>
+			<mx:Text text="http://localhost:8700/flex/Flex2Book/etc/ajaxflex/IndexWork.html" fontWeight="bold"/>
+			<mx:FormItem label="이름 입력">
+				<mx:TextInput id="myname" />
+			</mx:FormItem>
+		</mx:Form>
+		<mx:ControlBar>
+			<mx:Button label="JS 호출 [getURL 방식 ]   " click="callJsByURLRequest()"/>
+		</mx:ControlBar>
+	</mx:Panel>
+</mx:Application>

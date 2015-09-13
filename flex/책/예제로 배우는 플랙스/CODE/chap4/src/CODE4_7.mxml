@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="vertical"  
+	fontSize="11" backgroundGradientColors="[#f7f794, #adb2ce]">
+    <mx:HBox>
+        <mx:ProgressBar width="200" source="sl"/>
+        <mx:Button label="Image 로드" 
+        	click="sl.load('http://www.acornpub.co.kr/files/book/0904051762.gif')"/>
+        <mx:Button label="SWF 로드" 
+        	click="sl.load('alphaChannel1.swf')"/>        
+    </mx:HBox>
+    <mx:Spacer height="10"/>
+    <mx:SWFLoader id="sl" autoLoad="false" visible="true"/> 
+</mx:Application>

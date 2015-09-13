@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="vertical" 
+	creationComplete="initApp()">
+<mx:Script>
+	<![CDATA[
+		[Bindable] public var myParameter:String;
+		private function initApp():void {
+			myParameter = Application.application.parameters.myParameter;			
+            if (ExternalInterface.available) {
+                try {
+                    appendText("Adding callback...\n");
+                    ExternalInterface.addCallback("sendToActionScript", receivedFromJavaScript);
+                    ExternalInterface.addCallback("changeBG", receivedFromJavaScriptChangeBG);                    
+                    if (checkJavaScriptReady()) {
+                        appendText("JavaScript is ready.\n");
+                    } else {
+                        appendText("JavaScript is not ready, creating timer.\n");
+                        var readyTimer:Timer = new Timer(100, 0);
+                        readyTimer.addEventListener(TimerEvent.TIMER, timerHandler);
+                        readyTimer.start();
+                    }
+                } catch (error:SecurityError) {
+                    appendText("A SecurityError occurred: " + error.message + "\n");
+                } catch (error:Error) {
+                    appendText("An Error occurred: " + error.message + "\n");
+                }
+            } else {
+                appendText("External interface is not available for this container.");
+            }			
+		}
+		private function receivedFromJavaScriptChangeBG(value:String):void {
+			this.setStyle('backgroundColor', value);
+		}
+        private function receivedFromJavaScript(value:String):void {
+            appendText("JavaScript says: " + value + "\n");
+            mx.controls.Alert.show(value);            
+        }
+        private function checkJavaScriptReady():Boolean {
+            var isReady:Boolean = ExternalInterface.call("isReady");
+            return isReady;
+        }
+        private function timerHandler(event:TimerEvent):void {
+            appendText("Checking JavaScript status...\n");
+            var isReady:Boolean = checkJavaScriptReady();
+            if (isReady) {
+                appendText("JavaScript is ready.\n");
+                Timer(event.target).stop();
+            }
+        }
+        private function clickHandler(event:MouseEvent):void {
+            if (ExternalInterface.available) {
+                ExternalInterface.call("sendToJavaScript", input.text);
+            }
+        }
+                
+        private function appendText(msg:String):void {
+        	output.text += msg + "\n";
+        }
+	]]>
+</mx:Script>
+<mx:Panel title="EXIF App1" width="500" height="200">
+	<mx:HBox height="30" verticalAlign="middle" width="100%">
+		<mx:Label text="flashvars myParameter :"/>
+		<mx:Label text="{myParameter}" width="100%"/>
+	</mx:HBox>
+	<mx:TextArea id="output" width="100%" height="100%"/>
+	<mx:ControlBar>
+		<mx:ComboBox id="cmb" toolTip="Choose your target" width="120">
+			<mx:dataProvider>
+				<mx:Object label="GosuEXIFApp2" data="GosuEXIFApp2"/>				
+				<mx:Object label="JavaScript" data="JavaScript"/>
+			</mx:dataProvider>
+		</mx:ComboBox>
+		<mx:TextInput id="input"  width="150"/>
+		<mx:Button label="Send" click="ExternalInterface.call('sendToJavaScriptMsg', cmb.selectedLabel, input.text)"/>
+		<mx:Button label="Change Color" click="ExternalInterface.call('sendToJavaScriptColor', cmb.selectedLabel, cp.selectedColor)"/>
+		<mx:ColorPicker id="cp"/>
+	</mx:ControlBar>	
+</mx:Panel>
+</mx:Application>

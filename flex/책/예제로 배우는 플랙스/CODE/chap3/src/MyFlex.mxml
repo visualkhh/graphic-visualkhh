@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute"
+	initialize="trace('My Flex initialize!')">
+
+	
+	<mx:states>
+		<mx:State name="image">
+			<mx:RemoveChild target="{panel1}"/>
+			<mx:AddChild position="lastChild">
+				<mx:RichTextEditor x="87" y="28">
+				</mx:RichTextEditor>
+			</mx:AddChild>
+		</mx:State>
+	</mx:states>
+	<mx:Script>
+		<![CDATA[
+			import mx.controls.Alert;
+			private function showMsg(input:String):void {
+				mx.controls.Alert.show(input);
+				currentState = 'image';
+			}
+		]]>
+	</mx:Script>
+	<mx:Panel layout="absolute" left="10" bottom="10" right="10" top="10" title="My Flex" id="panel1">
+		<mx:DateChooser width="100%" height="100%" change="showMsg('My Flex!')">
+		</mx:DateChooser>
+	</mx:Panel>	
+</mx:Application>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectRoot>
+<url value="http://ws.cdyne.com/emailverify/Emailvernotestemail.asmx?wsdl">
+<service name="EmailVerNoTestEmail">
+<port name="EmailVerNoTestEmailSoap">
+<operations>
+<operation name="VerifyEmail(parameters: VerifyEmail): VerifyEmailResponse"/>
+</operations>
+</port>
+</service>
+<asPackage absPath="C:\flex\chap9\src\com\cdyne" name="com.cdyne">
+<mainAsClass name="EmailVerNoTestEmail.as"/>
+<otherAsClass name="BaseEmailVerNoTestEmail.as"/>
+<otherAsClass name="ReturnIndicator0.as"/>
+<otherAsClass name="ArrayOfAnyType.as"/>
+<otherAsClass name="ReturnIndicator.as"/>
+<otherAsClass name="IEmailVerNoTestEmail.as"/>
+<otherAsClass name="Int.as"/>
+<otherAsClass name="VerifyEmail_request.as"/>
+<otherAsClass name="BaseEmailVerNoTestEmailSchema.as"/>
+<otherAsClass name="VerifyEmailResultEvent.as"/>
+<otherAsClass name="ArrayOfAnyType0.as"/>
+</asPackage>
+</url>
+</projectRoot>

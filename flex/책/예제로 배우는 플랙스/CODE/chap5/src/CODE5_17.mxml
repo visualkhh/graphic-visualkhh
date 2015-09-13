@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="vertical" 
+	xmlns:gosu="*" backgroundGradientColors="[#f7f794, #adb2ce]">
+<mx:Style>
+	.DayHeadBox {
+		corner-radius:0;
+		border-thickness:1;
+		drop-shadow-enabled:false;
+		border-style:solid;
+		border-color:#c0c0c0;
+		font-size:11;		
+	}
+	.DayHeadBoxTitle {
+		corner-radius:0;
+		border-thickness:1;
+		drop-shadow-enabled:false;
+		border-style:solid;
+		border-color:#c0c0c0;
+		text-align:center;
+	}	
+	NumericStepper {
+	   borderStyle: solid;
+	}	
+</mx:Style>
+<mx:Panel title="Flex 2 달력 (Light 버전)" width="512" height="304">
+	<mx:HBox width="100%" horizontalAlign="center">
+		<!-- 년월일 지정 -->
+		<mx:NumericStepper id="yearStepper" minimum="1900" maximum="2500" stepSize="1" value="2000" 
+			cornerRadius="5" width="60"/>
+		<mx:ComboBox id="monthCombo">
+			<mx:dataProvider>
+				<mx:Array>
+					<mx:Object label="1월"  data="0"/>
+					<mx:Object label="2월"  data="1"/>
+					<mx:Object label="3월"  data="2"/>
+				</mx:Array>
+			</mx:dataProvider>
+		</mx:ComboBox>
+		<mx:Label text="선택한 날짜:"/>
+		<mx:Label id="selectedDate" text=""/>	
+	</mx:HBox>
+	<mx:Grid width="100%" height="100%"  horizontalGap="0" verticalGap="0">
+		<!-- 요일 설정 -->
+		<mx:GridRow width="100%" height="100%">
+			<mx:GridItem width="15%"><mx:Panel titleStyleName="DayHeadBoxTitle" width="100%" title="일요일" styleName="DayHeadBox"/></mx:GridItem>
+			<mx:GridItem width="15%"><mx:Panel titleStyleName="DayHeadBoxTitle" width="100%" title="월요일" styleName="DayHeadBox"/></mx:GridItem>
+			<mx:GridItem width="15%"><mx:Panel titleStyleName="DayHeadBoxTitle" width="100%" title="화요일" styleName="DayHeadBox"/></mx:GridItem>
+			<mx:GridItem width="15%"><mx:Panel titleStyleName="DayHeadBoxTitle" width="100%" title="수요일" styleName="DayHeadBox"/></mx:GridItem>
+			<mx:GridItem width="15%"><mx:Panel titleStyleName="DayHeadBoxTitle" width="100%" title="목요일" styleName="DayHeadBox"/></mx:GridItem>
+			<mx:GridItem width="15%"><mx:Panel titleStyleName="DayHeadBoxTitle" width="100%" title="금요일" styleName="DayHeadBox"/></mx:GridItem>
+			<mx:GridItem width="15%"><mx:Panel titleStyleName="DayHeadBoxTitle" width="100%" title="토요일" styleName="DayHeadBox"/></mx:GridItem>
+		</mx:GridRow>
+		<!-- 날짜  설정 -->		
+		<mx:GridRow width="100%" height="100%">
+			<mx:GridItem><gosu:GosuCalendarPanel id="day0"/></mx:GridItem>
+			<mx:GridItem><gosu:GosuCalendarPanel id="day1"/></mx:GridItem>
+			<mx:GridItem><gosu:GosuCalendarPanel id="day2"/></mx:GridItem>
+			<mx:GridItem><gosu:GosuCalendarPanel id="day3"/></mx:GridItem>
+			<mx:GridItem><gosu:GosuCalendarPanel id="day4"/></mx:GridItem>
+			<mx:GridItem><gosu:GosuCalendarPanel id="day5"/></mx:GridItem>
+			<mx:GridItem><gosu:GosuCalendarPanel id="day6"/></mx:GridItem>
+		</mx:GridRow>
+	</mx:Grid>	
+</mx:Panel>
+</mx:Application>

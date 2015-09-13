@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="vertical" xmlns:ns1="mycomp.*">
+<mx:Script>
+	<![CDATA[
+		import mx.controls.Alert;
+		private function leftHandler(event:mycomp.MyEvent):void {
+			mx.controls.Alert.show(event.msg);
+		}
+		private function rightHandler(event:mycomp.MyEvent):void {
+			mx.controls.Alert.show(event.msg);
+		}
+	]]>
+</mx:Script>
+	<ns1:MyEventButton2 leftButtonClicked="leftHandler(event)" rightButtonClicked="rightHandler(event)"/>
+</mx:Application>

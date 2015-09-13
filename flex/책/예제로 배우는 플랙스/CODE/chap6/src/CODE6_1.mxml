@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="horizontal"  width="100%" height="100%">
+	<mx:VBox width="100%" height="200" backgroundColor="#ff8080">
+		<mx:TextArea width="100" height="100" text="width='100' height='100'"/>
+	</mx:VBox>
+	<mx:VBox width="100%" height="200" backgroundColor="#ff8080">
+		<mx:TextArea width="100%" height="100%" text="width='100%' height='100%'" wordWrap="true"/>
+	</mx:VBox>	
+	<mx:VBox width="100%" height="200" backgroundColor="#ffff80">
+		<mx:TextArea percentWidth="100" percentHeight="100" text="percentWidth='100' percentHeight='100'"/>
+	</mx:VBox>
+</mx:Application>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:TitleWindow xmlns:mx="http://www.adobe.com/2006/mxml" width="450" height="400" title="Title Window" creationComplete="initApp()" borderColor="#FFFFFF">
+    <mx:Script>
+        <![CDATA[
+            import mx.managers.PopUpManager;
+            public var winOpenArr:Array;
+            public var menuNum:int;
+            private function initApp():void {
+            	this.title = "Pop : " + menuNum;
+            	this.loader.url = "ModuleSubMenu" + menuNum + ".swf";
+            	this.loader.loadModule();
+            }
+            private function closeWin():void {
+            	// 모듈 메모리 할당 해제 
+				//this.loader.unloadModule();
+				winOpenArr[menuNum]=false;
+				PopUpManager.removePopUp(this);            	
+            }
+            private function sendMsgToModule():void {
+            	var module:Object =new Object(); 
+            	switch (menuNum) {
+            		case 0:
+		            	module =  loader.child as ModuleSubMenu0;
+            		break;
+            		case 1:
+            			module =  loader.child as ModuleSubMenu1;
+            		break;
+            		case 2:
+            			module =  loader.child as ModuleSubMenu2;
+            		break;
+            		case 3:
+            			module =  loader.child as ModuleSubMenu3;
+            		break;
+            		case 4:
+            			module =  loader.child as ModuleSubMenu4;
+            		break;
+            		case 5:
+            			module =  loader.child as ModuleSubMenu5;
+            		break;
+            	}
+            	module.processMsg(ti.text);   
+            } 
+            public function chageColor(color:String):void {
+            	this.setStyle("backGroundColor", color);
+            }
+            
+        ]]>
+    </mx:Script>
+    <mx:Canvas height="100%" width="100%">
+    	<mx:ModuleLoader id="loader" left="10" right="10" top="10" bottom="10"/>
+    </mx:Canvas>
+    <mx:HBox width="100%" horizontalAlign="center">
+    	<mx:TextInput id="ti" />
+    	<mx:Button label="모듈에 메시지 전송" click="sendMsgToModule()"/>
+    	<mx:Button label="닫기" click="closeWin()"/>
+    </mx:HBox>
+</mx:TitleWindow> 

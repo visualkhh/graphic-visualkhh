@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="vertical"
+	xmlns:srv="com.cdyne.*">
+   <srv:EmailVerNoTestEmail id="myService" VerifyEmail_result="dg.dataProvider=event.result">
+     <srv:verifyEmail_request_var>
+     	<srv:VerifyEmail_request  email="okgosu@gmail.com" LicenseKey="0"/>
+     </srv:verifyEmail_request_var>
+   </srv:EmailVerNoTestEmail>
+	<mx:Button id="myButton" label="Call operation" click="myService.verifyEmail_send()" />
+	<mx:DataGrid id="dg" width="100%" height="100%"/>
+</mx:Application>

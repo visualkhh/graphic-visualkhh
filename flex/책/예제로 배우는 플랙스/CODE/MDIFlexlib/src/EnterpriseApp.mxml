@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+OkGosu.Net
+-->
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="vertical" 
+	xmlns:flexmdi="http://flexmdi.googlecode.com/"
+	xmlns:ns="sample_content.*"	
+	xmlns:flexlib="http://code.google.com/p/flexlib/">
+	
+	<mx:Style source="css/docker.css"/>
+	<mx:Script source="as/EditingToolbar.as" />
+	<mx:Move duration="250" id="DockerMove"/>
+	<mx:Fade duration="250" id="DockerFade"/>
+
+	<mx:ArrayCollection source="{alignButtonsArray}" id="alignButtonsAC" />
+	 
+	<mx:MenuBar id="menubar" width="100%" dataProvider="{myMenuBarXML}" itemClick="ToggleToolbars(event);"
+	 showRoot="false" labelField="@label" />
+	 
+	<flexlib:Docker height="100%" width="100%" minWidth="400">
+		<flexlib:DockableToolBar label="MyToolBar" id="formating" width="100%" minWidth="0" draggable="true">
+			<mx:ComboBox id="fontFamilyCombo" editable="true" dataProvider = "{fontFamilyArray}" toolTip="Font"/>
+			<mx:ComboBox id="fontSizeCombo" width="50" editable="true" dataProvider = "{fontSizeArray}" toolTip="Font Size"/>
+			<mx:Button id="boldButton" width="20" toggle="true" icon="@Embed('assets/icon_style_bold.png')" toolTip="Bold"/>
+			<mx:Button id="italicButton" width="20" toggle="true" icon="@Embed('assets/icon_style_italic.png')" toolTip="Italic"/>
+			<mx:Button id="underlineButton" width="20" toggle="true" icon="@Embed('assets/icon_style_underline.png')" toolTip="Underline"/>
+			<mx:ColorPicker id="colorPicker" width="22" height="22" toolTip="Font Color"/>
+			<mx:Image source="@Embed('assets/divider_vertical.png')" height="{alignButtons.height}"/>
+			<mx:ToggleButtonBar id="alignButtons" buttonWidth="20" dataProvider="{alignButtonsAC}" toolTipField="tooltip" iconField="icon"/>
+			<mx:Button id="bulletsButton" width="20" toggle="true" icon="@Embed('assets/icon_bullet.png')" toolTip="Bullets"/>
+			<mx:PopUpMenuButton toolTip="Add or Remove Tools" id="addremovebutton" label="" dataProvider="{formatingtoolBarXML}" 
+						labelField="@label" itemClick="ToggleButtonsinToolBar(event)" width="20" arrowButtonWidth="{addremovebutton.width}"/>	
+		</flexlib:DockableToolBar>
+
+		<flexmdi:MDICanvas id="mdiCanvas" horizontalScrollPolicy="off" verticalScrollPolicy="off"
+			width="100%" height="100%" backgroundColor="#FFFFFF" backgroundAlpha="0">
+			<flexmdi:MDIWindow id="win1"
+				title="Highlighter_Sample"
+				x="30" y="30" width="400" height="400" >
+				<mx:SWFLoader width="100%" height="100%" source="Highlighter_Sample.swf"/>
+			</flexmdi:MDIWindow>
+
+			<flexmdi:MDIWindow id="win2"
+				title="ConvertibleTreeList_Sample"
+				x="32" y="32" width="400" height="400" >
+				<mx:SWFLoader width="100%" height="100%" source="ConvertibleTreeList_Sample.swf"/>
+			</flexmdi:MDIWindow>
+				
+			<flexmdi:MDIWindow id="win3"
+				title="CanvasButtonAccordionHeader_Sample"
+				x="34" y="34" width="400" height="400" >
+				<mx:SWFLoader width="100%" height="100%" source="CanvasButtonAccordionHeader_Sample.swf"/>
+			</flexmdi:MDIWindow>				
+				
+				
+			<flexmdi:MDIWindow id="win4"
+				title="PromptingTextInput_Sample"
+				x="36" y="36" width="400" height="400" >
+				<mx:SWFLoader width="100%" height="100%" source="PromptingTextInput_Sample.swf"/>
+			</flexmdi:MDIWindow>	
+
+
+			<flexmdi:MDIWindow id="win5"
+				title="AdvancedForm_Sample"
+				x="38" y="38" width="400" height="400" >
+				<mx:SWFLoader width="100%" height="100%" source="AdvancedForm_Sample.swf"/>
+			</flexmdi:MDIWindow>	
+			
+			<flexmdi:MDIWindow id="win6"
+				title="WindowShade_Sample"
+				x="40" y="40" width="400" height="400" >
+				<mx:SWFLoader width="100%" height="100%" source="WindowShade_Sample.swf"/>
+			</flexmdi:MDIWindow>											
+			
+				
+		</flexmdi:MDICanvas>	
+
+	</flexlib:Docker>
+</mx:Application>

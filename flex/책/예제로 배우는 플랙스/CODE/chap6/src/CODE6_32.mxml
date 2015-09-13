@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="horizontal">
+	<mx:Panel width="100%" height="200" layout="vertical" title="verticalGap=&quot;0&quot;" verticalGap="0">
+		<mx:TextArea width="100%" height="100%">
+		</mx:TextArea>
+		<mx:TextArea width="100%" height="100%">
+		</mx:TextArea>		
+	</mx:Panel>
+	<mx:Panel width="100%" height="200" layout="vertical" title="verticalGap=&quot;10&quot;" verticalGap="10">
+		<mx:TextArea width="100%" height="100%">
+		</mx:TextArea>
+		<mx:TextArea width="100%" height="100%">
+		</mx:TextArea>
+	</mx:Panel>	
+</mx:Application>

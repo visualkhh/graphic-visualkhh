@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" fontSize="11" backgroundGradientColors="[#f7f794, #adb2ce]"> 
+<mx:Script>
+<![CDATA[
+	import flash.net.navigateToURL;
+	public function changePage():void {
+		var flexName:String = "AppParam2";
+		var params:String = "param1=" + param1.text + "&param2=" + param2.text
+	    var url:URLRequest = new URLRequest(flexName + ".swf?" + params);
+	    navigateToURL(url, "_self");
+	}
+]]>
+</mx:Script>
+<mx:TextInput id="param1"/>
+<mx:TextInput id="param2"/>
+<mx:Button label="SWF전환" click="changePage()"/>
+</mx:Application>

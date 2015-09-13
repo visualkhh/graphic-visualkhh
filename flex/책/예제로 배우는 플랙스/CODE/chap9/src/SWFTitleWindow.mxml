@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:TitleWindow xmlns:mx="http://www.adobe.com/2006/mxml" width="400" height="400" title="Title Window" creationComplete="initApp()">
+    <mx:Script>
+        <![CDATA[
+            import mx.managers.PopUpManager;
+            public var winOpenArr:Array;
+            public var menuNum:int;
+            private function initApp():void {
+            	this.title = "Pop : " + menuNum;
+            	this.loader.load("SWFSubMenu" + menuNum + ".swf");
+            }
+        ]]>
+    </mx:Script>
+    <mx:Canvas height="100%" width="100%">
+    	<mx:SWFLoader id="loader" left="10" right="10" top="10" bottom="10"/>
+    </mx:Canvas>
+    <mx:HBox width="100%" horizontalAlign="center">
+    	<mx:Button label="닫기" click="winOpenArr[menuNum]=false;PopUpManager.removePopUp(this);"/>
+    </mx:HBox>
+</mx:TitleWindow> 

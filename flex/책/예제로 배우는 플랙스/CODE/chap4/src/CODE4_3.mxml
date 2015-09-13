@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="vertical"  
+	fontSize="11" backgroundGradientColors="[#f7f794, #adb2ce]">
+    <mx:Panel title="CheckBox / RadioButton / RadioButtonGroup" 
+        width="100%" height="100%" layout="vertical"
+        paddingTop="10" paddingBottom="10" paddingLeft="10" paddingRight="10">
+        <mx:VBox verticalAlign="middle" width="100%">
+        	<!-- 체크박스가 선택이 되면 myBtn버튼의 활성화 속성을 
+        		 똑같이 true 또는 false로 바꿔준다. -->
+            <mx:CheckBox id="myChk1" labelPlacement="left" label="왼쪽 라벨 체크박스" click="myBtn.enabled=myChk1.selected"/>
+            <mx:CheckBox id="myChk2" labelPlacement="right" label="오른쪽 라벨 체크박스" click="myBtn.enabled=myChk2.selected"/>
+	        <mx:Button label="상태확인용버튼" id="myBtn"/>
+        </mx:VBox>
+        <mx:HBox borderStyle="solid">
+        	<mx:Label text="과일 고르기"/>
+        	<!-- 과일을 위한 RadioButtonGroup 생성 -->
+        	<mx:RadioButtonGroup id="rg1"/>       	
+        	<mx:RadioButton label="1.포도"  groupName="rg1"/>
+        	<mx:RadioButton label="2.메론"  groupName="rg1"/>        	
+        	<mx:RadioButton label="3.수박"  groupName="rg1"/>      
+        </mx:HBox>
+        <mx:HBox borderStyle="solid">
+        	<mx:Label text="음료 고르기"/>   
+        	<!-- 음료를 위한 RadioButtonGroup 생성 -->        	     
+        	<mx:RadioButtonGroup id="rg2"/>        	         	
+        	<mx:RadioButton label="1.쥬스"  groupName="rg2"/>
+        	<mx:RadioButton label="2.커피"  groupName="rg2"/>        	
+        	<mx:RadioButton label="3.콜라"  groupName="rg2"/>    
+        </mx:HBox>
+    </mx:Panel>
+</mx:Application>

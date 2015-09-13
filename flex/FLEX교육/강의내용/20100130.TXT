@@ -1,0 +1,87 @@
+ [View]    [Control/Model]
+  Flex <-----> JAVA <-------> Oracle
+          (Struts2/Spring)
+
+1. oracle 10g 
+-> SID:JAVA
+   암호:flex
+
+   작동확인
+   시작-> 실행:sqlplus scott/tiger
+   
+   cf) 실행 : system/fles
+   SQL>alter user scott identified by tiger account unlock;
+    
+    Enterprise Manager 데이터베이스 컨트롤 URL - (JAVA) :
+    http://9c0eec0159454ac:1158/em
+    데이터베이스 구성 파일은 C:\oracle\product\10.2.0에 설치되었으며 설치 시 선택한 다른 구성 요소는 C:\oracle\product\10.2.0\db_1에 설치되었습니다. 실수로 이들 구성 파일을 삭제하지 않도록 주의하십시오.
+    iSQL*Plus URL:
+    http://9c0eec0159454ac:5560/isqlplus
+    iSQL*Plus DBA URL:
+    http://9c0eec0159454ac:5560/isqlplus/dba
+    
+2. jdk 6 (jdk-6u10-windows-i586-p)
+->path: C:\Program Files\Java\jdk1.6.0_10\bin
+->classpath: .;C:\Program Files\Java\jdk1.6.0_10\lib
+    cf) 4가지 환경번수
+    - 바탕화면 > 내컴퓨터 > 고급 > 환경변수
+    - C:\ProgramFiles\Java\jdk1.6.0_10\jre\lib\ext
+    - set classpath=%classpath%C:\test.jar[유효범위 : 도스콘솔에서만 적용]
+    - javac -classpath C:\test.jar A.java [유효범위 : 컴파일]
+      java -classpath C:\test.jar A.class [유효범위 : 실행]
+    
+3. tomcat6
+   1) ㅇ:\FLEX\tomcat6 압축풀기
+   2) 환경변수 셋팅
+     1> Path : D:\FLEX\tomcat6\bin
+     2> JAVA_HOME : C:\Program Files\Java\jdk1.6.0_10
+     3> CATALINA_HOME : D:\FLEX\tomcat6
+
+4. flex3 builder(flugin)
+
+
+
+
+1.GUI - 4가지 (Layout, Control, ... )
+  - 샘플 URL (컴포넌트 익스플로러)
+
+2.스타일
+
+3. ActionScript 3.0
+
+4.데이터 통신
+  1) HttpService  // XML통신
+  2) RemoteObject // BlazeDS
+  3) Message Service //BlazeDS
+  
+  //4)Data Management Service //LCDC
+  //5)WebService
+  
+5. 웹페이지와 통신
+  1) JSP <-----------> FLEX(swf)
+   [javascript <--> actionscript]
+  대량의 데이터 초기화 FLEX 바스??
+   
+6.AIR (설치)
+  1) SQLite
+  2) File 핸들링(Read/Write)
+  3) 바이너리 Socket 통신
+  4) 오디오 및 비디오 플레이어
+  5) 패키징/배포
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  컨테이너 extends 컴포넌트
+  
+  컨데이너(Layout) is a 컴포넌트  (0)
+  

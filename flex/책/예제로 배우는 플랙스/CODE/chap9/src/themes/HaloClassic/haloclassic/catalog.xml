@@ -1,0 +1,501 @@
+<?xml version="1.0" encoding ="utf-8"?>
+<swc xmlns="http://www.adobe.com/flash/swccatalog/9">
+  <versions>
+    <swc version="1.2" />
+    <flex version="3.0.0" build="477" />
+  </versions>
+  <features>
+    <feature-script-deps />
+    <feature-files />
+  </features>
+  <libraries>
+    <library path="library.swf">
+      <script name="haloclassic/SwatchPanelSkin" mod="1201055684469" signatureChecksum="3900665616" >
+        <def id="haloclassic:SwatchPanelSkin" /> 
+        <dep id="mx.skins:Border" type="i" /> 
+        <dep id="mx.core:mx_internal" type="n" /> 
+        <dep id="AS3" type="n" /> 
+      </script>
+      <script name="haloclassic/HaloFocusRect" mod="1201055684485" signatureChecksum="616657220" >
+        <def id="haloclassic:HaloFocusRect" /> 
+        <dep id="mx.skins:ProgrammaticSkin" type="i" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="flash.display:Graphics" type="s" /> 
+        <dep id="mx.utils:GraphicsUtil" type="e" /> 
+      </script>
+      <script name="haloclassic/ActivatorSkin" mod="1201055684672" signatureChecksum="195211498" >
+        <def id="haloclassic:ActivatorSkin" /> 
+        <dep id="mx.skins:Border" type="i" /> 
+        <dep id="mx.core:mx_internal" type="n" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="mx.styles:IStyleClient" type="s" /> 
+        <dep id="mx.core:Application" type="e" /> 
+        <dep id="mx.styles:IStyleClient" type="e" /> 
+        <dep id="flash.display:DisplayObject" type="e" /> 
+        <dep id="mx.containers:ApplicationControlBar" type="e" /> 
+        <dep id="flash.display:GradientType" type="e" /> 
+      </script>
+      <script name="haloclassic/ColorPickerSkin" mod="1201055684501" signatureChecksum="3326114553" >
+        <def id="haloclassic:ColorPickerSkin" /> 
+        <dep id="mx.skins:Border" type="i" /> 
+        <dep id="mx.core:mx_internal" type="n" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="flash.display:Graphics" type="s" /> 
+      </script>
+      <script name="haloclassic/NumericStepperDownSkin" mod="1201055684688" signatureChecksum="3381641316" >
+        <def id="haloclassic:NumericStepperDownSkin" /> 
+        <dep id="mx.skins:Border" type="i" /> 
+        <dep id="mx.core:mx_internal" type="n" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="flash.display:Graphics" type="s" /> 
+        <dep id="haloclassic:HaloColors" type="e" /> 
+        <dep id="mx.styles:StyleManager" type="e" /> 
+        <dep id="mx.utils:ColorUtil" type="e" /> 
+      </script>
+      <script name="haloclassic/ToolTipBorder" mod="1201055684469" signatureChecksum="52279154" >
+        <def id="haloclassic:ToolTipBorder" /> 
+        <dep id="mx.skins:RectangularBorder" type="i" /> 
+        <dep id="mx.core:mx_internal" type="n" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="mx.core:EdgeMetrics" type="s" /> 
+        <dep id="flash.display:Graphics" type="s" /> 
+        <dep id="mx.core:EdgeMetrics" type="e" /> 
+      </script>
+      <script name="haloclassic/SliderVThumbSkin" mod="1201055684907" signatureChecksum="2179057852" >
+        <def id="haloclassic:SliderVThumbSkin" /> 
+        <dep id="mx.skins:Border" type="i" /> 
+        <dep id="mx.core:mx_internal" type="n" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="flash.display:Graphics" type="s" /> 
+        <dep id="haloclassic:HaloColors" type="e" /> 
+        <dep id="mx.styles:StyleManager" type="e" /> 
+        <dep id="mx.utils:ColorUtil" type="e" /> 
+        <dep id="flash.display:GradientType" type="e" /> 
+      </script>
+      <script name="haloclassic/ProgressBarSkin" mod="1201055684391" signatureChecksum="839691929" >
+        <def id="haloclassic:ProgressBarSkin" /> 
+        <dep id="mx.skins:Border" type="i" /> 
+        <dep id="mx.core:mx_internal" type="n" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="flash.display:Graphics" type="s" /> 
+      </script>
+      <script name="haloclassic/RadioButtonIcon" mod="1201055685094" signatureChecksum="3785341574" >
+        <def id="haloclassic:RadioButtonIcon" /> 
+        <dep id="mx.skins:Border" type="i" /> 
+        <dep id="mx.core:mx_internal" type="n" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="flash.display:Graphics" type="s" /> 
+        <dep id="haloclassic:HaloColors" type="e" /> 
+        <dep id="mx.styles:StyleManager" type="e" /> 
+        <dep id="mx.utils:ColorUtil" type="e" /> 
+      </script>
+      <script name="haloclassic/ScrollThumbSkin" mod="1201055684454" signatureChecksum="1715711683" >
+        <def id="haloclassic:ScrollThumbSkin" /> 
+        <dep id="mx.skins:Border" type="i" /> 
+        <dep id="mx.core:mx_internal" type="n" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="haloclassic:HaloColors" type="e" /> 
+        <dep id="mx.styles:StyleManager" type="e" /> 
+        <dep id="mx.utils:ColorUtil" type="e" /> 
+        <dep id="Math" type="e" /> 
+      </script>
+      <script name="haloclassic/AccordionHeaderSkin" mod="1201055685032" signatureChecksum="1746512198" >
+        <def id="haloclassic:AccordionHeaderSkin" /> 
+        <dep id="mx.skins:Border" type="i" /> 
+        <dep id="mx.core:mx_internal" type="n" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="mx.core:EdgeMetrics" type="s" /> 
+        <dep id="mx.core:EdgeMetrics" type="e" /> 
+        <dep id="haloclassic:HaloColors" type="e" /> 
+        <dep id="mx.styles:StyleManager" type="e" /> 
+        <dep id="mx.utils:ColorUtil" type="e" /> 
+      </script>
+      <script name="haloclassic/DateChooserDownArrowSkin" mod="1201055684719" signatureChecksum="1527032652" >
+        <def id="haloclassic:DateChooserDownArrowSkin" /> 
+        <dep id="mx.skins:Border" type="i" /> 
+        <dep id="mx.core:mx_internal" type="n" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="flash.display:Graphics" type="s" /> 
+      </script>
+      <script name="haloclassic/PopUpButtonSkin" mod="1201055684704" signatureChecksum="2499216138" >
+        <def id="haloclassic:PopUpButtonSkin" /> 
+        <dep id="mx.core:UIComponent" type="i" /> 
+        <dep id="mx.core:mx_internal" type="n" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="mx.core:EdgeMetrics" type="s" /> 
+        <dep id="mx.core:IFlexDisplayObject" type="s" /> 
+        <dep id="mx.core:EdgeMetrics" type="e" /> 
+        <dep id="haloclassic:HaloColors" type="e" /> 
+        <dep id="haloclassic:PopUpIcon" type="e" /> 
+        <dep id="mx.core:IFlexDisplayObject" type="e" /> 
+        <dep id="flash.display:DisplayObject" type="e" /> 
+        <dep id="mx.styles:StyleManager" type="e" /> 
+        <dep id="mx.utils:ColorUtil" type="e" /> 
+        <dep id="flash.display:GradientType" type="e" /> 
+        <dep id="Math" type="e" /> 
+      </script>
+      <script name="haloclassic/BusyCursor" mod="1201055684438" signatureChecksum="2395580228" >
+        <def id="haloclassic:BusyCursor" /> 
+        <dep id="flash.display:Sprite" type="i" /> 
+        <dep id="mx.core:mx_internal" type="n" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="flash.display:DisplayObject" type="s" /> 
+        <dep id="flash.events:Event" type="s" /> 
+        <dep id="flash.display:Graphics" type="s" /> 
+        <dep id="flash.display:Shape" type="s" /> 
+        <dep id="mx.core:FlexShape" type="e" /> 
+        <dep id="mx.styles:StyleManager" type="e" /> 
+        <dep id="flash.events:Event" type="e" /> 
+        <dep id="flash.display:InteractiveObject" type="e" /> 
+      </script>
+      <script name="haloclassic/ScrollTrackSkin" mod="1201055684657" signatureChecksum="1289203373" >
+        <def id="haloclassic:ScrollTrackSkin" /> 
+        <dep id="mx.skins:Border" type="i" /> 
+        <dep id="mx.core:mx_internal" type="n" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="mx.styles:StyleManager" type="e" /> 
+        <dep id="mx.utils:ColorUtil" type="e" /> 
+      </script>
+      <script name="haloclassic/TitleBackground" mod="1201055684688" signatureChecksum="3231685047" >
+        <def id="haloclassic:TitleBackground" /> 
+        <dep id="mx.skins:ProgrammaticSkin" type="i" /> 
+        <dep id="mx.core:mx_internal" type="n" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="flash.display:Graphics" type="s" /> 
+        <dep id="mx.styles:StyleManager" type="e" /> 
+      </script>
+      <script name="haloclassic/DataGridSortArrow" mod="1201055685079" signatureChecksum="3343298010" >
+        <def id="haloclassic:DataGridSortArrow" /> 
+        <dep id="mx.skins:ProgrammaticSkin" type="i" /> 
+        <dep id="mx.core:mx_internal" type="n" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="flash.display:Graphics" type="s" /> 
+      </script>
+      <script name="haloclassic/PopUpIcon" mod="1201055686188" signatureChecksum="326484087" >
+        <def id="haloclassic:PopUpIcon" /> 
+        <dep id="mx.skins:ProgrammaticSkin" type="i" /> 
+        <dep id="mx.core:mx_internal" type="n" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="flash.display:Graphics" type="s" /> 
+      </script>
+      <script name="haloclassic/SliderHighlightSkin" mod="1201055685032" signatureChecksum="4823927" >
+        <def id="haloclassic:SliderHighlightSkin" /> 
+        <dep id="mx.skins:Border" type="i" /> 
+        <dep id="mx.core:mx_internal" type="n" /> 
+        <dep id="AS3" type="n" /> 
+      </script>
+      <script name="haloclassic/ProgressTrackSkin" mod="1201055684657" signatureChecksum="1904852060" >
+        <def id="haloclassic:ProgressTrackSkin" /> 
+        <dep id="mx.skins:Border" type="i" /> 
+        <dep id="mx.core:mx_internal" type="n" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="flash.display:Graphics" type="s" /> 
+        <dep id="mx.styles:StyleManager" type="e" /> 
+        <dep id="mx.utils:ColorUtil" type="e" /> 
+      </script>
+      <script name="haloclassic/HaloRectBorder" mod="1201055684485" signatureChecksum="1702556780" >
+        <def id="haloclassic:HaloRectBorder" /> 
+        <dep id="flash.display:Sprite" type="i" /> 
+        <dep id="mx.skins:RectangularBorder" type="i" /> 
+        <dep id="mx.core:mx_internal" type="n" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="mx.core:EdgeMetrics" type="s" /> 
+        <dep id="flash.filters:DropShadowFilter" type="s" /> 
+        <dep id="flash.display:Graphics" type="s" /> 
+        <dep id="mx.core:IChildList" type="s" /> 
+        <dep id="flash.display:Shape" type="s" /> 
+        <dep id="mx.core:Container" type="e" /> 
+        <dep id="flash.geom:Rectangle" type="e" /> 
+        <dep id="mx.styles:IStyleClient" type="e" /> 
+        <dep id="mx.core:EdgeMetrics" type="e" /> 
+        <dep id="flash.filters:DropShadowFilter" type="e" /> 
+        <dep id="flash.display:GradientType" type="e" /> 
+        <dep id="mx.core:IChildList" type="e" /> 
+        <dep id="Math" type="e" /> 
+        <dep id="flash.display:Shape" type="e" /> 
+      </script>
+      <script name="haloclassic/HaloColors" mod="1201055685110" signatureChecksum="2402118747" >
+        <def id="haloclassic:HaloColors" /> 
+        <dep id="Object" type="i" /> 
+        <dep id="mx.core:mx_internal" type="n" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="mx.utils:ColorUtil" type="e" /> 
+      </script>
+      <script name="haloclassic/MenuBarBackgroundSkin" mod="1201055684407" signatureChecksum="2734216201" >
+        <def id="haloclassic:MenuBarBackgroundSkin" /> 
+        <dep id="mx.skins:Border" type="i" /> 
+        <dep id="mx.core:mx_internal" type="n" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="mx.core:EdgeMetrics" type="s" /> 
+        <dep id="haloclassic:HaloColors" type="e" /> 
+        <dep id="mx.core:EdgeMetrics" type="e" /> 
+        <dep id="mx.styles:StyleManager" type="e" /> 
+        <dep id="mx.utils:ColorUtil" type="e" /> 
+        <dep id="Math" type="e" /> 
+      </script>
+      <script name="HaloClassicClasses" mod="1201055686282" signatureChecksum="1655618796" >
+        <def id="HaloClassicClasses" /> 
+        <dep id="Object" type="i" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="haloclassic:TitleBackground" type="e" /> 
+        <dep id="haloclassic:DateChooserUpArrowSkin" type="e" /> 
+        <dep id="haloclassic:DateChooserBackArrowSkin" type="e" /> 
+        <dep id="haloclassic:HaloColors" type="e" /> 
+        <dep id="haloclassic:ButtonSkin" type="e" /> 
+        <dep id="haloclassic:DataGridHeaderSeparator" type="e" /> 
+        <dep id="haloclassic:DateChooserDownArrowSkin" type="e" /> 
+        <dep id="haloclassic:AccordionHeaderSkin" type="e" /> 
+        <dep id="haloclassic:ColorPickerSkin" type="e" /> 
+        <dep id="haloclassic:SwatchPanelSkin" type="e" /> 
+        <dep id="haloclassic:NumericStepperDownSkin" type="e" /> 
+        <dep id="haloclassic:PopUpButtonSkin" type="e" /> 
+        <dep id="haloclassic:SliderTrackSkin" type="e" /> 
+        <dep id="haloclassic:ComboBoxArrowSkin" type="e" /> 
+        <dep id="haloclassic:ToolTipBorder" type="e" /> 
+        <dep id="haloclassic:SliderHighlightSkin" type="e" /> 
+        <dep id="haloclassic:DataGridSortArrow" type="e" /> 
+        <dep id="haloclassic:ProgressTrackSkin" type="e" /> 
+        <dep id="haloclassic:MenuBarBackgroundSkin" type="e" /> 
+        <dep id="haloclassic:ScrollArrowUpSkin" type="e" /> 
+        <dep id="haloclassic:SliderVThumbSkin" type="e" /> 
+        <dep id="haloclassic:ScrollArrowDownSkin" type="e" /> 
+        <dep id="haloclassic:SwatchSkin" type="e" /> 
+        <dep id="haloclassic:ProgressBarSkin" type="e" /> 
+        <dep id="haloclassic:RadioButtonIcon" type="e" /> 
+        <dep id="haloclassic:ButtonBarButtonSkin" type="e" /> 
+        <dep id="haloclassic:BusyCursor" type="e" /> 
+        <dep id="haloclassic:DefaultDragImage" type="e" /> 
+        <dep id="haloclassic:ProgressIndeterminateSkin" type="e" /> 
+        <dep id="haloclassic:LinkSeparator" type="e" /> 
+        <dep id="haloclassic:TabSkin" type="e" /> 
+        <dep id="haloclassic:PopUpIcon" type="e" /> 
+        <dep id="haloclassic:ListDropIndicator" type="e" /> 
+        <dep id="haloclassic:HaloFocusRect" type="e" /> 
+        <dep id="haloclassic:HaloRectBorder" type="e" /> 
+        <dep id="haloclassic:LinkButtonSkin" type="e" /> 
+        <dep id="haloclassic:ScrollTrackSkin" type="e" /> 
+        <dep id="haloclassic:PopUpIconTypeB" type="e" /> 
+        <dep id="haloclassic:SliderThumbSkin" type="e" /> 
+        <dep id="haloclassic:NumericStepperUpSkin" type="e" /> 
+        <dep id="haloclassic:ScrollThumbSkin" type="e" /> 
+        <dep id="haloclassic:ActivatorSkin" type="e" /> 
+        <dep id="haloclassic:CheckBoxIcon" type="e" /> 
+        <dep id="haloclassic:DataGridColumnResizeSkin" type="e" /> 
+        <dep id="haloclassic:DateChooserFwdArrowSkin" type="e" /> 
+      </script>
+      <script name="haloclassic/DateChooserFwdArrowSkin" mod="1201055684532" signatureChecksum="2971314782" >
+        <def id="haloclassic:DateChooserFwdArrowSkin" /> 
+        <dep id="mx.skins:Border" type="i" /> 
+        <dep id="mx.core:mx_internal" type="n" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="flash.display:Graphics" type="s" /> 
+      </script>
+      <script name="haloclassic/DateChooserBackArrowSkin" mod="1201055684454" signatureChecksum="4262505214" >
+        <def id="haloclassic:DateChooserBackArrowSkin" /> 
+        <dep id="mx.skins:Border" type="i" /> 
+        <dep id="mx.core:mx_internal" type="n" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="flash.display:Graphics" type="s" /> 
+      </script>
+      <script name="haloclassic/ScrollArrowUpSkin" mod="1201055685094" signatureChecksum="4232367452" >
+        <def id="haloclassic:ScrollArrowUpSkin" /> 
+        <dep id="mx.skins:Border" type="i" /> 
+        <dep id="mx.core:mx_internal" type="n" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="flash.display:Graphics" type="s" /> 
+        <dep id="mx.controls.scrollClasses:ScrollBar" type="e" /> 
+        <dep id="haloclassic:HaloColors" type="e" /> 
+        <dep id="mx.styles:StyleManager" type="e" /> 
+        <dep id="mx.utils:ColorUtil" type="e" /> 
+        <dep id="Math" type="e" /> 
+      </script>
+      <script name="haloclassic/ScrollArrowDownSkin" mod="1201055684704" signatureChecksum="2632371970" >
+        <def id="haloclassic:ScrollArrowDownSkin" /> 
+        <dep id="mx.skins:Border" type="i" /> 
+        <dep id="mx.core:mx_internal" type="n" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="flash.display:Graphics" type="s" /> 
+        <dep id="mx.controls.scrollClasses:ScrollBar" type="e" /> 
+        <dep id="haloclassic:HaloColors" type="e" /> 
+        <dep id="mx.styles:StyleManager" type="e" /> 
+        <dep id="mx.utils:ColorUtil" type="e" /> 
+        <dep id="Math" type="e" /> 
+      </script>
+      <script name="haloclassic/LinkSeparator" mod="1201055684422" signatureChecksum="220436818" >
+        <def id="haloclassic:LinkSeparator" /> 
+        <dep id="mx.skins:ProgrammaticSkin" type="i" /> 
+        <dep id="mx.core:mx_internal" type="n" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="flash.display:Graphics" type="s" /> 
+        <dep id="mx.containers:BoxDirection" type="e" /> 
+        <dep id="mx.containers:Box" type="e" /> 
+      </script>
+      <script name="haloclassic/CheckBoxIcon" mod="1201055685032" signatureChecksum="2456926142" >
+        <def id="haloclassic:CheckBoxIcon" /> 
+        <dep id="mx.skins:Border" type="i" /> 
+        <dep id="mx.core:mx_internal" type="n" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="flash.display:Graphics" type="s" /> 
+        <dep id="haloclassic:HaloColors" type="e" /> 
+        <dep id="mx.styles:StyleManager" type="e" /> 
+        <dep id="mx.utils:ColorUtil" type="e" /> 
+      </script>
+      <script name="haloclassic/ProgressIndeterminateSkin" mod="1201055685079" signatureChecksum="2254744736" >
+        <def id="haloclassic:ProgressIndeterminateSkin" /> 
+        <dep id="mx.skins:Border" type="i" /> 
+        <dep id="mx.core:mx_internal" type="n" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="flash.display:Graphics" type="s" /> 
+        <dep id="Math" type="e" /> 
+      </script>
+      <script name="haloclassic/ListDropIndicator" mod="1201055684782" signatureChecksum="3521551938" >
+        <def id="haloclassic:ListDropIndicator" /> 
+        <dep id="mx.skins:ProgrammaticSkin" type="i" /> 
+        <dep id="mx.core:mx_internal" type="n" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="flash.display:Graphics" type="s" /> 
+      </script>
+      <script name="haloclassic/DataGridHeaderSeparator" mod="1201055685126" signatureChecksum="3554454242" >
+        <def id="haloclassic:DataGridHeaderSeparator" /> 
+        <dep id="mx.core:SpriteAsset" type="i" /> 
+        <dep id="mx.core:mx_internal" type="n" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="flash.display:Graphics" type="s" /> 
+      </script>
+      <script name="haloclassic/DataGridColumnResizeSkin" mod="1201055684594" signatureChecksum="2417144670" >
+        <def id="haloclassic:DataGridColumnResizeSkin" /> 
+        <dep id="mx.skins:ProgrammaticSkin" type="i" /> 
+        <dep id="mx.core:mx_internal" type="n" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="flash.display:Graphics" type="s" /> 
+      </script>
+      <script name="haloclassic/SwatchSkin" mod="1201055684672" signatureChecksum="2689394696" >
+        <def id="haloclassic:SwatchSkin" /> 
+        <dep id="mx.core:UIComponent" type="i" /> 
+        <dep id="mx.core:mx_internal" type="n" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="mx.collections:IList" type="s" /> 
+        <dep id="flash.display:Graphics" type="s" /> 
+        <dep id="Math" type="e" /> 
+      </script>
+      <script name="haloclassic/LinkButtonSkin" mod="1201055684438" signatureChecksum="653627200" >
+        <def id="haloclassic:LinkButtonSkin" /> 
+        <dep id="mx.skins:Border" type="i" /> 
+        <dep id="mx.core:mx_internal" type="n" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="mx.core:EdgeMetrics" type="s" /> 
+        <dep id="mx.core:EdgeMetrics" type="e" /> 
+      </script>
+      <script name="haloclassic/PopUpIconTypeB" mod="1201055684438" signatureChecksum="1084261065" >
+        <def id="haloclassic:PopUpIconTypeB" /> 
+        <dep id="haloclassic:PopUpIcon" type="i" /> 
+        <dep id="mx.core:mx_internal" type="n" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="flash.display:Graphics" type="s" /> 
+      </script>
+      <script name="haloclassic/NumericStepperUpSkin" mod="1201055685016" signatureChecksum="1668529854" >
+        <def id="haloclassic:NumericStepperUpSkin" /> 
+        <dep id="mx.skins:Border" type="i" /> 
+        <dep id="mx.core:mx_internal" type="n" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="flash.display:Graphics" type="s" /> 
+        <dep id="haloclassic:HaloColors" type="e" /> 
+        <dep id="mx.styles:StyleManager" type="e" /> 
+        <dep id="mx.utils:ColorUtil" type="e" /> 
+      </script>
+      <script name="haloclassic/DefaultDragImage" mod="1201055684454" signatureChecksum="74764748" >
+        <def id="haloclassic:DefaultDragImage" /> 
+        <dep id="mx.core:IFlexDisplayObject" type="i" /> 
+        <dep id="mx.core:SpriteAsset" type="i" /> 
+        <dep id="mx.core:mx_internal" type="n" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="flash.display:Graphics" type="s" /> 
+      </script>
+      <script name="haloclassic/SliderThumbSkin" mod="1201055685110" signatureChecksum="3930900496" >
+        <def id="haloclassic:SliderThumbSkin" /> 
+        <dep id="mx.skins:Border" type="i" /> 
+        <dep id="mx.core:mx_internal" type="n" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="flash.display:Graphics" type="s" /> 
+        <dep id="haloclassic:HaloColors" type="e" /> 
+        <dep id="mx.styles:StyleManager" type="e" /> 
+        <dep id="mx.utils:ColorUtil" type="e" /> 
+        <dep id="flash.display:GradientType" type="e" /> 
+      </script>
+      <script name="haloclassic/DateChooserUpArrowSkin" mod="1201055684657" signatureChecksum="1222420902" >
+        <def id="haloclassic:DateChooserUpArrowSkin" /> 
+        <dep id="mx.skins:Border" type="i" /> 
+        <dep id="mx.core:mx_internal" type="n" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="flash.display:Graphics" type="s" /> 
+      </script>
+      <script name="haloclassic/ButtonBarButtonSkin" mod="1201055684688" signatureChecksum="4100126333" >
+        <def id="haloclassic:ButtonBarButtonSkin" /> 
+        <dep id="mx.skins:Border" type="i" /> 
+        <dep id="mx.core:mx_internal" type="n" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="mx.core:EdgeMetrics" type="s" /> 
+        <dep id="mx.controls:ButtonBar" type="s" /> 
+        <dep id="haloclassic:HaloColors" type="e" /> 
+        <dep id="mx.core:EdgeMetrics" type="e" /> 
+        <dep id="mx.containers:BoxDirection" type="e" /> 
+        <dep id="mx.controls:Button" type="e" /> 
+        <dep id="mx.styles:StyleManager" type="e" /> 
+        <dep id="mx.utils:ColorUtil" type="e" /> 
+        <dep id="Math" type="e" /> 
+        <dep id="mx.controls:ButtonBar" type="e" /> 
+      </script>
+      <script name="haloclassic/ButtonSkin" mod="1201055685063" signatureChecksum="1389483568" >
+        <def id="haloclassic:ButtonSkin" /> 
+        <dep id="mx.skins:Border" type="i" /> 
+        <dep id="mx.core:mx_internal" type="n" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="mx.core:EdgeMetrics" type="s" /> 
+        <dep id="mx.core:EdgeMetrics" type="e" /> 
+        <dep id="haloclassic:HaloColors" type="e" /> 
+        <dep id="mx.controls:Button" type="e" /> 
+        <dep id="mx.styles:StyleManager" type="e" /> 
+        <dep id="mx.utils:ColorUtil" type="e" /> 
+        <dep id="Math" type="e" /> 
+      </script>
+      <script name="haloclassic/SliderTrackSkin" mod="1201055684469" signatureChecksum="816295573" >
+        <def id="haloclassic:SliderTrackSkin" /> 
+        <dep id="mx.skins:Border" type="i" /> 
+        <dep id="mx.core:mx_internal" type="n" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="mx.styles:StyleManager" type="e" /> 
+        <dep id="mx.utils:ColorUtil" type="e" /> 
+      </script>
+      <script name="haloclassic/ComboBoxArrowSkin" mod="1201055685126" signatureChecksum="363183120" >
+        <def id="haloclassic:ComboBoxArrowSkin" /> 
+        <dep id="mx.skins:Border" type="i" /> 
+        <dep id="mx.core:mx_internal" type="n" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="flash.display:Graphics" type="s" /> 
+        <dep id="haloclassic:HaloColors" type="e" /> 
+        <dep id="mx.styles:StyleManager" type="e" /> 
+        <dep id="mx.utils:ColorUtil" type="e" /> 
+        <dep id="Math" type="e" /> 
+      </script>
+      <script name="haloclassic/TabSkin" mod="1201055684719" signatureChecksum="934529251" >
+        <def id="haloclassic:TabSkin" /> 
+        <dep id="mx.skins:Border" type="i" /> 
+        <dep id="mx.core:mx_internal" type="n" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="mx.core:EdgeMetrics" type="s" /> 
+        <dep id="mx.core:EdgeMetrics" type="e" /> 
+        <dep id="haloclassic:HaloColors" type="e" /> 
+        <dep id="mx.styles:StyleManager" type="e" /> 
+        <dep id="mx.utils:ColorUtil" type="e" /> 
+        <dep id="Math" type="e" /> 
+      </script>
+      <digests>
+        <digest type="SHA-256" signed="false" value="2264874e97dd4c05ab1d413d223d035cd3026847164ea04a822438dd29b344cc"   />
+      </digests>
+    </library>
+  </libraries>
+  <files>
+    <file path="defaults.css" mod="1201055686360" />
+    <file path="Assets.swf" mod="1201055683657" />
+  </files>
+</swc>

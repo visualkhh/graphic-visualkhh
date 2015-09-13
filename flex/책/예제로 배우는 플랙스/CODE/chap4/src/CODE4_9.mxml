@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="horizontal">
+	<mx:Script>
+		<![CDATA[
+			// 이 변수는 TextInput에 바인딩 되어 있어 반드시 [Bindable]로 선언해주어야 함
+			[Bindable]
+			private var bindableVar:Number=0; 
+		]]>
+	</mx:Script>
+	<!-- 이 Label의 text값은 TextInput의 text값과 바인딩 되어 있음 -->
+	<mx:Label text="TextInput의 값 : {myTxt.text}"/>
+	<!-- 이 TextInput의 text는 변수 baindableVar와 바인딩 되어 있음 -->
+	<mx:TextInput id="myTxt" text="{bindableVar}"/>	
+	<!-- 버튼을 클릭하면 baindableVar을 바꾸고 바뀐 값이 Button과 TextInput에 반영됨 -->
+	<mx:Button label="Change Variable" click="bindableVar++"/>
+</mx:Application>

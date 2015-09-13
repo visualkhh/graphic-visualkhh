@@ -1,0 +1,258 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Two SWFs</title>
+ <style type="text/css">
+	#mydiv {
+		background-color: #FFFFFF;
+		font: .8em/1.3em verdana,arial,helvetica,sans-serif;
+		border: solid 1px #000000;
+		width: 550px;
+		height: 250px;
+		float: left;
+	}
+</style>
+<script src="AC_OETags.js" language="javascript"></script>
+<script language="JavaScript" type="text/javascript">
+<!--
+// -----------------------------------------------------------------------------
+// Globals
+// Major version of Flash required
+var requiredMajorVersion = 9;
+// Minor version of Flash required
+var requiredMinorVersion = 0;
+// Minor version of Flash required
+var requiredRevision = 0;
+// -----------------------------------------------------------------------------
+
+  var jsReady = false;
+  function isReady() {
+	  return jsReady;
+  }
+  function pageInit() {
+	  jsReady = true;
+	  document.forms["form1"].output.value += "\n" + "JavaScript is ready.\n";
+  }
+
+  function thisMovie(movieName) {
+	  if (navigator.appName.indexOf("Microsoft") != -1) {
+		  return window[movieName];
+	  } else {
+		  return document[movieName];
+	  }
+  }
+
+
+  function sendMsgToActionScript(msg) {
+	 thisMovie(form1.choice.value).sendToActionScript(msg);
+  }
+
+  function changeBG(value) {
+	  thisMovie(form1.choice.value).changeBG(value);
+  }
+
+  function sendToJavaScriptMsg(swfObj, msg) {
+	if(swfObj == 'JavaScript') {
+		document.forms["form1"].output.value += "ActionScript says: " + msg + "\n";
+		alert(msg);
+	} else {
+		thisMovie(swfObj).sendToActionScript(msg);
+	}
+  }
+
+  function sendToJavaScriptColor(swfObj, color) {
+	if(swfObj == 'JavaScript') {
+		document.getElementById("mydiv").style.backgroundColor = color.toString(16);
+	} else {
+		thisMovie(swfObj).changeBG(color);
+	}
+  }
+
+
+  function cleanupSWFs() {
+   // alert('onBeforeUnloadHD');
+	var objects = document.getElementsByTagName("OBJECT");
+	for (var i=0; i < objects.length; i++) {
+		objects[i].style.display = 'none';
+		for (var x in objects[i]) {
+			if (typeof objects[i][x] == 'function') {
+				objects[i][x] = function(){};
+			}
+		}
+	}	
+  }
+
+function prepUnload(){
+	//alert('swf');
+	__flash_unloadHandler = function(){};
+	__flash_savedUnloadHandler = function(){};
+	if (typeof window.onunload == 'function') {
+		var oldUnload = window.onunload;
+		window.onunload = function() {
+			cleanupSWFs();
+			oldUnload();
+		}
+	} else {
+//		window.onunload = deconcept.SWFObjectUtil.cleanupSWFs;
+	}
+}
+
+// -->
+</script>
+<script language="JavaScript" type="text/javascript" src="history.js"></script>
+</head>
+<body onload="pageInit();">
+<!--body onload="pageInit();" onbeforeunload="prepUnload()"-->
+<script language="JavaScript" type="text/javascript">
+<!--
+var hasProductInstall = DetectFlashVer(6, 0, 65);
+var hasRequestedVersion = DetectFlashVer(requiredMajorVersion, requiredMinorVersion, requiredRevision);
+
+if ( hasProductInstall && !hasRequestedVersion ) {
+	var MMPlayerType = (isIE == true) ? "ActiveX" : "PlugIn";
+	var MMredirectURL = window.location;
+    document.title = document.title.slice(0, 47) + " - Flash Player Installation";
+    var MMdoctitle = document.title;
+	AC_FL_RunContent(
+		"src", "playerProductInstall",
+		"FlashVars", "MMredirectURL="+MMredirectURL+'&MMplayerType='+MMPlayerType+'&MMdoctitle='+MMdoctitle+"",
+		"width", "100%",
+		"height", "100%",
+		"align", "middle",
+		"id", "GosuEXIFApp1",
+		"quality", "high",
+		"bgcolor", "#869ca7",
+		"name", "GosuEXIFApp1",
+		"allowScriptAccess","sameDomain",
+		"type", "application/x-shockwave-flash",
+		"pluginspage", "http://www.adobe.com/go/getflashplayer"
+	);
+} else if (hasRequestedVersion) {
+	AC_FL_RunContent(
+			"src", "GosuEXIFApp1",
+			"width", "550",
+			"height", "270",
+			"align", "middle",
+			"id", "GosuEXIFApp1",
+			"quality", "high",
+			"bgcolor", "#869ca7",
+			"name", "GosuEXIFApp1",
+			"flashvars",'historyUrl=history.htm%3F&lconid=' + lc_id + '&myParameter=Flex_플렉스',
+			"allowScriptAccess","sameDomain",
+			"type", "application/x-shockwave-flash",
+			"pluginspage", "http://www.adobe.com/go/getflashplayer"
+	);
+  } else {  // flash is too old or we can't detect the plugin
+    var alternateContent = 'Alternate HTML content should be placed here. '
+  	+ 'This content requires the Adobe Flash Player. '
+   	+ '<a href=http://www.adobe.com/go/getflash/>Get Flash</a>';
+    document.write(alternateContent);  // insert non-flash content
+  }
+
+
+if ( hasProductInstall && !hasRequestedVersion ) {
+	var MMPlayerType = (isIE == true) ? "ActiveX" : "PlugIn";
+	var MMredirectURL = window.location;
+    document.title = document.title.slice(0, 47) + " - Flash Player Installation";
+    var MMdoctitle = document.title;
+	AC_FL_RunContent(
+		"src", "playerProductInstall",
+		"FlashVars", "MMredirectURL="+MMredirectURL+'&MMplayerType='+MMPlayerType+'&MMdoctitle='+MMdoctitle+"",
+		"width", "100%",
+		"height", "100%",
+		"align", "middle",
+		"id", "GosuEXIFApp2",
+		"quality", "high",
+		"bgcolor", "#869ca7",
+		"name", "GosuEXIFApp2",
+		"allowScriptAccess","sameDomain",
+		"type", "application/x-shockwave-flash",
+		"pluginspage", "http://www.adobe.com/go/getflashplayer"
+	);
+} else if (hasRequestedVersion) {
+	AC_FL_RunContent(
+			"src", "GosuEXIFApp2",
+			"width", "550",
+			"height", "270",
+			"align", "middle",
+			"id", "GosuEXIFApp2",
+			"quality", "high",
+			"bgcolor", "#869ca7",
+			"name", "GosuEXIFApp2",
+			"flashvars",'historyUrl=history.htm%3F&lconid=' + lc_id + '&myParameter=Flex플렉스',
+			"allowScriptAccess","sameDomain",
+			"type", "application/x-shockwave-flash",
+			"pluginspage", "http://www.adobe.com/go/getflashplayer"
+	);
+  } else {  // flash is too old or we can't detect the plugin
+    var alternateContent = 'Alternate HTML content should be placed here. '
+  	+ 'This content requires the Adobe Flash Player. '
+   	+ '<a href=http://www.adobe.com/go/getflash/>Get Flash</a>';
+    document.write(alternateContent);  // insert non-flash content
+  }
+  
+// -->
+</script>
+<div id="mydiv">
+  <form name="form1" onsubmit="return false;">
+	  <select name="choice">
+		<option value="GosuEXIFApp1">GosuEXIFApp1</option>
+		<option value="GosuEXIFApp2">GosuEXIFApp2</option>
+	  </select>
+	  <input type="text" name="input" value="" />
+	  <input type="button" value="Send" onclick="sendMsgToActionScript(this.form.input.value);"/><br/>
+	  
+	  <select name="color">
+		<option value="Blue">Blue</option>
+		<option value="Cyan">Cyan</option>
+		<option value="Gray">Gray</option>
+		<option value="Green">Green</option>
+		<option value="Purple">Purple</option>
+		<option value="Red">Red</option>
+		<option value="White">White</option>
+		<option value="Yellow">Yellow</option>
+	  </select>
+	  <input type="button" value="Change SWF's Color" onclick="changeBG(this.form.color.value);" /><br />
+	  <textarea cols="60" rows="10" name="output" readonly="true">Initializing...</textarea>
+  </form>
+</div>
+<noscript>
+  <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
+		  id="GosuEXIFApp1" width="500" height="375"
+		  codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab">
+	  <param name="movie" value="GosuEXIFApp1.swf" />
+	  <param name="quality" value="high" />
+	  <param name="bgcolor" value="#869ca7" />
+	  <param name="allowScriptAccess" value="sameDomain" />
+
+	  <param name="flashvars" value="myParameter=1234"/>
+
+	  <embed src="GosuEXIFApp1.swf" quality="high" bgcolor="#869ca7"
+		  width="500" height="375" name="GosuEXIFApp1" align="middle"
+		  play="true" loop="false" quality="high" allowScriptAccess="sameDomain"
+		  type="application/x-shockwave-flash"
+		  pluginspage="http://www.macromedia.com/go/getflashplayer">
+	  </embed>
+  </object>
+
+  <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
+		  id="GosuEXIFApp2" width="500" height="375"
+		  codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab">
+	  <param name="movie" value="GosuEXIFApp2.swf" />
+	  <param name="quality" value="high" />
+	  <param name="bgcolor" value="#869ca7" />
+	  <param name="allowScriptAccess" value="sameDomain" />
+
+	 <param name="flashvars" value="myParameter=4567"/>
+
+	  <embed src="GosuEXIFApp2.swf" quality="high" bgcolor="#869ca7"
+		  width="500" height="375" name="GosuEXIFApp2" align="middle"
+		  play="true" loop="false" quality="high" allowScriptAccess="sameDomain"
+		  type="application/x-shockwave-flash"
+		  pluginspage="http://www.macromedia.com/go/getflashplayer">
+	  </embed>
+  </object>
+</noscript>
+<iframe name="_history" src="history.htm" frameborder="0" scrolling="no" width="22" height="0"></iframe>
+</body>
+</html>

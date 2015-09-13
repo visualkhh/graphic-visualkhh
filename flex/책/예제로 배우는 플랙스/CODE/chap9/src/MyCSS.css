@@ -1,0 +1,8 @@
+/* CSS file */
+Button
+{
+	themeColor: #FF0000;
+	cornerRadius: 20;
+	upSkin: Embed(source='file:///C|/Program Files/Adobe/Flex Builder 3/sdks/3.0.0/frameworks/themes/AeonGraphical/AeonGraphical.swf', symbol='Button_upSkin');
+	overSkin: Embed(source='file:///C|/Program Files/Adobe/Flex Builder 3/sdks/3.0.0/frameworks/themes/AeonGraphical/AeonGraphical.swf', symbol='Button_overSkin');
+}

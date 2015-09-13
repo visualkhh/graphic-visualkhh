@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="vertical"  
+	fontSize="11" backgroundGradientColors="[#f7f794, #adb2ce]">
+    <!-- 데이터 처리 관련 컨트롤들이 사용할 데이터 정의 -->
+    <mx:ArrayCollection id="myAC">
+        <mx:Object label="사과" data="apple"/>
+        <mx:Object label="포도" data="grape"/>
+        <mx:Object label="멜론" data="melon"/>        
+        <mx:Object label="체리" data="cherry"/>                        
+    </mx:ArrayCollection>
+	<mx:Panel title="ComboBox / DataGrid / List / TileList /HorizontalList" width="600" height="426" 
+		paddingTop="10" paddingBottom="10" paddingLeft="10" paddingRight="10"
+		horizontalAlign="left" 
+		fontSize="12" layout="absolute">
+		<mx:Label x="10" y="10" text="ComboBox"/>
+		<mx:Label x="134" y="10" text="DataGrid"/>
+		<!-- ComboBox에서 선택하는(change이벤트) 배열의 인덱스값을 다른 컨트롤에 연결처리함 -->
+		<mx:ComboBox id="cb" x="10" y="38" dataProvider="{myAC}" prompt="ComboBox"
+			change="dg.selectedIndex=lst.selectedIndex=tlst1.selectedIndex=tlst2.selectedIndex=cb.selectedIndex"/>
+		<!-- DataGrid에서  선택하는(change이벤트) 로우의 인덱스값을 다른 컨트롤에 연결처리함 -->
+		<mx:DataGrid id="dg" x="134" y="39" dataProvider="{myAC}" width="204"
+			change="lst.selectedIndex=tlst1.selectedIndex=tlst2.selectedIndex=cb.selectedIndex=dg.selectedIndex" height="141">
+			<mx:columns>
+				<mx:DataGridColumn headerText="과일"  dataField="label"/>
+				<mx:DataGridColumn headerText="영문명" dataField="data"/>
+			</mx:columns> 
+		</mx:DataGrid>
+		<!-- List에서  선택하는(change이벤트) 로우의 인덱스값을 다른 컨트롤에 연결처리함 -->		
+		<mx:List id="lst" x="10" y="96" dataProvider="{myAC}" 
+			change="tlst1.selectedIndex=tlst2.selectedIndex=cb.selectedIndex=dg.selectedIndex=lst.selectedIndex"
+			width="72" height="116"/>
+		<!-- TileList에서  선택하는(change이벤트) 아이템의 인덱스값을 다른 컨트롤에 연결처리함 -->					
+		<mx:TileList id="tlst1" x="357" y="40" dataProvider="{myAC}" height="141" 
+			change="tlst2.selectedIndex=cb.selectedIndex=dg.selectedIndex=lst.selectedIndex=tlst1.selectedIndex"/>			
+		<mx:Label x="10" y="70" text="List"/>
+		<mx:Label x="357" y="12" text="TileList"/>
+		<!-- HorizontalList에서  선택하는(change이벤트) 아이템의 인덱스값을 다른 컨트롤에 연결처리함 -->							
+		<mx:HorizontalList id="tlst2" x="134" y="222" width="425" height="56" columnWidth="70" dataProvider="{myAC}"
+			change="tlst1.selectedIndex=cb.selectedIndex=dg.selectedIndex=lst.selectedIndex=tlst2.selectedIndex"/>			
+		<mx:Label x="134" y="202" text="HorizontalList"/>
+		<mx:Form x="10" y="296" width="250" height="100%">
+			<mx:FormItem label="과일명">
+				<mx:TextInput id="fkName"/>
+			</mx:FormItem>
+			<mx:FormItem label="영문명">
+				<mx:TextInput id="feName"/>
+			</mx:FormItem>
+		</mx:Form>
+		<!-- 버튼을 누르면 myAC에 데이터를 추가함. myAC는 다른 컨트롤과 바인딩 되어 있기 때문에 전체적으로 아이템이 하나 더 추가됨-->
+		<mx:Button x="268" y="311" label="데이터추가" height="54" click="myAC.addItem({label:fkName.text, data:feName.text})"/>
+		<!-- 버튼을 누르면 myAC에 데이터를 삭제함. myAC는 다른 컨트롤과 바인딩 되어 있기 때문에 전체적으로 아이템이 하나 더 삭제됨-->		
+		<mx:Button x="367" y="311" label="데이터 삭제" width="98" height="54" click="if(myAC.length>0) myAC.removeItemAt(myAC.length-1)"/>
+	</mx:Panel> 
+</mx:Application>

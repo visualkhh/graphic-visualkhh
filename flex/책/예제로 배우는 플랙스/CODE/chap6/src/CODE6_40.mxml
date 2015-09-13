@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="horizontal">
+<mx:Style>
+	global {
+		color:#FF0000;
+	}
+	TextArea {
+		color:#00FF00;
+	}
+	.mySty {
+		color:#0000FF;	
+	}
+</mx:Style>
+	<mx:Panel width="322" height="200" layout="horizontal" title="Style">
+		<mx:TextArea height="100%" horizontalCenter="0" verticalCenter="0" styleName="mySty" width="100%">
+			<mx:htmlText>
+			<![CDATA[Class Selector]]>
+			</mx:htmlText>
+		</mx:TextArea>
+		<mx:TextArea height="100%" horizontalCenter="0" verticalCenter="0" width="100%">
+			<mx:htmlText>
+			<![CDATA[Type Selector]]>
+			</mx:htmlText>
+		</mx:TextArea>		
+		<mx:ControlBar>
+			<mx:Button label="Button"/>
+		</mx:ControlBar>
+	</mx:Panel>
+</mx:Application>

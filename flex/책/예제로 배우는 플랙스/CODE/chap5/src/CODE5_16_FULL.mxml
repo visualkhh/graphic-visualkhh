@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="euc-kr"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" fontSize="11" backgroundGradientColors="[#f7f794, #adb2ce]">
+	<mx:Style>
+	.redButton {
+		color:#FF0000;
+		font-size:10;
+		font-weight:normal;	
+	}
+	.blueButton {
+		color:#0000FF;
+		font-size:10;
+		font-weight:normal;	
+	}
+	</mx:Style>
+    <mx:Script>
+	<![CDATA[
+    	import mx.events.MenuEvent;
+		import mx.controls.Alert;
+		private var opr:String = '';
+		private var operand:String = '';
+		private var commaClicked:Boolean = false;
+		private var equalClicked:Boolean = false;
+		/* 버튼을 눌렀을 때 실행되는 계산 함수 로직 */
+		private function calculate(obj:Object):void {
+			var act:String = obj.target.id;
+			var val:String = obj.target.label;	
+			if(act == "btn0") { //값이 0이 아니면 0을 뒤에 추가
+				if(equalClicked) { //계산이 한번 끝난 상태에서 버튼 클릭이 들어오면 결과창 값을 지워준다.
+					calTextInput.text = '0.';	
+					equalClicked = false;
+				}			
+				if(commaClicked) { // .가 클릭되었으면 한 글자 추가
+					calTextInput.text = calFormat.format(calTextInput.text + val);	
+				} else {
+					if(calTextInput.text !='0.') {
+						calTextInput.text = calFormat.format(calTextInput.text + val);				
+					}					
+				}		
+			} else if (act == "btnComma") { // .을 누르면 텍스트창에 점을 찍어 주나 두번이상 찍어주면 안됨.
+				if(!commaClicked) { 
+					calTextInput.text = calTextInput.text + '.';
+				}
+			} else if(act == "btn1" ||  act == "btn2" ||  act == "btn3" ||  act == "btn4" ||  act == "btn5" ||  act == "btn6" ||  act == "btn7" ||  act == "btn8" ||  act == "btn9") {
+				if(equalClicked) { //계산이 한번 끝난 상태에서 버튼 클릭이 들어오면 결과창 값을 지워준다.
+					calTextInput.text = '0.';	
+					equalClicked = false;
+				}			
+				// .이 눌린 상태면 그대로 0.뒤에 한 숫자씩 추가
+				if(commaClicked) { 
+					calTextInput.text = calFormat.format(calTextInput.text + val);
+				} else {
+					// .이 안눌린 상태면 '0.'을 지우고 텍스트창에 한숫자씩 뒤로 추가
+					if(calTextInput.text=='0.') {
+						calTextInput.text = calFormat.format(val);				
+					} else {
+						calTextInput.text = calFormat.format(calTextInput.text + val);				
+					}
+				}
+			} else if (act == "btnBackspace") { //Backspace를 누르면 뒤에서부터 1글자씩 지워나감
+				if(calTextInput.text != '0.') {
+					if(calTextInput.text.length > 1) {
+						calTextInput.text = calFormat.format(calTextInput.text.substr(0, calTextInput.text.length-1));
+					} else if (calTextInput.text.length <= 1) { 
+						calTextInput.text ='0.';
+					} 
+				}
+			} else if (act == "btnC" || act == "btnCE") { //C 또는 CE를 누르면 입력된 값을 지워줌
+				commaClicked = false;
+				opr = '';
+				operand = '0';
+				calTextInput.text = '0.';				
+			} else if (act == "btnPlus" || act == "btnMinus" || act == "btnAstar" || act == "btnSlash" ) { // +,-, *, / 연산
+				opr = act; //연산자 저장
+				operand = calTextInput.text;
+				calTextInput.text = '0.';
+			} else if (act == "btnEqual") { // =을 누르면 계산 결과
+				commaClicked = false;
+				equalClicked = true;
+				if(opr != '') { //연산자 값이 들어있으면 계산
+					if(!commaClicked) {
+						//calFormat.precision = 0;
+						if(opr == 'btnPlus') {
+							calTextInput.text = calFormat.format(parseInt(operand) + parseInt(calTextInput.text));
+						} else if (opr == 'btnMinus') {
+							calTextInput.text = calFormat.format(parseInt(operand) - parseInt(calTextInput.text));
+						} else if (opr == 'btnAstar') {
+							calTextInput.text = calFormat.format(parseInt(operand) * parseInt(calTextInput.text));
+						} else if (opr == 'btnSlash') {
+							//calFormat.precision = 1;
+							calTextInput.text = calFormat.format(parseInt(operand) / parseInt(calTextInput.text));
+						} else {
+							alert('not supported operand ^^;');
+						}
+					} else {
+						//calFormat.precision = 10;
+						if(opr == 'btnPlus') {
+							calTextInput.text = calFormat.format(parseFloat(operand) + parseFloat(calTextInput.text));
+						} else if (opr == 'btnMinus') {
+							calTextInput.text = calFormat.format(parseFloat(operand) - parseFloat(calTextInput.text));
+						} else if (opr == 'btnAstar') {
+							calTextInput.text = calFormat.format(parseFloat(operand) * parseFloat(calTextInput.text));
+						} else if (opr == 'btnSlash') {
+							calTextInput.text = calFormat.format(parseFloat(operand) / parseFloat(calTextInput.text));
+						} else {
+							alert('not supported operand ^^;');
+						}
+					}
+					opr = ''; //연산이 끝나면 연산자 값을 지운다
+					operand = '0';
+				} 
+			} else {
+				alert('sorry not supported private function ^^;');
+			}
+		}
+		private var copyVal:String = '';
+        private function menuHandler(event:MenuEvent):void {
+			var menuAct:String = event.item.@data;
+			if(menuAct == 'C') { //결과값 복사
+				copyVal = calTextInput.text;
+			} else if(menuAct == 'V') { //복사한 값 붙여넣기
+				calTextInput.text = copyVal;
+			} else if(menuAct == 'A' || menuAct == 'H') {
+			} else if(menuAct == 'I') {
+				if(event.item.attributes.selected) {
+					calFormat.useThousandsSeparator = true;
+				} else {
+					calFormat.useThousandsSeparator = false;
+				}				
+			} else {
+				alert('not supported ^^;');
+			}
+        }
+		private function alert(msg:String):void {
+			mx.controls.Alert.show(msg);
+		}
+	]]>	
+	</mx:Script>
+<mx:NumberFormatter id="calFormat" useThousandsSeparator="false"/>
+<mx:Panel title="Flex 2 계산기" width="315" horizontalAlign="center" fontSize="12" height="252">
+    <mx:MenuBar width="280" labelField="@label" itemClick="menuHandler(event)" fontSize="11" height="20">
+        <mx:dataProvider>
+        	<mx:XMLList>
+                <menuitem label="편집(E)"  fontSize="15">
+                    <menuitem label="복사(C) Ctrl+C" data="C"/>
+                    <menuitem label="붙여넣기(P) Ctrl+V" data="V"/>
+                </menuitem>
+                <menuitem label="보기(V)">
+                    <menuitem label="일반용(T)"  type="radio" selected="true" groupName="calType" data="T"/>
+                    <menuitem label="공학용(S)"  type="radio" groupName="calType" data="S"/>
+                    <menuitem type="separator" />
+                    <menuitem label="자릿수구분단위(I)" type="check"  data="I"/>
+                </menuitem>
+                <menuitem label="도움말(H)">
+                    <menuitem label="도움말항목(H)"  data="H"/>
+                    <menuitem type="separator" />
+                    <menuitem label="계산기정보(A)"  data="A"/>
+                </menuitem>        		
+        	</mx:XMLList>
+        </mx:dataProvider>
+    </mx:MenuBar>	
+	<mx:TextInput id="calTextInput" text="0." width="275" textAlign="right" /> 
+	<mx:Grid>
+        <mx:GridRow>
+            <mx:GridItem><mx:TextInput width="40" enabled="false"/></mx:GridItem>
+            <mx:GridItem><mx:Button width="70" id="btnBackspace" label="Backspace" styleName="redButton" click="calculate(event)"/></mx:GridItem>
+            <mx:GridItem><mx:Button width="70" id="btnCE" label="CE" styleName="redButton" click="calculate(event)"/></mx:GridItem>
+            <mx:GridItem><mx:Button width="70" id="btnC" label="C" styleName="redButton" click="calculate(event)"/></mx:GridItem>
+        </mx:GridRow>
+	</mx:Grid>
+	<mx:Grid>
+        <mx:GridRow>
+            <mx:GridItem><mx:Button width="40" id="btnMC" label="MC" styleName="redButton" click="calculate(event)"/></mx:GridItem>
+            <mx:GridItem><mx:Button width="40" id="btn7" label="7" styleName="blueButton" click="calculate(event)"/></mx:GridItem>
+            <mx:GridItem><mx:Button width="40" id="btn8" label="8" styleName="blueButton" click="calculate(event)"/></mx:GridItem>
+            <mx:GridItem><mx:Button width="40" id="btn9" label="9" styleName="blueButton" click="calculate(event)"/></mx:GridItem>
+            <mx:GridItem><mx:Button width="40" id="btnSlash" label="/" styleName="redButton" click="calculate(event)"/></mx:GridItem>
+            <mx:GridItem><mx:Button width="40" id="btnSqrt" label="sqrt" styleName="blueButton" click="calculate(event)"/></mx:GridItem>
+        </mx:GridRow>
+        <mx:GridRow>
+            <mx:GridItem><mx:Button width="40" id="btnMR" label="MR" styleName="redButton" click="calculate(event)"/></mx:GridItem>
+            <mx:GridItem><mx:Button width="40" id="btn4" label="4" styleName="blueButton" click="calculate(event)"/></mx:GridItem>
+            <mx:GridItem><mx:Button width="40" id="btn5" label="5" styleName="blueButton" click="calculate(event)"/></mx:GridItem>
+            <mx:GridItem><mx:Button width="40" id="btn6" label="6" styleName="blueButton" click="calculate(event)"/></mx:GridItem>
+            <mx:GridItem><mx:Button width="40" id="btnAstar" label="*" styleName="redButton" click="calculate(event)"/></mx:GridItem>
+            <mx:GridItem><mx:Button width="40" id="btnPercent" label="%" styleName="blueButton" click="calculate(event)"/></mx:GridItem>
+        </mx:GridRow>
+        <mx:GridRow>
+            <mx:GridItem><mx:Button width="40" id="btnMS" label="MS" styleName="redButton" click="calculate(event)"/></mx:GridItem>
+            <mx:GridItem><mx:Button width="40" id="btn1" label="1" styleName="blueButton" click="calculate(event)"/></mx:GridItem>
+            <mx:GridItem><mx:Button width="40" id="btn2" label="2" styleName="blueButton" click="calculate(event)"/></mx:GridItem>
+            <mx:GridItem><mx:Button width="40" id="btn3" label="3" styleName="blueButton" click="calculate(event)"/></mx:GridItem>
+            <mx:GridItem><mx:Button width="40" id="btnMinus" label="-" styleName="redButton" click="calculate(event)"/></mx:GridItem>
+            <mx:GridItem><mx:Button width="40" id="btn1X" label="1/x" styleName="blueButton" click="calculate(event)"/></mx:GridItem>
+        </mx:GridRow>
+        <mx:GridRow>
+            <mx:GridItem><mx:Button width="40" id="btnMPlus" label="M+" styleName="redButton" click="calculate(event)"/></mx:GridItem>
+            <mx:GridItem><mx:Button width="40" id="btn0" label="0" styleName="blueButton" click="calculate(event)"/></mx:GridItem>
+            <mx:GridItem><mx:Button width="40" id="btnPlusMinus" label="+/-" styleName="blueButton" click="calculate(event)"/></mx:GridItem>
+            <mx:GridItem><mx:Button width="40" id="btnComma" label="." styleName="blueButton" click="calculate(event)"/></mx:GridItem>
+            <mx:GridItem><mx:Button width="40" id="btnPlus" label="+" styleName="redButton" click="calculate(event)"/></mx:GridItem>
+            <mx:GridItem><mx:Button width="40" id="btnEqual" label="=" styleName="redButton" click="calculate(event)"/></mx:GridItem>
+        </mx:GridRow>
+    </mx:Grid>
+</mx:Panel>
+</mx:Application>

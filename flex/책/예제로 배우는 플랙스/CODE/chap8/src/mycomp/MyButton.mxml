@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Button xmlns:mx="http://www.adobe.com/2006/mxml" 
+	initialize="myinit()"
+	label=" My Component" click="showMsg()" 
+	color="#ff0000" fontSize="14">	
+	<mx:Script>
+		<![CDATA[
+			private function myinit():void {
+				this.label = "Hello! OkGosu";
+				this.setStyle("color", "#FF0000");
+				this.setStyle("fontSize", 16);
+			}
+			private function showMsg():void {
+				mx.controls.Alert.show('MXML component');
+			}
+		]]>
+	</mx:Script>
+</mx:Button>

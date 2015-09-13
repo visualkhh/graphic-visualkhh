@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" creationComplete="initVars()" fontSize="11" backgroundGradientColors="[#f7f794, #adb2ce]"> 
+<mx:Script>
+<![CDATA[
+private function initVars():void {
+      param1.text = Application.application.parameters.param1;
+      param2.text = Application.application.parameters.param2;
+    }
+]]>
+</mx:Script>
+<mx:Label text="받아 온 값"/>
+<mx:TextInput id="param1" />
+<mx:TextInput id="param2" />
+</mx:Application>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Module xmlns:mx="http://www.adobe.com/2006/mxml" layout="vertical" xmlns:ns1="*">
+	<mx:Script>
+		<![CDATA[ 
+			import mx.controls.Alert;
+			public function processMsg(msg:String):void {
+				mx.controls.Alert.show(msg);
+			}
+		]]>
+	</mx:Script>	
+	<mx:Label text="ModuleSubMenu3" fontStyle="normal" fontWeight="bold"/>
+	<mx:Image source="http://www.okgosu.net/flex/flex.jpg"/>
+	<ns1:ModuleComp>
+	</ns1:ModuleComp>
+</mx:Module>

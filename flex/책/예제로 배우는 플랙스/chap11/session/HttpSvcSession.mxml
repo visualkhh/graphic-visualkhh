@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml"
+	backgroundColor="#c6db94" fontSize="12" creationComplete="getHttpSvc.send()"
+	>
+	<mx:Script>
+		<![CDATA[
+			import mx.rpc.events.ResultEvent;
+			private function resultHandler(event:ResultEvent):void {
+				dg.dataProvider = event.result.record_set.record;
+			}
+		]]>
+	</mx:Script>
+    <mx:HTTPService id="setHttpSvc" useProxy="false" result="resultHandler(event)"
+    	url="http://localhost:8700/flex/Flex2Book/chap11/session/set_http_session.jsp">
+		<mx:request>
+			<name>{txt_name.text}</name>
+		</mx:request>
+    </mx:HTTPService>
+    <mx:HTTPService id="getHttpSvc" useProxy="false" result="resultHandler(event)"
+    	url="http://localhost:8700/flex/Flex2Book/chap11/session/get_http_session.jsp"/>
+    <mx:Panel title="HTTPService Session" height="100%" width="90%" borderAlpha="1"
+        paddingTop="10" paddingBottom="10" paddingLeft="10" paddingRight="10" layout="vertical">
+        <mx:DataGrid id="dg" width="100%"/>
+	    <mx:ControlBar horizontalAlign="center">
+		    <mx:Label text="세션명입력"/>
+			<mx:TextInput id="txt_name" />
+			<mx:Button label="확인" click="setHttpSvc.send()"/>
+	    </mx:ControlBar>
+    </mx:Panel>    
+</mx:Application>

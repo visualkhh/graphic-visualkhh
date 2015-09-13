@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="vertical"
+	xmlns:okgosu="*">
+	<okgosu:MyFlashComp id="mf"/>
+	<mx:Button label="REC" click="mf.currentState='rec'"/>
+	<mx:Button label="OVAL" click="mf.currentState='oval'"/>
+</mx:Application>

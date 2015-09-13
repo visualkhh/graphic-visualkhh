@@ -1,0 +1,38 @@
+mons/collections/SortedBag.html#last()">last</A></CODE> in interface <CODE><A HREF="../../../../../org/apache/commons/collections/SortedBag.html" title="interface in org.apache.commons.collections">SortedBag</A></CODE></DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the last element in the sorted bag</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="comparator()"><!-- --></A><H3>
+comparator</H3>
+<PRE>
+public <A HREF="http://java.sun.com/j2se/1.3/docs/api/java/util/Comparator.html" title="class or interface in java.util">Comparator</A> <B>comparator</B>()</PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../org/apache/commons/collections/SortedBag.html" title="interface in org.apache.commons.collections">SortedBag</A></CODE></B></DD>
+<DD>Returns the comparator associated with this sorted set, or null
+ if it uses its elements' natural ordering.
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../org/apache/commons/collections/SortedBag.html#comparator()">comparator</A></CODE> in interface <CODE><A HREF="../../../../../org/apache/commons/collections/SortedBag.html" title="interface in org.apache.commons.collections">SortedBag</A></CODE></DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the comparator in use, or null if natural ordering</DL>
+</DD>
+</DL>
+<!-- ========= END OF CLASS DATA ========= -->
+<HR>
+
+
+<!-- ======= START OF BOTTOM NAVBAR ====== -->
+<A NAME="navbar_bottom"><!-- --></A>
+<A HREF="#skip-navbar_bottom" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=3 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDIN

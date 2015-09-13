@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu>
+	<menuitem label= "데모">
+		<menuitem label= "복사"/>
+		<menuitem label= "붙여넣기"/>
+		<menuitem label= "전송"/>
+	</menuitem>
+	<menuitem label= "보기"> 
+		<menuitem label= "툴바">
+			<menuitem label="포매팅" data="Formatting" type="Check" toggled="true"/>
+		</menuitem>
+	</menuitem>
+	<menuitem label= "윈도우"> 
+		<menuitem label= "추가" data="Add"/>
+	</menuitem>
+</menu>

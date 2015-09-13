@@ -1,0 +1,23 @@
+; ix<this.adsData.length; ix++)
+	{
+		if(this.adsData[ix].oReal.nDevAlm == 0 && this.adsData[ix].oReal.nStatNx == 2 )
+			this.adsData[ix].oReal.nStatNx = 0;
+	}
+		
+	this.setBusy(false);
+}*/
+
+classFacSrcCtn_gate.prototype.clearData = function()
+{
+	for(var ix=0; ix<this.adsData.length; ix++) {
+		this.clearDataModule(ix);
+	}
+	
+	this.adsData.length = 0;
+}
+
+classFacSrcCtn_gate.prototype.clearDataModule = function(nx)
+{
+	var aoGate = this.adsData[nx].oModule.aoGate;
+	for(var ix in aoGate) aoGate[ix] = null;
+	aoGat

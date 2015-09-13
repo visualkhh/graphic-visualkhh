@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute">
+	<mx:TabNavigator 
+		creationPolicy="auto"
+		left="10" top="10" right="10" bottom="10">
+		<mx:Canvas label="Tab 1" width="100%" height="100%" backgroundColor="#F0F98B">
+		</mx:Canvas>
+		<mx:Canvas label="Tab 2" width="100%" height="100%" backgroundColor="#F39494">
+		</mx:Canvas>
+		<mx:Canvas label="Tab 3" width="100%" height="100%" backgroundColor="#879EE2">
+		</mx:Canvas>
+		<mx:Canvas label="Tab 4" width="100%" height="100%" backgroundColor="#7CEF65">
+		</mx:Canvas>
+	</mx:TabNavigator>
+</mx:Application>

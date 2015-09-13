@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="vertical"  
+	fontSize="11" backgroundGradientColors="[#f7f794, #adb2ce]">
+	<mx:Script>
+		<![CDATA[
+			/* ComboBox의 dataProvider에 data 연결 */
+			private function connectData():void {
+				myComp.dataProvider = myData;
+			}
+			/* myData 데이터를 추가하면 ComboBox에 아이템이 추가됨 */
+			private function addData():void {
+				myData.addItem({label:txtLabel.text, data:txtData.text});
+			}
+			/* myData 데이터를 삭제하면  ComboBox에 아이템이 삭제됨 */
+			private function delData():void {
+				if(myData.length>0) myData.removeItemAt(myComp.selectedIndex);
+			}			
+		]]>
+	</mx:Script>
+    <!-- ComboBox 컨트롤들이 사용할 데이터 정의 -->
+    <mx:ArrayCollection id="myData">
+        <mx:Object label="사과" data="apple"/>
+        <mx:Object label="포도" data="grape"/>
+        <mx:Object label="멜론" data="melon"/>        
+        <mx:Object label="체리" data="cherry"/>                        
+    </mx:ArrayCollection>
+	<mx:Panel title="ComboBox" width="600" height="426" 
+		paddingTop="10" paddingBottom="10" paddingLeft="10" paddingRight="10"
+		horizontalAlign="left" 
+		fontSize="12" layout="absolute">
+		<!-- ComboBox에서 선택하는(change이벤트) 배열의 인덱스값을 다른 컨트롤에 연결처리함 -->
+		<mx:ComboBox id="myComp" x="10" y="38"/>
+		<mx:Form x="10" y="79" width="349" height="156">
+			<mx:FormHeading label="5. 선택한 아이템 정보" width="301" labelWidth="1"/>
+			<mx:FormItem label="선택한 아이템의 인덱스">
+				<mx:TextInput id="txtIdx" text="{myComp.selectedIndex}"/>
+			</mx:FormItem>
+			<mx:FormItem label="선택한 아이템의 Label">
+				<mx:TextInput id="txtLabel" text="{myComp.selectedItem.label}"/>
+			</mx:FormItem>
+			<mx:FormItem label="선택한 아이템의 Data">
+				<mx:TextInput id="txtData" text="{myComp.selectedItem.data}"/>
+			</mx:FormItem>
+		</mx:Form>
+		<mx:ControlBar>
+			<mx:Button label="1. Data 연결하기" click="connectData()"/>
+			<mx:Button label="2. 아이템 추가" click="addData()"/>
+			<mx:Button label="3. 아이템 삭제" click="delData()"/>
+			<mx:Label text="4. 선택된 아이템 변경" fontWeight="bold"/>
+			<!-- NumericStepper의 변경되는 값이 ComboBox에 선택된 인덱스 값이 되어 선택된 아이템이 변경 됨 -->
+			<mx:NumericStepper id="ns" minimum="0" maximum="{myData.length-1}" change="myComp.selectedIndex = ns.value"/>
+		</mx:ControlBar>
+		</mx:Panel> 
+</mx:Application>
